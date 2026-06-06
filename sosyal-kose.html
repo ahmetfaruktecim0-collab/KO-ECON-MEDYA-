@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sosyal Köşe | KOÜ Econ Medya</title>
+<link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg"><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#004d27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#dee9fd",
+                    "on-surface": "#121c2a",
+                    "on-error": "#ffffff",
+                    "outline": "#6f7a70",
+                    "surface-dim": "#d0daef",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "on-primary-fixed": "#00210e",
+                    "surface": "#f9f9ff",
+                    "secondary-fixed": "#e1e2e4",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-secondary-container": "#606365",
+                    "on-background": "#121c2a",
+                    "surface-tint": "#0b6d3b",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "tertiary": "#414343",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#dee0e2",
+                    "on-surface-variant": "#3f4940",
+                    "surface-variant": "#d9e3f7",
+                    "inverse-surface": "#273140",
+                    "inverse-primary": "#83d99c",
+                    "on-tertiary-container": "#d1d1d1",
+                    "on-secondary-fixed": "#191c1e",
+                    "surface-container-highest": "#d9e3f7",
+                    "error-container": "#ffdad6",
+                    "secondary": "#5c5f60",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "primary": "#004d27",
+                    "background": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "tertiary-fixed": "#e2e2e2",
+                    "inverse-on-surface": "#ebf1ff",
+                    "surface-container": "#e6eeff",
+                    "primary-fixed-dim": "#83d99c",
+                    "surface-container-low": "#eff3ff",
+                    "outline-variant": "#bec9be",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#00522a",
+                    "tertiary-container": "#585a5a",
+                    "primary-container": "#006837",
+                    "primary-fixed": "#9ef6b6",
+                    "on-primary-container": "#8ee4a6",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "16px",
+                    "base": "4px",
+                    "gutter": "24px",
+                    "card-padding": "24px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "title-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bec9be;
+            border-radius: 10px;
+        }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+
+
+    <script defer src="chat-widget.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- Sidebar (Desktop) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 bg-primary py-8 space-y-4 shadow-lg z-50">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-primary font-bold">KOÜ</h1>
+<p class="font-title-md text-title-md text-on-primary/80">Econ Medya</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="index.html" >
+<span class="material-symbols-outlined" data-icon="newspaper">newspaper</span>
+<span class="font-title-md text-title-md">Gündem</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="duyurular.html" >
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-title-md text-title-md">Duyurular</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="hocalar.html" >
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-title-md text-title-md">Akademik Kadro</span>
+</a>
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="sosyal-kose.html" >
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-title-md text-title-md">Sosyal Köşe</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 transition-all mx-2 px-4 py-3 flex items-center gap-3" href="oyun.html">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-title-md text-title-md">Oyun</span>
+</a>
+
+
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="iktisatcinin-kaleminden.html" >
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-title-md text-title-md">Bir İktisatçının Günlüğü</span>
+</a>
+
+
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-on-primary text-primary font-bold py-3 rounded-xl hover:bg-primary-fixed transition-colors">Bize Katıl</button>
+</div>
+<div class="pt-4 border-t border-on-primary/10 mx-2 space-y-1">
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 transition-all px-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-title-md text-title-md">Ayarlar</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 transition-all px-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-title-md text-title-md">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 flex flex-col min-h-screen pb-20 lg:pb-0">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-4">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">KOÜ Econ Medya</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm px-2 w-48" placeholder="İtiraf ara..." type="text"/>
+</div>
+<button class="p-2 hover:bg-surface-container rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Ahmet Yılmaz" class="w-full h-full object-cover" data-alt="A professional portrait of a Turkish university student with short dark hair and a friendly smile. He is wearing a modern casual shirt. The background is a blurred academic library setting with soft natural sunlight filtering through windows, creating a clean and productive atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJYR8DjcsERZTWJh6O7eCZfxW-09QE3Y_ojM8A1gj_Y1b2Q40vAPb29TA8yYZx3041R_RR1iNOJfAprPjC3M_m3y0X4g5QAzAfIenRQOtslJ8NuxMAsp14BTiRI65w_okqXJcRUudkbek59RdpLTcSifREKU_y9SuK9o6bBnBI6WVVho4v8fHMgz16JgaxjsGPSxRLrIfXG_OJR-EivPymVlsbyiOOsoMpBPfv2yBuO11Rf_gFfeokqJ3CB_VvxqfkK-AJUNptJ9k"/>
+</div>
+</div>
+</header>
+<!-- Social Corner Content -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 flex flex-col lg:flex-row gap-8">
+<!-- Left Feed Column -->
+<div class="flex-1 space-y-8">
+<!-- Header Card -->
+<div class="bg-primary text-on-primary p-card-padding rounded-2xl shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="forum">forum</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-lg text-headline-lg mb-2">Sosyal Köşe: Kampüsün Sesi</h3>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl">
+                            Kimliğini gizle, içindekileri dök. Burası Econ öğrencilerinin özgürce paylaştığı, birbirine destek olduğu ve eğlendiği anonim bir alan. Lütfen saygı kurallarını unutma.
+                        </p>
+</div>
+</div>
+<!-- Create Post Card -->
+<div class="bg-surface-container-lowest p-card-padding rounded-2xl shadow-sm border border-outline-variant/10">
+<h4 class="font-label-caps text-label-caps text-primary mb-4">YENİ PAYLAŞIM</h4>
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="visibility_off">visibility_off</span>
+</div>
+<div class="flex-1 space-y-4">
+<textarea id="confession-text" class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/20 min-h-[120px] font-body-lg text-body-lg resize-none" placeholder="Neler oluyor? İçindekileri buraya bırak..."></textarea>
+<div class="flex flex-wrap items-center justify-between gap-4 relative">
+<div class="flex gap-2 items-center">
+<select id="confession-category" class="bg-surface-container-high border-none rounded-lg text-body-sm py-2 pl-3 pr-8 focus:ring-primary">
+<option>İtiraf</option>
+<option>Akademik</option>
+<option>Aşk</option>
+<option>Dert Yanma</option>
+</select>
+<label class="p-2 text-outline hover:bg-surface-container rounded-lg transition-colors cursor-pointer relative" title="Görsel Ekle">
+<input type="file" id="confession-image-file" accept="image/*" class="hidden">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+<div id="confession-image-indicator" class="hidden absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></div>
+</label>
+<div class="relative">
+<button id="emoji-btn" class="p-2 text-outline hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="mood">mood</span>
+</button>
+<div id="emoji-picker" class="hidden absolute bottom-full mb-2 left-0 bg-white shadow-xl border border-outline-variant/10 rounded-xl p-2 flex flex-wrap gap-1 w-48 z-10">
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">😂</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">😍</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">😭</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">😡</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">🔥</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">👍</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">👀</button>
+<button class="emoji-opt p-2 hover:bg-surface-container rounded-lg text-lg">📚</button>
+</div>
+</div>
+</div>
+<button id="submit-confession" class="bg-primary text-on-primary px-8 py-2 rounded-full font-bold shadow-md hover:translate-y-[-2px] transition-all active:scale-95 disabled:opacity-50">İtiraf Et</button>
+</div>
+<div id="confession-message" class="text-sm font-bold mt-2 hidden"></div>
+</div>
+</div>
+</div>
+<!-- Post Feed (Dynamic Container) -->
+<div id="feed-container" class="space-y-6">
+    <div class="p-8 text-center text-on-surface-variant/50">İtiraflar yükleniyor...</div>
+</div>
+</div>
+<!-- Right Sidebar Column -->
+<div class="lg:w-80 space-y-8">
+<!-- Featured Confession -->
+<div class="bg-surface-container-high p-card-padding rounded-2xl border border-primary/10">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined" data-icon="star" >star</span>
+<h4 class="font-label-caps text-label-caps">HAFTANIN EN ÇOK KONUŞULANI</h4>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-outline-variant/20">
+<p class="font-body-sm text-body-sm italic text-on-surface mb-3">
+                            "Hocanın ofis kapısında beklerken yanlışlıkla içeriye 'Anne' diye seslendim. Hoca sadece gülümsedi ama ben o gün kampüsü terk ettim..."
+                        </p>
+<div class="flex justify-between items-center text-outline">
+<span class="text-[12px] font-bold">842 Etkileşim</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Trending Categories -->
+<div class="bg-surface-container-lowest p-card-padding rounded-2xl shadow-sm border border-outline-variant/10">
+<h4 class="font-label-caps text-label-caps text-primary mb-6">TREND KATEGORİLER</h4>
+<div class="space-y-4">
+<a class="flex items-center justify-between group" href="#">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">#VizeHaftası</span>
+<span class="bg-primary/5 text-primary text-[12px] px-2 py-1 rounded-full font-bold">1.2k</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">#Yemekhane</span>
+<span class="bg-primary/5 text-primary text-[12px] px-2 py-1 rounded-full font-bold">856</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">#İktisatZor</span>
+<span class="bg-primary/5 text-primary text-[12px] px-2 py-1 rounded-full font-bold">642</span>
+</a>
+<a class="flex items-center justify-between group" href="#">
+<span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">#KampüsKedileri</span>
+<span class="bg-primary/5 text-primary text-[12px] px-2 py-1 rounded-full font-bold">321</span>
+</a>
+</div>
+</div>
+<!-- Community Guidelines -->
+<div class="bg-surface-container-low p-card-padding rounded-2xl border-l-4 border-primary">
+<h4 class="font-label-caps text-label-caps text-primary mb-4">TOPLULUK KURALLARI</h4>
+<ul class="space-y-3">
+<li class="flex gap-2 items-start text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+                            Nazik ve saygılı ol.
+                        </li>
+<li class="flex gap-2 items-start text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+                            Kişisel bilgi paylaşma.
+                        </li>
+<li class="flex gap-2 items-start text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+                            Zorbalığa izin verilmez.
+                        </li>
+<li class="flex gap-2 items-start text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle">check_circle</span>
+                            Sadece öğrenci odaklı paylaşımlar.
+                        </li>
+</ul>
+</div>
+<!-- Footer Links -->
+<footer class="flex flex-wrap gap-x-4 gap-y-2 px-2">
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors hover:underline" href="#">Hakkımızda</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors hover:underline" href="#">Gizlilik Politikası</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary transition-colors hover:underline" href="#">İletişim</a>
+<span class="font-body-sm text-body-sm text-secondary w-full mt-2">© 2024 KOÜ Econ Medya</span>
+</footer>
+</div>
+</div>
+</main>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface border-t border-outline-variant/20 shadow-xl z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary" href="index.html" >
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Gündem</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="hocalar.html" >
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-label-caps text-label-caps">Akademik</span>
+</a>
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="sosyal-kose.html" >
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps">Medya</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-caps text-label-caps">Takvim</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-label-caps">Profil</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button, a').forEach(elem => {
+            elem.addEventListener('mousedown', () => {
+                elem.style.transform = 'scale(0.95)';
+            });
+            elem.addEventListener('mouseup', () => {
+                elem.style.transform = '';
+            });
+            elem.addEventListener('mouseleave', () => {
+                elem.style.transform = '';
+            });
+        });
+
+        // Floating Action (Optional specific script for post creation)
+        const textarea = document.querySelector('textarea');
+        if (textarea) {
+            textarea.addEventListener('focus', () => {
+                textarea.parentElement.parentElement.classList.add('ring-2', 'ring-primary/10');
+            });
+            textarea.addEventListener('blur', () => {
+                textarea.parentElement.parentElement.classList.remove('ring-2', 'ring-primary/10');
+            });
+        }
+    </script>
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp, query, where, orderBy, onSnapshot, doc, updateDoc } from './firebase-config.js';
+
+        // Emoji Logic
+        const emojiBtn = document.getElementById('emoji-btn');
+        const emojiPicker = document.getElementById('emoji-picker');
+        const confessionText = document.getElementById('confession-text');
+        
+        if (emojiBtn && emojiPicker) {
+            emojiBtn.addEventListener('click', () => {
+                emojiPicker.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.emoji-opt').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    confessionText.value += e.target.innerText;
+                    emojiPicker.classList.add('hidden');
+                    confessionText.focus();
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if(!emojiBtn.contains(e.target) && !emojiPicker.contains(e.target)) {
+                    emojiPicker.classList.add('hidden');
+                }
+            });
+        }
+
+        // Image Logic
+        const imageFile = document.getElementById('confession-image-file');
+        const imageIndicator = document.getElementById('confession-image-indicator');
+        if (imageFile) {
+            imageFile.addEventListener('change', () => {
+                if (imageFile.files.length > 0) {
+                    imageIndicator.classList.remove('hidden');
+                } else {
+                    imageIndicator.classList.add('hidden');
+                }
+            });
+        }
+
+        // Submitting Confession
+        document.getElementById('submit-confession').addEventListener('click', async (e) => {
+            const btn = e.target;
+            const textEl = document.getElementById('confession-text');
+            const catEl = document.getElementById('confession-category');
+            const msgEl = document.getElementById('confession-message');
+            const fileInput = document.getElementById('confession-image-file');
+            
+            const text = textEl.value.trim();
+            if (!text && (!fileInput || fileInput.files.length === 0)) return;
+
+            btn.disabled = true;
+            btn.innerText = 'Gönderiliyor...';
+
+            try {
+                let base64Image = null;
+                if (fileInput && fileInput.files.length > 0) {
+                    btn.innerText = 'Görsel İşleniyor...';
+                    const file = fileInput.files[0];
+                    base64Image = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (ev) => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                const MAX_WIDTH = 800;
+                                const MAX_HEIGHT = 800;
+                                let width = img.width;
+                                let height = img.height;
+
+                                if (width > height) {
+                                    if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+                                } else {
+                                    if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; }
+                                }
+                                canvas.width = width;
+                                canvas.height = height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, width, height);
+                                resolve(canvas.toDataURL('image/jpeg', 0.7));
+                            };
+                            img.src = ev.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                }
+
+                btn.innerText = 'Kaydediliyor...';
+                await addDoc(collection(db, 'confessions'), {
+                    text: text,
+                    category: catEl.value,
+                    author: '#Anonim' + Math.floor(1000 + Math.random() * 9000),
+                    status: 'pending',
+                    createdAt: serverTimestamp(),
+                    imageUrl: base64Image,
+                    likes: 0,
+                    comments: 0
+                });
+                textEl.value = '';
+                if(fileInput) fileInput.value = '';
+                if(imageIndicator) imageIndicator.classList.add('hidden');
+                
+                msgEl.innerText = 'İtirafınız moderasyona gönderildi. Onaylanınca yayınlanacak.';
+                msgEl.className = 'text-sm font-bold mt-2 text-primary block';
+            } catch (err) {
+                msgEl.innerText = 'Bir hata oluştu: ' + err.message;
+                msgEl.className = 'text-sm font-bold mt-2 text-error block';
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'İtiraf Et';
+                setTimeout(() => msgEl.classList.add('hidden'), 5000);
+            }
+        });
+
+        // Reading Confessions
+        const q = query(collection(db, 'confessions'), where('status', '==', 'approved'));
+        onSnapshot(q, (snapshot) => {
+            const container = document.getElementById('feed-container');
+            container.innerHTML = ''; // clear loading
+            
+            if (snapshot.empty) {
+                container.innerHTML = '<div class="p-8 text-center text-on-surface-variant/50">Henüz yayınlanmış bir itiraf yok. İlk sen yaz!</div>';
+                return;
+            }
+
+            const docs = [];
+            snapshot.forEach(docSnap => {
+                docs.push({ id: docSnap.id, data: docSnap.data() });
+            });
+            docs.sort((a, b) => {
+                const timeA = a.data.createdAt ? a.data.createdAt.toMillis() : 0;
+                const timeB = b.data.createdAt ? b.data.createdAt.toMillis() : 0;
+                return timeB - timeA;
+            });
+
+            docs.forEach((doc) => {
+                const data = doc.data;
+                
+                // Color formatting based on category
+                let catColor = 'text-primary';
+                if(data.category === 'Aşk') catColor = 'text-error';
+                else if(data.category === 'Akademik') catColor = 'text-blue-500';
+
+                // Handle missing timestamps gracefully
+                let timeStr = 'Yeni';
+                if(data.createdAt) {
+                    const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                    if(diff < 60) timeStr = diff + ' dk önce';
+                    else timeStr = Math.floor(diff/60) + ' saat önce';
+                }
+
+                // Add image if exists
+                const imgHtml = data.imageUrl ? `<img src="${data.imageUrl}" class="w-full rounded-xl mb-4 max-h-80 object-cover border border-outline-variant/10">` : '';
+
+                container.innerHTML += `
+                <div class="bg-surface-container-lowest p-card-padding rounded-2xl shadow-sm border border-outline-variant/5 hover:border-primary/20 transition-all group">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
+                                ${(data.author && data.author.startsWith('#')) ? data.author.substring(1,3).toUpperCase() : (data.author ? data.author.substring(0,2).toUpperCase() : 'AN')}
+                            </div>
+                            <div>
+                                <p class="font-title-md text-title-md text-on-surface">${data.author}</p>
+                                <p class="font-body-sm text-body-sm text-outline">${timeStr} • <span class="${catColor} font-bold">${data.category}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    ${imgHtml}
+                    <p class="font-body-lg text-body-lg text-on-surface mb-6 leading-relaxed whitespace-pre-wrap">${data.text}</p>
+                    <div class="flex items-center justify-between border-t border-outline-variant/10 pt-4">
+                        <div class="flex gap-4">
+                            <button onclick="likeConfession('${doc.id}', ${data.likes || 0})" class="flex items-center gap-1.5 text-outline hover:text-primary transition-colors active:scale-95">
+                                <span class="material-symbols-outlined">favorite</span>
+                                <span class="font-label-caps text-label-caps">${data.likes || 0} Beğen</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        });
+
+        // Like Confession Logic
+        window.likeConfession = async function(docId, currentLikes) {
+            try {
+                await updateDoc(doc(db, 'confessions', docId), {
+                    likes: currentLikes + 1
+                });
+            } catch (e) {
+                console.error("Like error:", e);
+            }
+        };
+    </script>
+
+<script src="professors.js"></script>
+<script src="app.js"></script>
+
+
+
+
+
+
+
+
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant/20 flex justify-around items-center pb-[env(safe-area-inset-bottom,16px)] pt-2 px-1 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+    <a href="index.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-index">newspaper</span>
+        <span class="text-[9px] font-bold mt-1">Gündem</span>
+    </a>
+    <a href="duyurular.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-duyurular">campaign</span>
+        <span class="text-[9px] font-bold mt-1">Duyurular</span>
+    </a>
+    <a href="sosyal-kose.html" class="flex flex-col items-center p-2 text-primary min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-sosyal-kose" style="font-variation-settings: 'FILL' 1;">group</span>
+        <span class="text-[9px] font-bold mt-1">Sosyal</span>
+    </a>
+    <a href="hocalar.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-hocalar">school</span>
+        <span class="text-[9px] font-bold mt-1">Kadro</span>
+    </a>
+    <a href="iktisatcinin-kaleminden.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-iktisatcinin-kaleminden">menu_book</span>
+        <span class="text-[9px] font-bold mt-1 text-center leading-tight">Yazılar</span>
+    </a>
+</nav>
+<style>
+@media (max-width: 1024px) { body { padding-bottom: 80px; } }
+/* Hide scrollbar for nav */
+nav.lg\:hidden::-webkit-scrollbar { display: none; }
+nav.lg\:hidden { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+</body></html>

@@ -1,0 +1,42 @@
+{
+  "name": "KOÜ Econ Medya",
+  "short_name": "Econ Medya",
+  "description": "Kocaeli Üniversitesi Siyasal Bilgiler Fakültesi dijital asistan ve iletişim portalı.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F3F4F6",
+  "theme_color": "#004d27",
+  "icons": [
+    {
+      "src": "assets/econ-medya.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/econ-medya.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/econ-medya.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/econ-medya.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/econ-medya.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

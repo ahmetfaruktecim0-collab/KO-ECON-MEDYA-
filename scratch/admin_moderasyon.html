@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KOÜ Econ Medya - Moderasyon Paneli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bec9be",
+                      "on-tertiary-container": "#d1d1d1",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#83d99c",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#dee9fd",
+                      "surface-container": "#e6eeff",
+                      "inverse-surface": "#273140",
+                      "inverse-primary": "#83d99c",
+                      "secondary": "#5c5f60",
+                      "on-surface-variant": "#3f4940",
+                      "on-background": "#121c2a",
+                      "surface-variant": "#d9e3f7",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#414343",
+                      "surface": "#f9f9ff",
+                      "on-primary-container": "#8ee4a6",
+                      "on-secondary-fixed": "#191c1e",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#585a5a",
+                      "surface-bright": "#f9f9ff",
+                      "on-secondary-fixed-variant": "#444749",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "outline": "#6f7a70",
+                      "surface-container-low": "#eff3ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#00522a",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#dee0e2",
+                      "background": "#f1f3f7",
+                      "primary-container": "#006837",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-secondary-container": "#606365",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "primary-fixed": "#9ef6b6",
+                      "on-primary-fixed": "#00210e",
+                      "primary": "#004d27",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-surface": "#121c2a",
+                      "surface-dim": "#d0daef",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "surface-tint": "#0b6d3b",
+                      "surface-container-highest": "#d9e3f7",
+                      "secondary-fixed-dim": "#c5c6c8",
+                      "secondary-fixed": "#e1e2e4",
+                      "inverse-on-surface": "#ebf1ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "2xl": "1rem",
+                      "3xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-gap": "16px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "card-padding": "24px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "admin": ["Inter", "sans-serif"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "title-md": ["Hanken Grotesk"],
+                      "label-caps": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["42px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                      "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                      "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-sidebar { 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(16px); 
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .canvas-card {
+            background: #ffffff;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-icon { font-variation-settings: 'FILL' 1; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-[#f4f7f9] text-on-background min-h-screen flex font-admin">
+<!-- Minimalist Glass Sidebar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-2rem)] w-20 hover:w-64 transition-all duration-300 group fixed top-4 left-4 z-40 py-8 glass-sidebar rounded-3xl overflow-hidden">
+<div class="px-6 mb-10 flex items-center gap-4 overflow-hidden whitespace-nowrap">
+<div class="w-8 h-8 bg-primary rounded-lg flex-shrink-0 flex items-center justify-center">
+<span class="text-white text-xs font-bold">EM</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<h1 class="font-bold text-lg text-primary leading-none">Admin</h1>
+<p class="text-secondary text-[10px] uppercase tracking-widest font-bold">Econ Medya</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2 px-3">
+<a class="flex items-center text-secondary hover:text-primary p-3 rounded-xl hover:bg-primary/5 transition-all group/item whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center" data-icon="dashboard">dashboard</span>
+<span class="ml-2 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">Dashboard</span>
+</a>
+<a class="flex items-center text-secondary hover:text-primary p-3 rounded-xl hover:bg-primary/5 transition-all group/item whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center" data-icon="article">article</span>
+<span class="ml-2 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">İçerik Yönetimi</span>
+</a>
+<a class="bg-primary/10 text-primary p-3 rounded-xl flex items-center whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center active-icon" data-icon="forum">forum</span>
+<span class="ml-2 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Sosyal Köşe</span>
+</a>
+<a class="flex items-center text-secondary hover:text-primary p-3 rounded-xl hover:bg-primary/5 transition-all group/item whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center" data-icon="campaign">campaign</span>
+<span class="ml-2 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">Duyurular</span>
+</a>
+<a class="flex items-center text-secondary hover:text-primary p-3 rounded-xl hover:bg-primary/5 transition-all group/item whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center" data-icon="settings">settings</span>
+<span class="ml-2 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">Ayarlar</span>
+</a>
+</nav>
+<div class="px-3 mt-auto space-y-2">
+<a class="flex items-center text-error hover:bg-error/5 p-3 rounded-xl transition-all whitespace-nowrap" href="#">
+<span class="material-symbols-outlined min-w-[2.5rem] text-center" data-icon="logout">logout</span>
+<span class="ml-2 font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Floating Canvas Area -->
+<main class="flex-1 lg:ml-28 p-4 lg:p-6 flex flex-col min-h-screen">
+<!-- Transparent TopBar -->
+<header class="flex justify-between items-center px-4 py-3 mb-6 w-full">
+<div class="flex flex-col">
+<h2 class="font-bold text-xl text-on-surface">Moderasyon Paneli</h2>
+<p class="text-xs text-secondary">Sosyal Köşe • Bekleyen İşlemler</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-white rounded-xl px-4 py-2 w-72 border border-black/5 focus-within:border-primary/30 transition-all shadow-sm">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-admin w-full px-2" placeholder="ID veya içerik ara..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-black/5 text-secondary hover:text-primary transition-all relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<div class="h-10 w-px bg-black/5 mx-1"></div>
+<div class="flex items-center gap-3 bg-white p-1 pr-3 rounded-xl border border-black/5">
+<img alt="User" class="w-8 h-8 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZR8XRmijCUYaVXHNQ-ZGeDPCHjnWsWwQHdCuSh8reGy1Wrn-MMDASaXzThJSdojoRDbBHl5YZBIeb88ER06sKWsRmRGf0Z9geXffSl7YLxQZyq3bZJxgIxd5P034C49HYb_dPz7zaI-yawfjAUGYw3qpUC3KJF5J5H6r0US7uoGDR0zUclhHANjW-IALIEwzH0lYSAZaSqTs17a7J8_efY68nMQhG4cXqHTUuj8qPzCMYRTUDER8o3kfPkpJpyoCD1mgsw9wOen8"/>
+<span class="text-xs font-semibold text-on-surface">Ahmet Y.</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Floating Canvas -->
+<div class="canvas-card rounded-[2rem] flex-1 p-6 lg:p-8 space-y-8 overflow-y-auto">
+<!-- Stats Summary -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-[#f8fafc] p-5 rounded-2xl border border-black/[0.03] flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="pending">pending</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-secondary uppercase tracking-wider">Bekleyen Onay</p>
+<h3 class="text-2xl font-bold text-on-surface">24</h3>
+</div>
+</div>
+<div class="bg-[#f8fafc] p-5 rounded-2xl border border-black/[0.03] flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-secondary uppercase tracking-wider">Bugün Yayınlanan</p>
+<h3 class="text-2xl font-bold text-on-surface">156</h3>
+</div>
+</div>
+<div class="bg-[#f8fafc] p-5 rounded-2xl border border-black/[0.03] flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-secondary uppercase tracking-wider">Şüpheli Raporlar</p>
+<h3 class="text-2xl font-bold text-on-surface text-error">8</h3>
+</div>
+</div>
+</div>
+<!-- Moderation Queue -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<h4 class="font-bold text-lg text-on-surface flex items-center gap-2">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+                    Aktif Kuyruk
+                </h4>
+<div class="flex bg-slate-100 p-1 rounded-lg">
+<button class="bg-white shadow-sm px-4 py-1.5 rounded-md text-xs font-semibold text-primary">En Yeni</button>
+<button class="px-4 py-1.5 rounded-md text-xs font-semibold text-secondary hover:text-on-surface transition-colors">Popüler</button>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Moderation Item 1 -->
+<div class="group border border-slate-100 rounded-2xl p-6 hover:border-primary/20 hover:bg-slate-50/30 transition-all duration-300">
+<div class="flex justify-between items-start mb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold">#84</div>
+<div>
+<h5 class="text-sm font-bold text-on-surface">Anonim Kullanıcı</h5>
+<p class="text-[11px] text-secondary">12 Dakika önce • ID: 8429</p>
+</div>
+</div>
+<span class="bg-error/10 text-error px-2 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[14px]" data-icon="report">report</span> 3 Rapor
+                        </span>
+</div>
+<div class="bg-white rounded-xl p-4 border border-black/[0.03] mb-6">
+<p class="text-sm text-on-surface leading-relaxed italic text-slate-600">
+                            "İktisat fakültesi 2. katındaki çalışma salonu neden bu kadar soğuk? Klimaları biraz kısamaz mıyız, ders çalışırken donuyoruz arkadaşlar..."
+                        </p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span> Onayla
+                        </button>
+<button class="flex-1 bg-white border border-error/20 text-error font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm hover:bg-error/5 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span> Reddet
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center bg-slate-50 text-slate-400 rounded-xl hover:text-slate-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Moderation Item 2 -->
+<div class="group border border-slate-100 rounded-2xl p-6 hover:border-primary/20 hover:bg-slate-50/30 transition-all duration-300">
+<div class="flex justify-between items-start mb-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold">#91</div>
+<div>
+<h5 class="text-sm font-bold text-on-surface">Anonim Kullanıcı</h5>
+<p class="text-[11px] text-secondary">45 Dakika önce • ID: 9102</p>
+</div>
+</div>
+<span class="bg-green-50 text-green-600 px-2 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 uppercase">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified_user">verified_user</span> Temiz
+                        </span>
+</div>
+<div class="bg-white rounded-xl p-4 border border-black/[0.03] mb-6">
+<p class="text-sm text-on-surface leading-relaxed text-slate-700">
+                            "Dün kantinde kaybettiğim kırmızı defterimi bulan var mı? İçinde mikro iktisat notlarım vardı, sınav haftası yaklaşırken gerçekten çok ihtiyacım var."
+                        </p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-white font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span> Onayla
+                        </button>
+<button class="flex-1 bg-white border border-error/20 text-error font-bold py-2.5 rounded-xl flex items-center justify-center gap-2 text-sm hover:bg-error/5 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span> Reddet
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center bg-slate-50 text-slate-400 rounded-xl hover:text-slate-600 transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-medium text-slate-400 uppercase tracking-widest">
+<p>© 2024 KOÜ Econ Medya • Yönetim Paneli v2.0</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Dokümantasyon</a>
+<a class="hover:text-primary transition-colors" href="#">Sistem Durumu</a>
+<a class="hover:text-primary transition-colors" href="#">Destek</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation (minimalist) -->
+<nav class="lg:hidden fixed bottom-6 left-4 right-4 flex justify-around items-center h-16 glass-sidebar rounded-2xl shadow-2xl z-50 border border-white/50">
+<a class="p-2 text-primary bg-primary/10 rounded-xl" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span></a>
+<a class="p-2 text-secondary" href="#"><span class="material-symbols-outlined" data-icon="article">article</span></a>
+<a class="p-2 text-secondary" href="#"><span class="material-symbols-outlined" data-icon="forum">forum</span></a>
+<a class="p-2 text-secondary" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span></a>
+</nav>
+<script>
+    // Minimal interaction script
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if(this.classList.contains('bg-primary')) {
+                const originalContent = this.innerHTML;
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm" data-icon="progress_activity">progress_activity</span>';
+                this.classList.add('opacity-80');
+                setTimeout(() => {
+                    this.innerHTML = originalContent;
+                    this.classList.remove('opacity-80');
+                }, 600);
+            }
+        });
+    });
+</script>
+</body></html>

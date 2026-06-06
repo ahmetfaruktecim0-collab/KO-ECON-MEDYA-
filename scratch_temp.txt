@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            background-color: #f9f9ff;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#f9f9ff",
+                      "primary-fixed-dim": "#83d99c",
+                      "on-background": "#121c2a",
+                      "inverse-surface": "#273140",
+                      "inverse-on-surface": "#ebf1ff",
+                      "secondary-container": "#dee0e2",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#bec9be",
+                      "on-surface-variant": "#3f4940",
+                      "tertiary-fixed": "#e2e2e2",
+                      "background": "#f9f9ff",
+                      "surface-bright": "#f9f9ff",
+                      "outline": "#6f7a70",
+                      "on-secondary-fixed": "#191c1e",
+                      "surface-dim": "#d0daef",
+                      "surface-container-highest": "#d9e3f7",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#414343",
+                      "on-tertiary-container": "#d1d1d1",
+                      "surface-container": "#e6eeff",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#0b6d3b",
+                      "on-secondary-container": "#606365",
+                      "on-primary-container": "#8ee4a6",
+                      "primary": "#004d27",
+                      "inverse-primary": "#83d99c",
+                      "on-primary-fixed": "#00210e",
+                      "secondary": "#5c5f60",
+                      "secondary-fixed-dim": "#c5c6c8",
+                      "tertiary-container": "#585a5a",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "surface-variant": "#d9e3f7",
+                      "surface-container-low": "#eff3ff",
+                      "primary-container": "#006837",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#9ef6b6",
+                      "on-surface": "#121c2a",
+                      "on-primary-fixed-variant": "#00522a",
+                      "on-secondary-fixed-variant": "#444749",
+                      "surface-container-high": "#dee9fd",
+                      "secondary-fixed": "#e1e2e4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "2xl": "1rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "card-padding": "24px",
+                      "stack-gap": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "32px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "headline-lg": ["Hanken Grotesk"],
+                      "display-lg": ["Hanken Grotesk"],
+                      "body-sm": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-caps": ["Inter"],
+                      "title-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+
+
+
+</head>
+<body class="flex min-h-screen text-on-background">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 left-0 sticky top-0 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container py-8 space-y-4 shadow-lg shrink-0">
+<div class="px-6 mb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-primary">KOÜ</h1>
+<p class="font-title-md text-title-md opacity-80">Econ Medya</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="index.html" >
+<span class="material-symbols-outlined">newspaper</span>
+<span class="font-title-md text-title-md">Gündem</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="duyurular.html" >
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-title-md text-title-md">Duyurular</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="hocalar.html" >
+<span class="material-symbols-outlined">school</span>
+<span class="font-title-md text-title-md">Akademik Kadro</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="sosyal-kose.html" >
+<span class="material-symbols-outlined">group</span>
+<span class="font-title-md text-title-md">Sosyal Köşe</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3 flex items-center gap-3 hover:bg-on-primary/5 transition-all" href="#">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-title-md text-title-md">Oyun</span>
+</a>
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="iktisatcinin-kaleminden.html" >
+<span class="material-symbols-outlined" >menu_book</span>
+<span class="font-title-md text-title-md font-bold">İktisatçının Kaleminden</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-on-primary text-primary font-bold py-3 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all">
+                Bize Katıl
+            </button>
+</div>
+<div class="pt-4 space-y-1">
+<a class="text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3 flex items-center gap-3 hover:bg-on-primary/5 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-title-md text-title-md">Ayarlar</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3 flex items-center gap-3 hover:bg-on-primary/5 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-title-md text-title-md">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full bg-surface sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">İktisatçının Kaleminden</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container rounded-full px-4 py-2 items-center gap-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Yazı ara..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform">notifications</button>
+<img alt="Ahmet Yılmaz" class="w-10 h-10 rounded-full object-cover border-2 border-primary-fixed" data-alt="A professional headshot of a middle-aged Turkish professor with kind eyes and glasses, wearing a sharp charcoal suit. The lighting is soft and academic, set against a blurred library background. The image is clean and high-resolution, perfectly fitting a sophisticated university portal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4PvaLK4MPnLuHiMRErqRkSTwXLsS2MLQtPP-6CFZgnr_wlGlTZnUAAqG3tCXuuRGuVqTMAm647zd8I3DSRtKfyconV2kUNz7F_HlMbL4TXGbt0H-EbAUpGZea0u7acj5O91zqnyDaGytprVmTIZpJQHVWzmmdGc_XmFC-WA2KeDljrqHKzkViDAFH5XYeMh3EJ6RZzXQFGTrO4rVUGhvETO8G3iXWvbcFiHS2SlowaB-NvPI7f7v8TPpUfjaFlQ34Fcdbs0pGXr4"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-8 max-w-7xl mx-auto w-full">
+<!-- Featured Content & Writing CTA Header -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-2">Günün Başlıkları</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Akademik derinlik ve finansal öngörülerin buluştuğu noktada, iktisadi düşüncenizi paylaşın.</p>
+</div>
+<button onclick="openPostModal()" class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-xl hover:scale-105 active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined">edit_note</span>
+                    Yazı Gönder
+                </button>
+</section>
+<!-- Featured Article (Hero) -->
+<section class="mb-12">
+<div class="relative group overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow cursor-pointer">
+<div class="grid md:grid-cols-2">
+<div class="h-64 md:h-auto relative overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A cinematic, wide-angle shot of a high-tech financial trading floor with glowing green digital stock charts and candlesticks reflected in a polished glass desk. The atmosphere is professional and intellectual, using a palette of deep forest greens and clinical whites. Soft daylight filters through large windows, creating a serene but focused mood for a macroeconomics feature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX3LGaQPsceIebxApOATsiAApSNKMQp6bgdglK5kXZPehjMhKaG3RiiSgRK4oJLi50ZBjmrjad_PhJtlvqgRGxNezQwlcIP77kNt6JT35AgPRbVrMXJx0t62A8UPjCfnfqPhdzvCzdjpplmE-WxyI2I3B0ZEuglEch7lZW1U9yryNE4oE0UialLrmqtjh3i4jFvJTNlt-02lwcWBXt-xoOkgV5NyXuzAEqz-a3gkegycqjweaeCTwNt3OA1l9k6O0DC8Ub0_UjRow"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col justify-center bg-white">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full font-label-caps text-label-caps">MACROECONOMICS</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps">ÖNE ÇIKAN</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-4 text-primary group-hover:text-primary-container transition-colors leading-tight">
+                                Dijital TL ve Geleneksel Para Politikalarının Geleceği
+                            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 line-clamp-3">
+                                Merkez bankalarının dijital para birimleri (CBDC) üzerine yaptığı çalışmalar, küresel finans sistemini kökten değiştirebilir. Türkiye'nin bu süreçteki stratejik konumu ve ekonomik etkileri...
+                            </p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center font-bold text-primary">PA</div>
+<div>
+<p class="font-title-md text-title-md text-on-background leading-none">Prof. Dr. Pelin Aksoy</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 Mayıs 2024 • 8 dk okuma</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categorization Chips -->
+<section class="mb-10 overflow-x-auto pb-4 scrollbar-hide">
+<div class="flex gap-3 min-w-max">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold shadow-md hover:scale-105 transition-all">Hepsi</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Finance</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Macroeconomics</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Crypto</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Game Theory</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Econometrics</button>
+<button class="bg-white border border-outline-variant text-on-surface-variant px-6 py-2 rounded-full font-bold hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">Behavioral Econ</button>
+</div>
+</section>
+<!-- Articles Grid -->
+<div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+    <div class="col-span-full p-12 text-center text-on-surface-variant/50">Yazılar yükleniyor...</div>
+</div>
+<div id="static-posts-placeholder" class="hidden"></div>
+<!-- Pagination/Load More -->
+<div class="flex justify-center mt-12 mb-8">
+<button class="text-primary font-bold flex items-center gap-2 hover:underline transition-all">
+                    Daha Fazla Yazı Yükle
+                    <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="flex justify-between items-center px-margin-desktop py-6 w-full mt-auto border-t border-outline-variant/10 bg-surface">
+<p class="font-body-sm text-body-sm text-secondary">© 2024 KOÜ Econ Medya</p>
+<div class="flex gap-6">
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Hakkımızda</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">Gizlilik Politikası</a>
+<a class="font-body-sm text-body-sm text-secondary hover:text-primary hover:underline transition-all opacity-80 hover:opacity-100" href="#">İletişim</a>
+</div>
+</footer>
+</div>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface dark:bg-surface-container z-50 rounded-t-xl border-t border-outline-variant/20 shadow-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps">Gündem</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-caps text-label-caps">Akademik</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-5 py-1 scale-110">
+<span class="material-symbols-outlined" >menu_book</span>
+<span class="font-label-caps text-label-caps">Kalem</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-caps text-label-caps">Takvim</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-label-caps">Profil</span>
+</button>
+</nav>
+<!-- Simple Hover Interactivity Script -->
+<script>
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+
+<!-- Post Submission Modal -->
+<div id="post-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 transform scale-95 transition-transform duration-300 mx-4" id="post-modal-content">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-on-surface">Yeni Yazı Gönder</h3>
+            <button onclick="closePostModal()" class="text-on-surface-variant hover:text-error transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Yazar (İsim Soyisim)</label>
+                <input id="post-author" type="text" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Başlık</label>
+                <input id="post-title" type="text" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+            </div>
+                        <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">G�rsel (Opsiyonel)</label>
+                <input id="post-image" type="file" accept="image/*" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Kategori</label>
+                <select id="post-category" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+                    <option>Finance</option><option>Macroeconomics</option><option>Crypto</option><option>Game Theory</option><option>Econometrics</option><option>Behavioral Econ</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">İçerik</label>
+                <textarea id="post-content" rows="4" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none"></textarea>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-8 pt-4 border-t border-outline-variant/10">
+            <button onclick="closePostModal()" class="px-5 py-2 text-sm font-bold text-on-surface-variant hover:bg-surface-dim rounded-xl transition-colors">İptal</button>
+            <button onclick="submitPost(this)" class="px-5 py-2 text-sm font-bold bg-primary text-white hover:shadow-lg hover:shadow-primary/20 rounded-xl transition-all">Gönder (Onaya Sun)</button>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { db, collection, query, orderBy, onSnapshot, addDoc, serverTimestamp, storage, ref, uploadBytes, getDownloadURL } from './firebase-config.js';
+
+    // Statik demo kartlar (DB boşsa göster)
+    const staticCards = [
+        {
+            title: 'Bitcoin: Enflasyona Karşı Bir Kalkan mı Yoksa Spekülatif bir Balon mu?',
+            content: 'Kripto varlıkların geleneksel finansal araçlarla olan korelasyonu ve portföy çeşitlendirmesindeki rolü üzerine bir inceleme...',
+            category: 'CRYPTO',
+            authorName: 'Caner Demir',
+            readTime: '5 dk okuma'
+        },
+        {
+            title: 'Oyun Teorisi Gözünden Küresel Ticaret Savaşları',
+            content: 'Nash dengesi ve Mahkumlar Çıkmazı modelleriyle ABD-Çin ticaret ilişkilerinin analizi.',
+            category: 'GAME THEORY',
+            authorName: 'Doç. Dr. Mert Aras',
+            readTime: '12 dk okuma'
+        },
+        {
+            title: 'Borsa İstanbul\'da Algoritmik İşlemlerin Etkisi',
+            content: 'Yüksek frekanslı işlemlerin (HFT) piyasa likiditesi ve volatilite üzerindeki ampirik sonuçları.',
+            category: 'FINANCE',
+            authorName: 'Zeynep Kaya',
+            readTime: '6 dk okuma'
+        }
+    ];
+
+    function renderCard(data, isNew = false) {
+        const badge = isNew ? '<span class="absolute top-4 right-4 bg-primary text-white text-[9px] font-bold px-2 py-1 rounded-full">YENİ</span>' : '';
+        return `
+        <article class="bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col group overflow-hidden border ${isNew ? 'border-primary/30' : 'border-outline-variant/10'}" style="cursor:pointer">
+            <div class="h-48 relative overflow-hidden bg-surface-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-6xl text-outline/30">menu_book</span>
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary px-3 py-1 rounded-full text-label-caps font-bold">${data.category || 'YAZI'}</span>
+                ${badge}
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+                <h4 class="font-title-md text-title-md text-on-background mb-3 line-clamp-2 group-hover:text-primary transition-colors">${data.title}</h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-6 line-clamp-3">${data.content || ''}</p>
+                <div class="mt-auto flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary text-xs">${(data.authorName || 'A').charAt(0)}</div>
+                        <span class="font-body-sm text-body-sm font-bold">${data.authorName || 'Admin'}</span>
+                    </div>
+                    <span class="font-body-sm text-body-sm text-on-surface-variant">${data.readTime || ''}</span>
+                </div>
+            </div>
+        </article>`;
+    }
+
+    const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'));
+    onSnapshot(q, (snapshot) => {
+        const grid = document.getElementById('posts-grid');
+        grid.innerHTML = '';
+
+        if (snapshot.empty) {
+            staticCards.forEach(card => {
+                grid.innerHTML += renderCard(card, false);
+            });
+        } else {
+            let hasApproved = false;
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                if (data.status === 'pending' || data.status === 'rejected') return;
+                hasApproved = true;
+                grid.innerHTML += renderCard(data, true);
+            });
+            if (!hasApproved) {
+                staticCards.forEach(card => {
+                    grid.innerHTML += renderCard(card, false);
+                });
+            }
+        }
+    });
+
+    // Modal Logic
+    window.openPostModal = function() {
+        const modal = document.getElementById('post-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('post-modal-content').classList.remove('scale-95');
+        }, 10);
+    };
+
+    window.closePostModal = function() {
+        const modal = document.getElementById('post-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('post-modal-content').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            // Clear fields
+            document.getElementById('post-author').value = '';
+            document.getElementById('post-title').value = '';
+            document.getElementById('post-category').value = 'Finance';
+            document.getElementById('post-content').value = '';
+            document.getElementById('post-image').value = '';
+        }, 300);
+    };
+
+    window.submitPost = async function(btn) {
+        const author = document.getElementById('post-author').value.trim();
+        const title = document.getElementById('post-title').value.trim();
+        const category = document.getElementById('post-category').value;
+        const content = document.getElementById('post-content').value.trim();
+
+        if (!author || !title || !content) {
+            alert('Lütfen yazar, başlık ve içerik alanlarını doldurun.');
+            return;
+        }
+
+        const oldText = btn.innerText;
+        btn.disabled = true;
+        btn.innerText = 'Gönderiliyor...';
+
+        try {
+            await addDoc(collection(db, 'posts'), {
+                authorName: author,
+                title: title,
+                category: category,
+                content: content,
+                readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + ' dk okuma',
+                status: 'pending',
+                createdAt: serverTimestamp()
+            });
+            alert('Yazınız başarıyla gönderildi ve moderasyon onayına sunuldu!');
+            window.closePostModal();
+        } catch (e) {
+            alert('Hata: ' + e.message);
+        } finally {
+            btn.innerText = oldText;
+            btn.disabled = false;
+        }
+    };
+</script>
+
+<script src="professors.js"></script>
+<script src="app.js"></script>
+
+
+
+
+
+
+
+
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant/20 flex justify-around items-center pb-[env(safe-area-inset-bottom,16px)] pt-2 px-1 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+    <a href="index.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-index">newspaper</span>
+        <span class="text-[9px] font-bold mt-1">Gündem</span>
+    </a>
+    <a href="duyurular.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-duyurular">campaign</span>
+        <span class="text-[9px] font-bold mt-1">Duyurular</span>
+    </a>
+    <a href="sosyal-kose.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-sosyal-kose">group</span>
+        <span class="text-[9px] font-bold mt-1">Sosyal</span>
+    </a>
+    <a href="hocalar.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-hocalar">school</span>
+        <span class="text-[9px] font-bold mt-1">Kadro</span>
+    </a>
+    <a href="iktisatcinin-kaleminden.html" class="flex flex-col items-center p-2 text-primary min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-iktisatcinin-kaleminden" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+        <span class="text-[9px] font-bold mt-1 text-center leading-tight">Yazılar</span>
+    </a>
+</nav>
+<style>
+@media (max-width: 1024px) { body { padding-bottom: 80px; } }
+/* Hide scrollbar for nav */
+nav.lg\:hidden::-webkit-scrollbar { display: none; }
+nav.lg\:hidden { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+</body></html>

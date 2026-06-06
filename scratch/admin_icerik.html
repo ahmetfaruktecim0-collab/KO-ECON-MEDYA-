@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KOÜ Econ Medya - İçerik Yönetimi Paneli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif; /* Switching to more technical Inter for admin */
+            -webkit-font-smoothing: antialiased;
+        }
+        .admin-sidebar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .floating-canvas {
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        /* Custom scrollbar for minimalist feel */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#e2e8f0",
+                        "on-tertiary-container": "#64748b",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#83d99c",
+                        "error": "#ef4444",
+                        "surface-container-high": "#f1f5f9",
+                        "surface-container": "#f8fafc",
+                        "inverse-surface": "#0f172a",
+                        "inverse-primary": "#83d99c",
+                        "secondary": "#64748b",
+                        "on-surface-variant": "#475569",
+                        "on-background": "#1e293b",
+                        "surface-variant": "#f1f5f9",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#414343",
+                        "surface": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "on-secondary-fixed": "#191c1e",
+                        "error-container": "#fee2e2",
+                        "tertiary-container": "#585a5a",
+                        "surface-bright": "#ffffff",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline": "#94a3b8",
+                        "surface-container-low": "#f8fafc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#00522a",
+                        "on-error-container": "#991b1b",
+                        "secondary-container": "#f1f5f9",
+                        "background": "#f1f5f9", /* surface-dim equivalent for lighter feel */
+                        "primary-container": "#006837",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-container": "#475569",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "primary-fixed": "#9ef6b6",
+                        "on-primary-fixed": "#00210e",
+                        "primary": "#006837",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-surface": "#1e293b",
+                        "surface-dim": "#f1f5f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-tint": "#0b6d3b",
+                        "surface-container-highest": "#e2e8f0",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "secondary-fixed": "#e1e2e4",
+                        "inverse-on-surface": "#f8fafc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "12px",
+                        "gutter": "20px",
+                        "margin-mobile": "12px",
+                        "margin-desktop": "24px",
+                        "card-padding": "20px",
+                        "base": "4px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-dim text-on-surface min-h-screen flex overflow-hidden">
+<!-- Sidebar (Minimalist/Light) -->
+<aside class="admin-sidebar hidden lg:flex flex-col h-screen w-20 hover:w-64 transition-all duration-300 ease-in-out group sticky top-0 py-6 z-50">
+<div class="px-6 mb-10 overflow-hidden whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white text-xl">admin_panel_settings</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<h1 class="font-bold text-lg text-primary leading-tight">Admin</h1>
+<p class="text-[10px] text-secondary font-medium tracking-wider uppercase">Econ Medya</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-2 overflow-y-auto overflow-x-hidden">
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">newspaper</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Gündem</span>
+</a>
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">campaign</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Duyurular</span>
+</a>
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">school</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Akademik Kadro</span>
+</a>
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">group</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Sosyal Köşe</span>
+</a>
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">sports_esports</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Oyun</span>
+</a>
+<!-- ACTIVE TAB -->
+<a class="bg-primary/10 text-primary px-3 py-3 rounded-xl flex items-center gap-4" href="#">
+<span class="material-symbols-outlined flex-shrink-0">menu_book</span>
+<span class="text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">İçerik Yönetimi</span>
+</a>
+</nav>
+<div class="px-3 pt-6 border-t border-black/5 space-y-2">
+<a class="text-secondary hover:text-primary hover:bg-primary/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:scale-110 transition-transform">settings</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Ayarlar</span>
+</a>
+<a class="text-secondary hover:text-error hover:bg-error/5 px-3 py-3 rounded-xl transition-all flex items-center gap-4 group/item" href="#">
+<span class="material-symbols-outlined flex-shrink-0 group-hover/item:rotate-12 transition-transform">logout</span>
+<span class="text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col h-screen overflow-hidden relative">
+<!-- TopAppBar (Transparent/Minimalist) -->
+<header class="bg-transparent flex justify-between items-center px-margin-desktop py-4 w-full z-40 relative">
+<div class="flex items-center gap-4">
+<button class="lg:hidden p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-secondary/50 tracking-tighter uppercase">Panel</span>
+<span class="text-secondary/20">/</span>
+<span class="text-sm font-bold text-on-surface">İktisatçının Günlüğü</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-white/50 border border-black/5 rounded-full px-4 py-1.5 focus-within:bg-white focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-secondary text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-on-surface w-40 placeholder:text-secondary/50" placeholder="Hızlı ara..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="relative p-2 text-secondary hover:text-primary hover:bg-white/50 rounded-full transition-all">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-surface-dim"></span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-black/5">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Ahmet Yılmaz</p>
+<p class="text-[10px] text-secondary font-medium">Yönetici</p>
+</div>
+<div class="w-9 h-9 rounded-xl overflow-hidden ring-2 ring-primary/10 hover:ring-primary/30 transition-all cursor-pointer">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTkeWOCHTBVrbBZI3ZKxi6_vuXLOAsCeF_-LVeXqDMGjcMCZoQ768CjQ1zzZBP-Dq7tFfzf7fdSHnca0k-eujVv7sscamo6OEauOugNQ6iphY6rHvZ5u5ErOtUgYOaNrIcrzNCSJ6beumcjHYLEI8AK3Cce0G34G9Co_Co9vHaSd4Z1LozoiaR-oUjOXMOMAKNfDLSAdMhO-s_quD9iY2nDAFsZjnrSx_KY6k0LZr7pNr6LybeYmXlDzwkBfosoGf7vcV5Vgt7p6o"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Floating Canvas Main Content -->
+<main class="flex-1 overflow-y-auto px-margin-desktop pb-margin-desktop">
+<div class="floating-canvas min-h-full p-8 mb-6 border border-black/[0.03]">
+<!-- Content Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+<div>
+<h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">İçerik Yönetimi</h2>
+<p class="text-sm text-secondary font-medium">'İktisatçının Kaleminden' yazılarını buradan filtreleyebilir ve güncelleyebilirsiniz.</p>
+</div>
+<button class="bg-primary text-white px-6 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 active:translate-y-0 transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                    Yeni Yazı Ekle
+                </button>
+</div>
+<!-- Management Filter Bar -->
+<div class="glass-card p-5 rounded-2xl mb-8 flex flex-col md:flex-row gap-8 items-end">
+<div class="flex flex-col gap-2 w-full md:w-auto">
+<label class="text-[10px] font-bold text-secondary uppercase tracking-widest pl-1">Durum Filtresi</label>
+<div class="flex bg-surface-container p-1 rounded-xl border border-black/5">
+<button class="px-5 py-1.5 rounded-lg bg-white shadow-sm text-primary text-xs font-bold">Hepsi</button>
+<button class="px-5 py-1.5 rounded-lg text-secondary text-xs font-bold hover:text-primary transition-colors">Yayında</button>
+<button class="px-5 py-1.5 rounded-lg text-secondary text-xs font-bold hover:text-primary transition-colors">Bekleyen</button>
+<button class="px-5 py-1.5 rounded-lg text-secondary text-xs font-bold hover:text-primary transition-colors">Taslak</button>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-full md:w-auto">
+<label class="text-[10px] font-bold text-secondary uppercase tracking-widest pl-1">Yazar Tipi</label>
+<select class="bg-surface-container border-black/5 rounded-xl px-4 py-2 text-xs font-bold text-on-surface focus:ring-primary/20 focus:border-primary/30 min-w-[160px]">
+<option>Tüm Tipler</option>
+<option>Öğrenci</option>
+<option>Akademik Kadro</option>
+</select>
+</div>
+<div class="flex-1 flex justify-end">
+<button class="text-secondary hover:text-primary flex items-center gap-2 text-xs font-bold px-4 py-2 bg-surface-container hover:bg-primary/5 rounded-xl border border-black/5 transition-all">
+<span class="material-symbols-outlined text-lg">tune</span>
+                        Gelişmiş Filtreler
+                    </button>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="border border-black/5 rounded-2xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-black/5">
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest">Yazı Başlığı &amp; Detay</th>
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest">Yazar</th>
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest">Kategori</th>
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest">Tarih</th>
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest">Durum</th>
+<th class="px-6 py-4 text-[10px] font-bold text-secondary uppercase tracking-widest text-right">Eylemler</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-black/[0.03]">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5">
+<div class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Dijital Paranın Geleceği</div>
+<div class="text-[11px] text-secondary mt-0.5">Kripto varlıklar ve CBDC analizi</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center text-primary font-bold text-[10px] border border-primary/10">SK</div>
+<div>
+<div class="text-xs font-bold text-on-surface">Prof. Dr. Selçuk Koç</div>
+<div class="text-[9px] font-bold text-primary/70 uppercase">Akademik</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-slate-100 rounded-lg text-[10px] font-bold text-secondary border border-black/5">Makro Ekonomi</span>
+</td>
+<td class="px-6 py-5 text-[11px] font-medium text-secondary">24 May 2024</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-lg text-[10px] font-bold border border-green-100">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                        YAYINDA
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-all" title="Düzenle">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="p-2 text-secondary hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all" title="Önizleme">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error/10 rounded-lg transition-all" title="Sil">
+<span class="material-symbols-outlined text-lg">delete_sweep</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5">
+<div class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Kampüs Ekonomisi</div>
+<div class="text-[11px] text-secondary mt-0.5">Öğrenci bütçe yönetimi rehberi</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-[10px] border border-black/5">AY</div>
+<div>
+<div class="text-xs font-bold text-on-surface">Ahmet Yılmaz</div>
+<div class="text-[9px] font-bold text-slate-400 uppercase">Öğrenci</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-slate-100 rounded-lg text-[10px] font-bold text-secondary border border-black/5">Mikro Ekonomi</span>
+</td>
+<td class="px-6 py-5 text-[11px] font-medium text-secondary">22 May 2024</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 rounded-lg text-[10px] font-bold border border-amber-100">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                        BEKLEYEN
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="p-2 text-secondary hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete_sweep</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50/80 transition-colors group">
+<td class="px-6 py-5">
+<div class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">Sürdürülebilir Kalkınma</div>
+<div class="text-[11px] text-secondary mt-0.5">Yeşil enerji yatırımları üzerine</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center text-primary font-bold text-[10px] border border-primary/10">EA</div>
+<div>
+<div class="text-xs font-bold text-on-surface">Doç. Dr. Elif Aksu</div>
+<div class="text-[9px] font-bold text-primary/70 uppercase">Akademik</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2.5 py-1 bg-slate-100 rounded-lg text-[10px] font-bold text-secondary border border-black/5">Kalkınma</span>
+</td>
+<td class="px-6 py-5 text-[11px] font-medium text-secondary">20 May 2024</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-[10px] font-bold border border-black/5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                                        TASLAK
+                                    </span>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+</button>
+<button class="p-2 text-secondary hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+<button class="p-2 text-secondary hover:text-error hover:bg-error/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-lg">delete_sweep</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container border-t border-black/5 flex items-center justify-between">
+<span class="text-[11px] font-medium text-secondary">Toplam 12 içerikten 1-3 arası gösteriliyor</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg border border-black/5 text-secondary hover:bg-white disabled:opacity-30 transition-all" disabled="">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-white text-xs font-bold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg text-secondary text-xs font-bold hover:bg-white transition-all">2</button>
+<button class="w-8 h-8 rounded-lg text-secondary text-xs font-bold hover:bg-white transition-all">3</button>
+<button class="p-1.5 rounded-lg border border-black/5 text-secondary hover:bg-white disabled:opacity-30 transition-all">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer (Within Canvas) -->
+<footer class="flex flex-col sm:flex-row justify-between items-center px-4 py-6 text-[11px] text-secondary/60 font-medium">
+<div>© 2024 KOÜ Econ Medya Yönetim Paneli</div>
+<div class="flex gap-4 mt-2 sm:mt-0">
+<a class="hover:text-primary transition-colors" href="#">Sistem Durumu</a>
+<a class="hover:text-primary transition-colors" href="#">Yardım Merkezi</a>
+<a class="hover:text-primary transition-colors" href="#">Hata Bildir</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Mobile Nav (Still Bottom for UX, but matched style) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-white/90 backdrop-blur-lg border-t border-black/5 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+<span class="text-[10px] font-bold mt-1">Özet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+<span class="text-[10px] font-bold mt-1">Yazılar</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-white rounded-2xl w-12 h-12 -mt-8 shadow-lg shadow-primary/30" href="#">
+<span class="material-symbols-outlined">add</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">forum</span>
+<span class="text-[10px] font-bold mt-1">Sosyal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+<span class="text-[10px] font-bold mt-1">Profil</span>
+</a>
+</nav>
+<script>
+    // Smooth hover effect for table rows
+    document.querySelectorAll('tbody tr').forEach(row => {
+        row.addEventListener('mouseenter', () => {
+            row.classList.add('translate-x-1');
+        });
+        row.addEventListener('mouseleave', () => {
+            row.classList.remove('translate-x-1');
+        });
+    });
+</script>
+</body></html>

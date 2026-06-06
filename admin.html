@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KOÜ Econ Medya - Bağımsız Yönetim Paneli</title>
+<link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg"><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#004d27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bec9be",
+                    "on-tertiary-container": "#d1d1d1",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#83d99c",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#dee9fd",
+                    "surface-container": "#e6eeff",
+                    "inverse-surface": "#273140",
+                    "inverse-primary": "#83d99c",
+                    "secondary": "#5c5f60",
+                    "on-surface-variant": "#3f4940",
+                    "on-background": "#121c2a",
+                    "surface-variant": "#d9e3f7",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#414343",
+                    "surface": "#f9f9ff",
+                    "on-primary-container": "#8ee4a6",
+                    "on-secondary-fixed": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#585a5a",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-fixed-variant": "#444749",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "outline": "#6f7a70",
+                    "surface-container-low": "#eff3ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#00522a",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#dee0e2",
+                    "background": "#f0f2f5",
+                    "primary-container": "#006837",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-secondary-container": "#606365",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "primary-fixed": "#9ef6b6",
+                    "on-primary-fixed": "#00210e",
+                    "primary": "#004d27",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-surface": "#121c2a",
+                    "surface-dim": "#e2e8f0",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-tint": "#0b6d3b",
+                    "surface-container-highest": "#d9e3f7",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "secondary-fixed": "#e1e2e4",
+                    "inverse-on-surface": "#ebf1ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1rem",
+                    "2xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap": "16px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "card-padding": "24px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter", "sans-serif"],
+                    "display-lg": ["Inter", "sans-serif"],
+                    "title-md": ["Inter", "sans-serif"],
+                    "label-caps": ["Inter", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "title-md": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                    "label-caps": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700"}],
+                    "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-sidebar {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .floating-canvas {
+            margin: 1.5rem;
+            margin-left: 17.5rem;
+            border-radius: 1.5rem;
+            background: #ffffff;
+            box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05);
+            min-height: calc(100vh - 3rem);
+        }
+        @media (max-width: 1024px) {
+            .floating-canvas {
+                margin: 1rem;
+                margin-left: 1rem;
+                margin-bottom: 5rem;
+            }
+        }
+        .nav-item-active {
+            background-color: #f0f2f5;
+            color: #004d27;
+            font-weight: 600;
+        }
+    </style>
+    <script defer src="chat-widget.js"></script>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Component (Minimalist / Glassmorphism) -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-3rem)] w-64 fixed left-6 top-6 glass-sidebar rounded-2xl z-50 p-6">
+<div class="mb-10 px-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none text-on-surface">Admin</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60">Econ Medya Control</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<p class="px-3 mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-40">Main Menu</p>
+<a data-tab="dashboard" onclick="switchTab('dashboard')" class="flex items-center gap-3 nav-item-active rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<span class="text-body-sm">Dashboard</span>
+</a>
+<a data-tab="icerik" onclick="switchTab('icerik')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-body-sm">İçerik Yönetimi</span>
+</a>
+<a data-tab="haberler" onclick="switchTab('haberler')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="text-body-sm">Ana Sayfa Haberleri</span>
+</a>
+<a data-tab="moderasyon" onclick="switchTab('moderasyon')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-body-sm">Moderasyon</span>
+</a>
+<a data-tab="etkinlik" onclick="switchTab('etkinlik')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="text-body-sm">Etkinlikler</span>
+</a>
+<a data-tab="duyuru" onclick="switchTab('duyuru')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-body-sm">Duyurular</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-outline-variant/10 pt-6">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-sm">Ayarlar</span>
+</a>
+<a class="flex items-center gap-3 text-error hover:bg-error/5 rounded-xl px-4 py-2.5 transition-all" href="index.html">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Floating Canvas -->
+<main class="floating-canvas flex flex-col">
+<!-- TopAppBar (Minimalist) -->
+<header class="flex justify-between items-center px-8 py-6 w-full border-b border-outline-variant/10">
+<div>
+<h2 id="page-title" class="font-headline-lg text-on-surface">Dashboard</h2>
+<p id="page-subtitle" class="text-body-sm text-on-surface-variant opacity-60">Sistem genel bakışı ve son aktiviteler.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-dim rounded-xl px-4 py-2 w-64 border border-transparent focus-within:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant !text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full ml-2 placeholder:text-on-surface-variant/50" placeholder="Kayıtlarda ara..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-dim rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-1.5 h-1.5 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p id="top-editor-name" class="text-body-sm font-semibold text-on-surface leading-tight">Ahmet Yılmaz</p>
+<p class="text-[10px] font-bold text-primary uppercase">Baş Editör</p>
+</div>
+<img alt="Admin" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBonsryjoTtWzqoo6vT6auQN-N18lb4m7jGmZkU99mZwJ5YOkItL6R7AKhbw8eiN5PrCeI8Zc_hy1cD301F4BuGZaCliSEP706fgHItn45HK-NcEJEZEaXJzEMtt7-FcrqJkc-ySXSqr3-yK3opIePW_XlCciCgzWc7kfZVTZ6kYmSStmBuD7GFzWEYjK554918STDVtYmzxilOwONwwDsCg14FgY4fOYqqplUMsJ2Ik_KwJta5Fe2RFPlQAbqWZ9yFGueU4So5ZDQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- TAB: İçerik Yönetimi -->
+<div id="tab-icerik" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">İçerik Yönetimi</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">'İktisatçının Kaleminden' yazılarını buradan yönetin.</p>
+    </div>
+</div>
+<div class="p-5 bg-surface-dim/30 border border-outline-variant/10 rounded-2xl mb-6 flex flex-col md:flex-row gap-6 items-end">
+    <div class="flex flex-col gap-2">
+        <label class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1">Durum Filtresi</label>
+        <div class="flex bg-white/80 p-1 rounded-xl border border-outline-variant/10 gap-1">
+            <button class="px-5 py-1.5 rounded-lg bg-primary text-white text-xs font-bold">Hepsi</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Yayında</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Bekleyen</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Taslak</button>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1">Yazar Tipi</label>
+        <select class="bg-white border-outline-variant/10 rounded-xl px-4 py-2 text-xs font-bold text-on-surface focus:ring-primary/20 min-w-[160px]">
+            <option>Tüm Tipler</option><option>Öğrenci</option><option>Akademik Kadro</option>
+        </select>
+    </div>
+    <button onclick="showToast('Gelişmiş filtreleme yükleniyor...', 'info')" class="text-on-surface-variant hover:text-primary flex items-center gap-2 text-xs font-bold px-4 py-2 bg-white hover:bg-primary/5 rounded-xl border border-outline-variant/10 transition-all">
+        <span class="material-symbols-outlined text-lg">tune</span>Gelişmiş Filtreler
+    </button>
+</div>
+<div class="border border-outline-variant/10 rounded-2xl overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="bg-surface-dim/50 border-b border-outline-variant/10">
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Yazı Başlığı</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Yazar</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Kategori</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Tarih</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Durum</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest text-right">Eylemler</th>
+                </tr>
+            </thead>
+            <tbody id="admin-posts-list" class="divide-y divide-outline-variant/10">
+                <tr id="empty-state-row">
+                    <td colspan="6" class="px-6 py-8 text-center text-on-surface-variant/50 font-bold">
+                        İçerik veritabanından yükleniyor...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="px-6 py-4 bg-surface-container/50 border-t border-outline-variant/10 flex items-center justify-between">
+        <span class="text-[11px] text-on-surface-variant/60">Toplam 12 içerikten 1-2 arası gösteriliyor</span>
+        <div class="flex items-center gap-1">
+            <button class="w-8 h-8 rounded-lg bg-primary text-white text-xs font-bold">1</button>
+            <button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container transition-all">2</button>
+            <button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container transition-all">3</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Moderasyon -->
+<div id="tab-moderasyon" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Moderasyon Paneli</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Sosyal Köşe • Bekleyen İşlemler</p>
+    </div>
+    <div class="flex items-center gap-2 bg-surface-dim rounded-xl px-4 py-2 border border-outline-variant/10 w-64">
+        <span class="material-symbols-outlined text-on-surface-variant !text-[18px]">search</span>
+        <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant/50" placeholder="ID veya içerik ara..." type="text"/>
+    </div>
+</div>
+<!-- Stat Row -->
+<div class="grid grid-cols-3 gap-4 mb-6">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-on-surface-variant">pending</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Bekleyen Onay</p><h3 class="text-3xl font-extrabold text-on-surface">24</h3></div>
+    </div>
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined">send</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Bugün Yayınlanan</p><h3 class="text-3xl font-extrabold text-on-surface">156</h3></div>
+    </div>
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-error/10 flex items-center justify-center text-error"><span class="material-symbols-outlined">warning</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Şüpheli Raporlar</p><h3 class="text-3xl font-extrabold text-on-surface">8</h3></div>
+    </div>
+</div>
+<!-- Queue -->
+<div class="flex items-center justify-between mb-4 px-1">
+    <h4 class="text-lg font-bold text-on-surface flex items-center gap-2"><span class="w-1 h-5 bg-primary rounded-full inline-block"></span>Aktif Kuyruk</h4>
+    <div class="flex gap-2">
+        <button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg">En Yeni</button>
+        <button class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-bold rounded-lg hover:bg-surface-container-high transition-colors">Popüler</button>
+    </div>
+</div>
+<div id="moderation-feed" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="col-span-full p-8 text-center text-on-surface-variant/50">Bekleyen itiraf yükleniyor...</div>
+</div>
+<footer class="flex justify-between items-center px-2 py-6 border-t border-outline-variant/10 mt-4">
+    <p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest">© 2024 KOÜ Econ Medya • Yönetim Paneli V2.0</p>
+    <div class="flex gap-4"><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Dokümantasyon</a><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Sistem Durumu</a><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Destek</a></div>
+</footer>
+</div>
+</div>
+
+<!-- TAB: Etkinlikler -->
+<div id="tab-etkinlik" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Etkinlikler</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Fakülte içi ve dışı tüm etkinlik planlaması.</p>
+    </div>
+    <button onclick="openModal('Yeni Etkinlik Oluştur', 'etkinlik')" class="bg-primary text-white px-6 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">
+        <span class="material-symbols-outlined text-lg">add_circle</span>Yeni Etkinlik
+    </button>
+</div>
+<div id="admin-events-list" class="space-y-4">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center">
+        <span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">event_busy</span>
+        <p class="text-on-surface-variant font-bold">Etkinlikler yükleniyor...</p>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Duyurular -->
+<div id="tab-duyuru" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Duyurular</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Öğrencilere ve akademisyenlere yapılacak duyurular.</p>
+    </div>
+    <button onclick="openModal('Yeni Duyuru Ekle', 'duyuru')" class="bg-primary text-white px-6 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">
+        <span class="material-symbols-outlined text-lg">add_circle</span>Yeni Duyuru
+    </button>
+</div>
+<div id="admin-announcements-list" class="space-y-4">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center">
+        <span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">campaign</span>
+        <p class="text-on-surface-variant font-bold">Duyurular yükleniyor...</p>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Ana Sayfa Haberleri -->
+<div id="tab-haberler" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-2">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Ana Sayfa Haberleri</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">index.html Gündem sayfasındaki haber hero bölümünü buradan yönetin.</p>
+    </div>
+</div>
+
+<!-- Add News Form -->
+<div class="bg-white border border-outline-variant/10 rounded-2xl p-6 space-y-5">
+    <h3 class="font-bold text-on-surface text-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">add_photo_alternate</span>
+        Yeni Haber / Etkinlik Ekle
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Haber Başlığı *</label>
+            <input id="news-title" type="text" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Örn: Vize Takvimi Açıklandı">
+        </div>
+        <div>
+            <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Kategori Etiketi</label>
+            <input id="news-category" type="text" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Örn: AKADEMİK, ETKİNLİK, DUYURU...">
+        </div>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Açıklama / Özet *</label>
+        <textarea id="news-desc" rows="2" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary resize-none" placeholder="Ana sayfada görünecek kısa özet..."></textarea>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Tam Haber Metni (Opsiyonel)</label>
+        <textarea id="news-content" rows="4" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary resize-y" placeholder="Detayları gör denildiğinde açılacak tam metin..."></textarea>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Kapak Görseli Yükle (İsteğe Bağlı)</label>
+        <input id="news-image-file" type="file" accept="image/*" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer">
+        <p class="text-[10px] text-on-surface-variant/50 mt-1 pl-1">Boş bırakılırsa varsayılan görsel kullanılır.</p>
+    </div>
+    <div class="flex justify-end">
+        <button id="news-save-btn" onclick="saveNews()" class="bg-primary text-white px-8 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50">
+            <span class="material-symbols-outlined text-lg">publish</span>Ana Sayfada Yayınla
+        </button>
+    </div>
+</div>
+
+<!-- Existing News List -->
+<div>
+    <h3 class="font-bold text-on-surface text-base mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">list_alt</span>
+        Yayındaki Haberler
+    </h3>
+    <div id="news-list" class="space-y-3">
+        <div class="p-6 text-center text-on-surface-variant/50">Haberler yükleniyor...</div>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Dashboard -->
+
+<div id="tab-dashboard" class="hidden p-8 space-y-8 flex-1">
+<!-- Stat Cards (More technical/minimal look) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="text-[11px] font-bold text-primary px-2 py-0.5 bg-primary/5 rounded">Bugün</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Tarih</p>
+<h3 id="dash-date" class="text-xl font-extrabold text-on-surface">Yükleniyor...</h3>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-blue-500/10 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined">school</span>
+</div>
+<span class="text-[11px] font-bold text-blue-600 px-2 py-0.5 bg-blue-500/5 rounded">Haftalık</span>
+</div>
+
+    
+    <button onclick="viewApplications()" class="mt-2 w-full py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[16px]">group_add</span> Bize Katıl Başvuruları
+    </button>
+    
+    
+</div>
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-orange-500/10 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<span class="text-[11px] font-bold text-orange-600 px-2 py-0.5 bg-orange-500/5 rounded">Aktif</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Ders Planı</p>
+<h3 class="text-xl font-extrabold text-on-surface">Plan Hazır</h3>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-error/10 text-error rounded-lg">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-[11px] font-bold text-error px-2 py-0.5 bg-error/5 rounded" id="dash-pending-badge">0 Yeni</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Bekleyen İtiraflar</p>
+<h3 id="dash-pending-count" class="text-3xl font-extrabold text-on-surface">0</h3>
+</div>
+</div>
+</div>
+<!-- Dashboard Grid Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Confessions Moderation -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex justify-between items-center px-2">
+<h4 class="text-lg font-bold text-on-surface">Son İtiraflar <span class="ml-2 text-body-sm font-normal text-on-surface-variant/60">(Moderasyon Bekliyor)</span></h4>
+<button onclick="showToast('Arşiv modülü yükleniyor...', 'info')" class="text-[12px] font-bold text-primary hover:underline">Arşive Git</button>
+</div>
+<div id="dashboard-confessions-list" class="space-y-4">
+<div class="p-6 text-center text-on-surface-variant/50">İtiraflar yükleniyor...</div>
+</div>
+</div>
+<!-- Management Tools Column -->
+<div class="space-y-6">
+<!-- Highlighted Feature -->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End of Dashboard Tab -->
+</div>
+<!-- Footer -->
+<footer class="flex justify-between items-center px-8 py-6 border-t border-outline-variant/10">
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest">© 2024 ECON MEDYA ADMIN • V2.1.0</p>
+<div class="flex gap-4">
+<a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Sistem Durumu</a>
+<a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Yardım</a>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav -->
+<nav class="lg:hidden fixed bottom-4 left-4 right-4 flex justify-around items-center px-4 py-3 bg-white border border-outline-variant/10 shadow-2xl z-50 rounded-2xl">
+<a class="p-2 text-primary bg-primary/5 rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">campaign</span>
+</a>
+<a class="p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">group</span>
+</a>
+<a class="p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</nav>
+
+<!-- Admin Login Overlay -->
+<div id="admin-login-overlay" class="fixed inset-0 bg-white/80 backdrop-blur-md z-[99999] flex items-center justify-center transition-opacity duration-500">
+    <div class="bg-surface-container-low p-8 rounded-3xl shadow-2xl max-w-sm w-full mx-4 border border-outline-variant/20 transform transition-all">
+        <div class="flex justify-center mb-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-4xl">admin_panel_settings</span>
+            </div>
+        </div>
+        <h2 class="text-2xl font-bold text-center mb-1 text-on-surface">Yönetici Girişi</h2>
+        <p class="text-xs text-center text-on-surface-variant/60 mb-6">Econ Medya Kontrol Paneli</p>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">İsim Soyisim</label>
+                <input id="login-name" type="text" class="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="Örn: Ahmet Yılmaz">
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Yönetici Şifresi</label>
+                <input id="login-pass" type="password" class="w-full bg-white border border-outline-variant/30 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="••••••••">
+            </div>
+            <button onclick="handleLogin()" class="w-full bg-primary text-white py-3.5 rounded-xl text-sm font-bold mt-2 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all active:scale-95">Panele Gir</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Overlay -->
+<div id="action-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 transform scale-95 transition-transform duration-300 mx-4" id="action-modal-content">
+        <div class="flex justify-between items-center mb-6">
+            <h3 id="modal-title" class="text-xl font-bold text-on-surface">Yeni Ekle</h3>
+            <button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div id="modal-body" class="space-y-4">
+            <!-- Dynamic form content will go here -->
+        </div>
+        <div class="flex justify-end gap-3 mt-8 pt-4 border-t border-outline-variant/10">
+            <button onclick="closeModal()" class="px-5 py-2 text-sm font-bold text-on-surface-variant hover:bg-surface-dim rounded-xl transition-colors">İptal</button>
+            <button onclick="saveModalData()" class="px-5 py-2 text-sm font-bold bg-primary text-white hover:shadow-lg hover:shadow-primary/20 rounded-xl transition-all">Kaydet / Gönder</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification Container -->
+<div id="toast-container" class="fixed bottom-4 right-4 z-[9999] flex flex-col gap-2"></div>
+
+<script type="module">
+    import { db, collection, addDoc, serverTimestamp, onSnapshot, query, where, orderBy, doc, updateDoc, deleteDoc, setDoc, storage, ref, uploadBytes, getDownloadURL } from './firebase-config.js';
+    
+    // Set max upload retry time to 5 seconds to prevent indefinite hangs when CORS or rules fail
+    storage.maxUploadRetryTime = 5000;
+
+    // Tab system
+    window.switchTab = function(tab) {
+        const tabs = ['dashboard', 'icerik', 'moderasyon', 'etkinlik', 'duyuru', 'haberler'];
+        tabs.forEach(t => {
+            const el = document.getElementById('tab-' + t);
+            if (el) el.classList.toggle('hidden', t !== tab);
+        });
+        // Update active nav item
+        document.querySelectorAll('[data-tab]').forEach(a => {
+            const isActive = a.dataset.tab === tab;
+            a.classList.toggle('nav-item-active', isActive);
+            a.classList.toggle('text-on-surface-variant', !isActive);
+            a.classList.toggle('hover:bg-surface-dim/50', !isActive);
+        });
+        // Update header title
+        const titles = { dashboard: 'Dashboard', icerik: 'İçerik Yönetimi', moderasyon: 'Moderasyon Paneli', etkinlik: 'Etkinlikler', duyuru: 'Duyurular', haberler: 'Ana Sayfa Haberleri' };
+        const subs = { dashboard: 'Sistem genel bakışı ve son aktiviteler.', icerik: "'İktisatçının Kaleminden' içerik yönetimi.", moderasyon: 'Sosyal Köşe • Bekleyen onay işlemleri.', etkinlik: 'Yaklaşan organizasyonlar ve etkinlik takvimi.', duyuru: 'Acil ve önemli bilgilendirmeler.', haberler: 'index.html Gündem sayfasındaki haber hero bölümünü yönetin.' };
+        document.getElementById('page-title').textContent = titles[tab] || 'Dashboard';
+        document.getElementById('page-subtitle').textContent = subs[tab] || '';
+    };
+
+    // Login System
+    window.handleLogin = function() {
+        const name = document.getElementById('login-name').value.trim();
+        const pass = document.getElementById('login-pass').value;
+        if (!name) {
+            window.showToast('Lütfen adınızı soyadınızı girin.', 'warning');
+            return;
+        }
+        if (pass === '123456') { // Hardcoded password as requested by "admin panel giriş şifresi olacak"
+            const overlay = document.getElementById('admin-login-overlay');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.remove(), 500);
+            
+            const topEditorName = document.getElementById('top-editor-name');
+            if (topEditorName) topEditorName.innerText = name;
+            
+            // Auto-fill author name in content modal if it exists
+            const modalAuthorInput = document.getElementById('modal-input-4');
+            if (modalAuthorInput) modalAuthorInput.value = name;
+            
+            window.showToast('Giriş başarılı! Hoş geldiniz, ' + name, 'success');
+        } else {
+            window.showToast('Hatalı şifre!', 'error');
+        }
+    };
+
+    // Toast Notification System
+    window.showToast = function(message, type = 'success') {
+        const toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) return;
+        
+        const toast = document.createElement('div');
+        const bgColor = type === 'success' ? 'bg-primary' : (type === 'error' ? 'bg-error' : 'bg-surface-dim');
+        const textColor = type === 'success' ? 'text-white' : (type === 'error' ? 'text-white' : 'text-on-surface');
+        const icon = type === 'success' ? 'check_circle' : (type === 'error' ? 'error' : 'info');
+        
+        toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg transition-all duration-300 transform translate-y-full opacity-0 ${bgColor} ${textColor} border border-black/5`;
+        toast.innerHTML = `
+            <span class="material-symbols-outlined">${icon}</span>
+            <span class="text-sm font-bold">${message}</span>
+        `;
+        
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => toast.classList.remove('translate-y-full', 'opacity-0'), 10);
+        
+        setTimeout(() => {
+            toast.classList.add('opacity-0', 'translate-y-2');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    };
+
+    // Load Posts for Content Management
+    const qPosts = query(collection(db, 'posts'), orderBy('createdAt', 'desc'));
+    onSnapshot(qPosts, (snapshot) => {
+        const container = document.getElementById('admin-posts-list');
+        if(!container) return;
+        
+        container.innerHTML = '';
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-on-surface-variant/50 font-bold">Henüz hiç içerik eklenmemiş.</td></tr>';
+            return;
+        }
+
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            const id = docSnap.id;
+            
+            let timeStr = 'Bilinmiyor';
+            if(data.createdAt) {
+                timeStr = new Date(data.createdAt.toMillis()).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
+            }
+
+            let statusHtml = '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-lg text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>YAYINDA</span>';
+            if(data.status === 'Bekleyen' || data.status === 'BEKLEYEN' || data.status === 'pending') {
+                statusHtml = '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 rounded-lg text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>BEKLEYEN</span>';
+            }
+
+            let actionButtons = '';
+            if(data.status === 'pending') {
+                actionButtons += `<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Yayına Al" onclick="approveArticle('${id}')"><span class="material-symbols-outlined text-lg">check_circle</span></button>`;
+            }
+            actionButtons += `<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" onclick="deletePost('${id}')"><span class="material-symbols-outlined text-lg">delete_sweep</span></button>`;
+
+            container.innerHTML += `
+                <tr class="hover:bg-surface-container transition-colors group">
+                    <td class="px-6 py-5"><div class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">${data.title}</div><div class="text-[11px] text-on-surface-variant/60 mt-0.5 max-w-xs truncate">${data.content}</div></td>
+                    <td class="px-6 py-5"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant font-bold text-[10px]">${(data.authorName || 'AD').substring(0,2).toUpperCase()}</div><div><div class="text-xs font-bold">${data.authorName || 'Admin'}</div><div class="text-[9px] font-bold text-on-surface-variant/60 uppercase">Yazar</div></div></div></td>
+                    <td class="px-6 py-5"><span class="px-2.5 py-1 bg-surface-container rounded-lg text-[10px] font-bold text-on-surface-variant">${data.category || 'İÇERİK'}</span></td>
+                    <td class="px-6 py-5 text-[11px] text-on-surface-variant">${timeStr}</td>
+                    <td class="px-6 py-5">${statusHtml}</td>
+                    <td class="px-6 py-5 text-right"><div class="flex justify-end gap-1">${actionButtons}</div></td>
+                </tr>
+            `;
+        });
+    });
+
+    window.approveArticle = async function(id) {
+        try {
+            await updateDoc(doc(db, 'posts', id), {
+                status: 'approved'
+            });
+            window.showToast('Yazı onaylandı ve yayına alındı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        }
+    };
+
+    window.deletePost = async function(id) {
+        if(confirm('Bu yazıyı silmek istediğinize emin misiniz?')) {
+            try {
+                await deleteDoc(doc(db, 'posts', id));
+                window.showToast('Yazı silindi.', 'success');
+            } catch (e) {
+                window.showToast('Hata: ' + e.message, 'error');
+            }
+        }
+    };
+
+    // Load Pending Confessions
+    const q = query(collection(db, 'confessions'), where('status', '==', 'pending'));
+    onSnapshot(q, (snapshot) => {
+        const container = document.getElementById('moderation-feed');
+        if(!container) return;
+        container.innerHTML = '';
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="col-span-full p-8 text-center text-on-surface-variant/50 font-bold">Harika! Bekleyen hiçbir onay işlemi yok.</div>';
+            return;
+        }
+
+        // Sort in memory to avoid missing index error
+        const docs = [];
+        snapshot.forEach(docSnap => {
+            docs.push({ id: docSnap.id, data: docSnap.data() });
+        });
+        docs.sort((a, b) => {
+            const timeA = a.data.createdAt ? a.data.createdAt.toMillis() : 0;
+            const timeB = b.data.createdAt ? b.data.createdAt.toMillis() : 0;
+            return timeB - timeA;
+        });
+
+        docs.forEach((item) => {
+            const data = item.data;
+            const id = item.id;
+            
+            // Handle missing timestamps gracefully
+            let timeStr = 'Yeni';
+            if(data.createdAt) {
+                const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else timeStr = Math.floor(diff/60) + ' saat önce';
+            }
+
+            container.innerHTML += `
+            <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl hover:shadow-md transition-all">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/40"><span class="material-symbols-outlined !text-[16px]">visibility_off</span></div>
+                        <div><span class="text-sm font-bold text-on-surface">${data.author || 'Anonim'}</span><span class="ml-2 px-2 py-0.5 bg-primary/10 text-primary text-[9px] font-bold rounded-full">${data.category}</span></div>
+                    </div>
+                    <span class="text-[11px] text-on-surface-variant/40">${timeStr}</span>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-4 leading-relaxed italic">"${data.text}"</p>
+                <div class="flex gap-2">
+                    <button onclick="approvePost(this, '${id}')" class="flex-1 px-4 py-2 bg-primary text-white text-xs font-bold rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">check</span>Onayla</button>
+                    <button onclick="rejectPost(this, '${id}')" class="flex-1 px-4 py-2 bg-white text-error border border-error/20 text-xs font-bold rounded-xl hover:bg-error/5 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">close</span>Reddet</button>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // ========================
+    // Ana Sayfa Haberleri (news collection)
+    // ========================
+    window.saveNews = async function() {
+        const btn = document.getElementById('news-save-btn');
+        const title = document.getElementById('news-title').value.trim();
+        const desc = document.getElementById('news-desc').value.trim();
+        const content = document.getElementById('news-content').value.trim();
+        const category = document.getElementById('news-category').value.trim() || 'HABER';
+        const fileInput = document.getElementById('news-image-file');
+
+        if (!title || !desc) {
+            window.showToast('Başlık ve Özet alanları zorunludur!', 'error');
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Yayınlanıyor...';
+
+        try {
+            let finalImageUrl = '';
+
+            if (fileInput.files.length > 0) {
+                try {
+                    btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Görsel İşleniyor...';
+                    const file = fileInput.files[0];
+                    finalImageUrl = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                const MAX_WIDTH = 800;
+                                const MAX_HEIGHT = 800;
+                                let width = img.width;
+                                let height = img.height;
+
+                                if (width > height) {
+                                    if (width > MAX_WIDTH) {
+                                        height *= MAX_WIDTH / width;
+                                        width = MAX_WIDTH;
+                                    }
+                                } else {
+                                    if (height > MAX_HEIGHT) {
+                                        width *= MAX_HEIGHT / height;
+                                        height = MAX_HEIGHT;
+                                    }
+                                }
+                                canvas.width = width;
+                                canvas.height = height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, width, height);
+                                resolve(canvas.toDataURL('image/jpeg', 0.7));
+                            };
+                            img.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                } catch (uploadErr) {
+                    window.showToast('Görsel dönüştürülemedi, ancak haber metni yayınlanıyor...', 'warning');
+                    console.error("Upload error:", uploadErr);
+                }
+            }
+
+            btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Kaydediliyor...';
+            await addDoc(collection(db, 'news'), {
+                title,
+                desc,
+                content,
+                category: category.toUpperCase(),
+                imageUrl: finalImageUrl,
+                createdAt: serverTimestamp(),
+                active: true
+            });
+            // Clear form
+            document.getElementById('news-title').value = '';
+            document.getElementById('news-desc').value = '';
+            document.getElementById('news-content').value = '';
+            document.getElementById('news-category').value = '';
+            document.getElementById('news-image-file').value = '';
+            window.showToast('Haber ana sayfada yayınlandı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<span class="material-symbols-outlined text-lg">publish</span>Ana Sayfada Yayınla';
+        }
+    };
+
+    window.deleteNews = async function(docId) {
+        if (!confirm('Bu haberi kaldırmak istediğinizden emin misiniz?')) return;
+        try {
+            await deleteDoc(doc(db, 'news', docId));
+            window.showToast('Haber kaldırıldı.', 'error');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        }
+    };
+
+    // Real-time news list
+    const qNews = query(collection(db, 'news'), orderBy('createdAt', 'desc'));
+    onSnapshot(qNews, (snapshot) => {
+        const list = document.getElementById('news-list');
+        if (!list) return;
+        list.innerHTML = '';
+
+        if (snapshot.empty) {
+            list.innerHTML = '<div class="p-6 text-center text-on-surface-variant/50">Henüz haber eklenmedi. Yukardaki formu kullanarak ekleyin.</div>';
+            return;
+        }
+
+        snapshot.forEach((docSnap) => {
+            const d = docSnap.data();
+            const id = docSnap.id;
+            let timeStr = 'Yeni';
+            if(d.createdAt) {
+                const diff = Math.floor((new Date() - d.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else if(diff < 1440) timeStr = Math.floor(diff/60) + ' saat önce';
+                else timeStr = Math.floor(diff/1440) + ' gün önce';
+            }
+
+            const imgStyle = d.imageUrl ? `background-image:url('${d.imageUrl}'); background-size:cover; background-position:center;` : 'background:linear-gradient(135deg,#004d27,#006837)';
+
+            list.innerHTML += `
+            <div class="flex items-center gap-4 p-4 bg-white border border-outline-variant/10 rounded-2xl hover:shadow-md transition-all">
+                <div class="w-20 h-14 rounded-xl flex-shrink-0 flex items-center justify-center" style="${imgStyle}">
+                    ${!d.imageUrl ? '<span class="material-symbols-outlined text-white">newspaper</span>' : ''}
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[9px] font-bold tracking-widest bg-primary/10 text-primary px-2 py-0.5 rounded">${d.category}</span>
+                        <span class="text-[10px] text-on-surface-variant/40">${timeStr}</span>
+                    </div>
+                    <h4 class="text-sm font-bold text-on-surface truncate">${d.title}</h4>
+                    <p class="text-xs text-on-surface-variant/60 line-clamp-1">${d.desc}</p>
+                </div>
+                <div class="flex gap-2 flex-shrink-0">
+                    <button onclick="deleteNews('${id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all" title="Kaldır">
+                        <span class="material-symbols-outlined text-lg">delete</span>
+                    </button>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // Action functions
+    window.approvePost = async function(btn, docId) {
+        btn.disabled = true;
+        btn.innerText = '...';
+        try {
+            await updateDoc(doc(db, 'confessions', docId), {
+                status: 'approved'
+            });
+            window.showToast('İçerik başarıyla onaylandı ve yayına alındı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+            btn.disabled = false;
+        }
+    };
+
+    window.rejectPost = async function(btn, docId) {
+        btn.disabled = true;
+        btn.innerText = '...';
+        try {
+            await deleteDoc(doc(db, 'confessions', docId));
+            window.showToast('İçerik reddedildi ve kalıcı olarak silindi.', 'error');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+            btn.disabled = false;
+        }
+    };
+
+    let currentModalType = '';
+
+    // Modal Functions
+    window.openModal = function(title, type) {
+        currentModalType = type;
+        document.getElementById('modal-title').textContent = title;
+        const body = document.getElementById('modal-body');
+        
+        if (type === 'duyuru') {
+            body.innerHTML = `
+                                  <div>
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Duyuru Başlığı</label>
+                      <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Duyuru başlığını girin...">
+                  </div>
+                  <div>
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Duyuru İçeriği</label>
+                      <textarea id="modal-input-2" rows="4" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Duyuru metnini girin..."></textarea>
+                  </div>
+                  <div class="mt-2">
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Dosya Linki (Google Drive vb. - İsteğe Bağlı)</label>
+                      <input id="modal-input-file" type="url" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Google Drive / Dosya Linkini yapıştırın...">
+                  </div>
+            `;
+        } else if (type === 'etkinlik') {
+            body.innerHTML = `
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Etkinlik Adı</label>
+                    <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Etkinlik adını girin...">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Tarih</label>
+                        <input id="modal-input-2" type="date" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Saat</label>
+                        <input id="modal-input-3" type="time" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Mekan</label>
+                    <input id="modal-input-4" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Örn: 201 Nolu Amfi">
+                </div>
+            `;
+        } else if (type === 'icerik') {
+            body.innerHTML = `
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Yazar (İsim Soyisim)</label>
+                    <input id="modal-input-4" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary mb-3" placeholder="Ad Soyad girin...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Yazı Başlığı</label>
+                    <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Başlık girin...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Kategori</label>
+                    <select id="modal-input-2" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                        <option>Makro Ekonomi</option><option>Mikro Ekonomi</option><option>Gündem</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">İçerik</label>
+                    <textarea id="modal-input-3" rows="6" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl p-4 text-sm focus:ring-primary focus:border-primary" placeholder="Yazınızı buraya yazın..."></textarea>
+                </div>
+            `;
+        }
+    
+        const modal = document.getElementById('action-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('action-modal-content').classList.remove('scale-95');
+        }, 10);
+    };
+    
+    window.closeModal = function() {
+        const modal = document.getElementById('action-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('action-modal-content').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    };
+    
+    window.saveModalData = async function() {
+        const btn = document.querySelector('#action-modal-content button:last-child');
+        const oldText = btn.innerText;
+        btn.innerText = 'Kaydediliyor...';
+        btn.disabled = true;
+
+        let data = { createdAt: serverTimestamp() };
+        
+        try {
+            if (currentModalType === 'duyuru') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.content = document.getElementById('modal-input-2').value;
+                if(!data.title) throw new Error("Başlık boş olamaz");
+                  const fileInput = document.getElementById('modal-input-file');
+                  if (fileInput && fileInput.value.trim() !== '') {
+                      data.attachmentUrl = fileInput.value.trim();
+                      data.attachmentName = 'Ek Dosyayı Aç';
+                  }
+                await addDoc(collection(db, 'announcements'), data);
+            } else if (currentModalType === 'etkinlik') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.date = document.getElementById('modal-input-2').value;
+                data.time = document.getElementById('modal-input-3').value;
+                data.location = document.getElementById('modal-input-4').value;
+                if(!data.title) throw new Error("Etkinlik adı boş olamaz");
+                await addDoc(collection(db, 'events'), data);
+            } else if (currentModalType === 'icerik') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.category = document.getElementById('modal-input-2').value;
+                data.content = document.getElementById('modal-input-3').value; 
+                data.authorName = document.getElementById('modal-input-4').value || "Admin";
+                data.status = "Yayında";
+                if(!data.title || !data.content) throw new Error("Yazı başlığı ve içeriği boş olamaz");
+                await addDoc(collection(db, 'posts'), data);
+            }
+            
+            window.closeModal();
+            window.showToast('Kayıt başarıyla oluşturuldu ve veritabanına eklendi!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        } finally {
+            btn.innerText = oldText;
+            btn.disabled = false;
+        }
+    };
+
+    
+
+    // Dash Date setup
+    const today = new Date();
+    const dashDateEl = document.getElementById('dash-date');
+    if (dashDateEl) {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dashDateEl.innerText = today.toLocaleDateString('tr-TR', options);
+    }
+
+    // Listen to Settings
+    
+
+    // Listen to Confessions (Pending)
+    onSnapshot(query(collection(db, 'confessions'), where('status', '==', 'pending')), (snapshot) => {
+        const container = document.getElementById('dashboard-confessions-list');
+        const countEl = document.getElementById('dash-pending-count');
+        const badgeEl = document.getElementById('dash-pending-badge');
+        
+        if(countEl) countEl.innerText = snapshot.size;
+        if(badgeEl) badgeEl.innerText = snapshot.size + ' Yeni';
+
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-6 text-center text-on-surface-variant/50">Bekleyen yeni itiraf yok. Harika!</div>';
+            return;
+        }
+
+        const docs = [];
+        snapshot.forEach(docSnap => docs.push({ id: docSnap.id, data: docSnap.data() }));
+        docs.sort((a,b) => (b.data.createdAt?.toMillis() || 0) - (a.data.createdAt?.toMillis() || 0));
+
+        docs.slice(0, 5).forEach((docItem) => {
+            const data = docItem.data;
+            let timeStr = 'Yeni';
+            if(data.createdAt) {
+                const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else timeStr = Math.floor(diff/60) + ' saat önce';
+            }
+            container.innerHTML += `
+                <div class="p-5 bg-surface-dim/30 border border-outline-variant/10 rounded-2xl hover:bg-surface-dim/50 transition-all">
+                <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-on-surface-variant/40">
+                <span class="material-symbols-outlined !text-[16px]">visibility_off</span>
+                </div>
+                <span class="text-body-sm font-bold text-on-surface">${data.author || '#Anonim'}</span>
+                </div>
+                <span class="text-[11px] text-on-surface-variant/60">${timeStr}</span>
+                </div>
+                <p class="text-body-sm text-on-surface-variant mb-4 leading-relaxed">${data.text || ''}</p>
+                <div class="flex gap-2">
+                <button onclick="approvePost(this, '${docItem.id}')" class="px-4 py-2 bg-primary text-white text-[12px] font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all">Yayına Al</button>
+                <button onclick="rejectPost(this, '${docItem.id}')" class="px-4 py-2 bg-white text-error border border-error/20 text-[12px] font-bold rounded-lg hover:bg-error/5 transition-all">Reddet</button>
+                </div>
+                </div>
+            `;
+        });
+    });
+
+    // Listen to Events
+    onSnapshot(query(collection(db, 'events'), orderBy('createdAt', 'desc')), (snapshot) => {
+        const container = document.getElementById('admin-events-list');
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center"><span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">event_busy</span><p class="text-on-surface-variant font-bold">Henüz planlanmış bir etkinlik yok.</p></div>';
+            return;
+        }
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            container.innerHTML += `
+                <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-on-surface">${data.title}</h4>
+                        <p class="text-xs text-on-surface-variant/60 mt-1">${data.date || ''} ${data.time || ''} • ${data.location || ''}</p>
+                    </div>
+                    <button onclick="deleteDocItem('events', '${docSnap.id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            `;
+        });
+    });
+
+    // Listen to Announcements
+    onSnapshot(query(collection(db, 'announcements'), orderBy('createdAt', 'desc')), (snapshot) => {
+        const container = document.getElementById('admin-announcements-list');
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center"><span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">campaign</span><p class="text-on-surface-variant font-bold">Aktif bir duyuru bulunmuyor.</p></div>';
+            return;
+        }
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            container.innerHTML += `
+                <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-on-surface">${data.title}</h4>
+                        <p class="text-xs text-on-surface-variant/60 mt-1 truncate max-w-sm">${data.content || ''}</p>
+                          ${data.attachmentUrl ? `<a href="${data.attachmentUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] bg-primary/10 text-primary px-2 py-1 rounded-md mt-2 font-bold hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-[12px]">attachment</span> ${data.attachmentName || 'Ek Dosya'}</a>` : ''}
+                    </div>
+                    <button onclick="deleteDocItem('announcements', '${docSnap.id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            `;
+        });
+    });
+
+    // Generic Delete Function
+    window.deleteDocItem = async function(collectionName, id) {
+        if(confirm('Kalıcı olarak silmek istediğinize emin misiniz?')) {
+            try {
+                await deleteDoc(doc(db, collectionName, id));
+                window.showToast('Kayıt başarıyla silindi.', 'success');
+            } catch (e) {
+                window.showToast('Hata: ' + e.message, 'error');
+            }
+        }
+    };
+
+    // Init dashboard tab
+    window.switchTab('dashboard');
+</script>
+
+
+
+
+
+
+
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant/20 flex justify-around items-center pb-[env(safe-area-inset-bottom,16px)] pt-2 px-1 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+    <a href="index.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-index">newspaper</span>
+        <span class="text-[9px] font-bold mt-1">Gündem</span>
+    </a>
+    <a href="duyurular.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-duyurular">campaign</span>
+        <span class="text-[9px] font-bold mt-1">Duyurular</span>
+    </a>
+    <a href="sosyal-kose.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-sosyal-kose">group</span>
+        <span class="text-[9px] font-bold mt-1">Sosyal</span>
+    </a>
+    <a href="hocalar.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-hocalar">school</span>
+        <span class="text-[9px] font-bold mt-1">Kadro</span>
+    </a>
+    <a href="iktisatcinin-kaleminden.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-iktisatcinin-kaleminden">menu_book</span>
+        <span class="text-[9px] font-bold mt-1 text-center leading-tight">Yazılar</span>
+    </a>
+
+
+</nav>
+<style>
+@media (max-width: 1024px) { body { padding-bottom: 80px; } }
+/* Hide scrollbar for nav */
+nav.lg\:hidden::-webkit-scrollbar { display: none; }
+nav.lg\:hidden { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+
+<!-- Admin Votes Modal -->
+
+</script>
+
+
+<!-- Admin Applications Modal -->
+<div id="admin-apps-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300">
+        <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/10">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-500/10 text-blue-600 flex items-center justify-center rounded-xl">
+                    <span class="material-symbols-outlined">group_add</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-on-surface">Bize Katıl Başvuruları</h3>
+                    <p class="text-xs text-secondary">Econ Medya Ekibi Adayları</p>
+                </div>
+            </div>
+            <button onclick="closeAppsModal()" class="p-2 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors text-on-surface-variant">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 custom-scrollbar" id="admin-apps-list">
+            <div class="text-center py-8">
+                <span class="material-symbols-outlined animate-spin text-primary text-3xl">refresh</span>
+                <p class="mt-2 text-sm text-secondary font-bold">Veriler çekiliyor...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+window.viewApplications = async function() {
+    const modal = document.getElementById('admin-apps-modal');
+    const list = document.getElementById('admin-apps-list');
+    
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('.bg-white').classList.remove('scale-95');
+    }, 10);
+
+    list.innerHTML = `
+        <div class="text-center py-8">
+            <span class="material-symbols-outlined animate-spin text-blue-500 text-3xl">refresh</span>
+            <p class="mt-2 text-sm text-secondary font-bold">Veriler çekiliyor...</p>
+        </div>
+    `;
+
+    try {
+        const { db, collection, getDocs, query, orderBy } = await import('./firebase-config.js');
+        const q = query(collection(db, 'applications'), orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        
+        if(snapshot.empty) {
+            list.innerHTML = '<div class="text-center py-8 text-secondary font-bold">Henüz başvuru yok.</div>';
+            return;
+        }
+
+        let html = '<div class="space-y-4">';
+
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const dateStr = data.createdAt ? data.createdAt.toDate().toLocaleString('tr-TR', {day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit'}) : 'Az Önce';
+            
+            html += `
+                <div class="bg-surface-container-low border border-outline-variant/20 p-4 rounded-2xl">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-on-surface text-base">${data.name}</h4>
+                        <span class="text-[10px] text-secondary font-bold">${dateStr}</span>
+                    </div>
+                    <p class="text-sm text-secondary mb-3">${data.about}</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded-md uppercase tracking-wider">Tasarım Bilgisi: ${data.designSkillLevel}/10</span>
+                        ${data.status === 'pending' ? '<span class="text-[10px] font-bold text-orange-600 bg-orange-500/10 px-2 py-1 rounded-md uppercase tracking-wider">Beklemede</span>' : ''}
+                    </div>
+                </div>
+            `;
+        });
+
+        html += '</div>';
+        list.innerHTML = html;
+
+    } catch(err) {
+        console.error(err);
+        list.innerHTML = '<div class="text-center py-8 text-error font-bold">Veriler çekilirken bir hata oluştu: ' + err.message + '</div>';
+    }
+};
+
+window.closeAppsModal = function() {
+    const modal = document.getElementById('admin-apps-modal');
+    modal.classList.add('opacity-0');
+    modal.querySelector('.bg-white').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+};
+</script>
+
+
+<!-- Admin Votes Modal -->
+<div id="admin-votes-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="bg-surface rounded-3xl p-8 w-full max-w-2xl shadow-2xl relative max-h-[90vh] flex flex-col">
+        <button onclick="closeVotesModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-error transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <h2 class="text-2xl font-bold text-center text-on-surface mb-2">Oy Verenler Listesi</h2>
+        <p class="text-sm text-center text-secondary mb-6">Sadece yetkililer görebilir. (Google Auth Kontrollü)</p>
+        
+        <div class="overflow-y-auto custom-scrollbar flex-1 pr-2">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-outline-variant/30 text-xs text-secondary uppercase tracking-wider">
+                        <th class="py-3 px-4">Öğrenci (Mail)</th>
+                        <th class="py-3 px-4">Seçtiği Hoca</th>
+                        <th class="py-3 px-4 text-right">Tarih</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-votes-table-body" class="text-sm">
+                    <tr><td colspan="3" class="text-center py-4">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body></html>

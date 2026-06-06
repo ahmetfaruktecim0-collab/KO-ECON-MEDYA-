@@ -1,0 +1,778 @@
+[
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "08.00-08.50",
+    "course": "İktisatta Bilgisayar Uygulamaları II",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "218"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf I",
+    "time": "09.00-09.50",
+    "course": "İktisatçılar İçin Matematik II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "213"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "09.00-09.50",
+    "course": "İktisatta Bilgisayar Uygulamaları II",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "218"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "09.00-09.50",
+    "course": "İktisadi Düşünce Tarihi",
+    "teacher": "Dr. Öğr. Üyesi Bengü DOĞANGÜN YASA",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf I",
+    "time": "10.00-10.50",
+    "course": "İktisatçılar İçin Matematik II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "213"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "10.00-10.50",
+    "course": "İktisatta Bilgisayar Uygulamaları II",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "218"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "10.00-10.50",
+    "course": "İktisadi Düşünce Tarihi",
+    "teacher": "Dr. Öğr. Üyesi Bengü DOĞANGÜN YASA",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "10.00-10.50",
+    "course": "Ekonomide Güncel Tartışmalar",
+    "teacher": "Doç. Dr. Erhan ORUÇ",
+    "room": "220"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "11.00-11.50",
+    "course": "İktisatta Bilgisayar Uygulamaları II",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "218"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "11.00-11.50",
+    "course": "Uluslararası İktisat II",
+    "teacher": "Dr. Öğr. Üyesi Hanife BIDIRDI",
+    "room": "213"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "11.00-11.50",
+    "course": "Ekonomide Güncel Tartışmalar",
+    "teacher": "Doç. Dr. Erhan ORUÇ",
+    "room": "220"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "12.00-12.50",
+    "course": "Uluslararası İktisat II",
+    "teacher": "Dr. Öğr. Üyesi Hanife BIDIRDI",
+    "room": "213"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "12.00-12.50",
+    "course": "İktisat Okumaları",
+    "teacher": "Dr. Öğr. Üyesi Bengü DOĞANGÜN YASA",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "13.00-13.50",
+    "course": "Makro İktisat II",
+    "teacher": "Doç. Dr. Erhan ORUÇ",
+    "room": "215"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "13.00-13.50",
+    "course": "Uluslararası İktisat II",
+    "teacher": "Dr. Öğr. Üyesi Hanife BIDIRDI",
+    "room": "213"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "13.00-13.50",
+    "course": "İktisat Okumaları",
+    "teacher": "Dr. Öğr. Üyesi Bengü DOĞANGÜN YASA",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "14.00-14.50",
+    "course": "Makro İktisat II",
+    "teacher": "Doç. Dr. Erhan ORUÇ",
+    "room": "215"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "14.00-14.50",
+    "course": "Ekonometri II",
+    "teacher": "Prof. Dr. Selçuk KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf II",
+    "time": "15.00-15.50",
+    "course": "Makro İktisat II",
+    "teacher": "Doç. Dr. Erhan ORUÇ",
+    "room": "215"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "15.00-15.50",
+    "course": "Ekonometri II",
+    "teacher": "Prof. Dr. Selçuk KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "15.00-15.50",
+    "course": "Bilgi Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Hanife BIDIRDI",
+    "room": "218"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf III",
+    "time": "16.00-16.50",
+    "course": "Ekonometri II",
+    "teacher": "Prof. Dr. Selçuk KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Pazartesi",
+    "level": "Sınıf IV",
+    "time": "16.00-16.50",
+    "course": "Bilgi Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Hanife BIDIRDI",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf II",
+    "time": "08:00-08:50",
+    "course": "Ekonomide İleri Düzey Okumalar II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "09.00-09.50",
+    "course": "Muhasebe",
+    "teacher": "Prof. Dr. Ednan AYVAZ",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf II",
+    "time": "09.00-09.50",
+    "course": "Ekonomide İleri Düzey Okumalar II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "09.00-09.50",
+    "course": "Türkiye Ekonomisi",
+    "teacher": "Prof. Dr. Ayhan ORHAN",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "10.00-10.50",
+    "course": "Muhasebe",
+    "teacher": "Prof. Dr. Ednan AYVAZ",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf II",
+    "time": "10.00-10.50",
+    "course": "Ekonomide İleri Düzey Okumalar II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "10.00-10.50",
+    "course": "Türkiye Ekonomisi",
+    "teacher": "Prof. Dr. Ayhan ORHAN",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "11.00-11.50",
+    "course": "Muhasebe",
+    "teacher": "Prof. Dr. Ednan AYVAZ",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf II",
+    "time": "11.00-11.50",
+    "course": "Ekonomide İleri Düzey Okumalar II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "11.00-11.50",
+    "course": "Türkiye Ekonomisi",
+    "teacher": "Prof. Dr. Ayhan ORHAN",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "12.00-12.50",
+    "course": "Sosyal Bilimlerde Temel Okumalar II",
+    "teacher": "Prof. Dr. Yusuf BAYRAKTUTAN",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf III",
+    "time": "12.00-12.50",
+    "course": "Labor Economics",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "13.00-13.50",
+    "course": "Sosyal Bilimlerde Temel Okumalar II",
+    "teacher": "Prof. Dr. Yusuf BAYRAKTUTAN",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf III",
+    "time": "13.00-13.50",
+    "course": "Labor Economics",
+    "teacher": "Dr. Öğr. Üyesi Muhammet Rıdvan İNCE",
+    "room": "220"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "13.00-13.50",
+    "course": "Bölgesel İktisat",
+    "teacher": "Dr. Öğr. Üyesi Ali Rıza SOLMAZ",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "14.00-14.50",
+    "course": "Sosyal Bilimlerde Temel Okumalar II",
+    "teacher": "Prof. Dr. Yusuf BAYRAKTUTAN",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf III",
+    "time": "14.00-14.50",
+    "course": "Maliye Politikası",
+    "teacher": "Prof. Dr. Vedat CENGİZ",
+    "room": "215"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "14.00-14.50",
+    "course": "Bölgesel İktisat",
+    "teacher": "Dr. Öğr. Üyesi Ali Rıza SOLMAZ",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf I",
+    "time": "15.00-15.50",
+    "course": "Sosyal Bilimlerde Temel Okumalar II",
+    "teacher": "Prof. Dr. Yusuf BAYRAKTUTAN",
+    "room": "213"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf III",
+    "time": "15.00-15.50",
+    "course": "Maliye Politikası",
+    "teacher": "Prof. Dr. Vedat CENGİZ",
+    "room": "215"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "15.00-15.50",
+    "course": "Finansal Ekonometri",
+    "teacher": "Arş. Gör. Dr. Fikriye Ceren BOSTANCI",
+    "room": "218"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf III",
+    "time": "16.00-16.50",
+    "course": "Maliye Politikası",
+    "teacher": "Prof. Dr. Vedat CENGİZ",
+    "room": "215"
+  },
+  {
+    "day": "Salı",
+    "level": "Sınıf IV",
+    "time": "16.00-16.50",
+    "course": "Finansal Ekonometri",
+    "teacher": "Arş. Gör. Dr. Fikriye Ceren BOSTANCI",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf I",
+    "time": "09.00-09.50",
+    "course": "Atatürk İlkeleri ve İnkılap Tarihi II (UE)",
+    "teacher": "Öğr. Gör. Dr. Melih YİĞİT",
+    "room": "UE"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf I",
+    "time": "10.00-10.50",
+    "course": "Atatürk İlkeleri ve İnkılap Tarihi II (UE)",
+    "teacher": "Öğr. Gör. Dr. Melih YİĞİT",
+    "room": "UE"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "10.00-10.50",
+    "course": "İstatistik II",
+    "teacher": "Arş. Gör. Dr. Fikriye Ceren BOSTANCI",
+    "room": "213"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf IV",
+    "time": "10.00-10.50",
+    "course": "Kalkınma Ekonomisi",
+    "teacher": "Doç. Dr. Gülten DURSUN",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "11.00-11.50",
+    "course": "İstatistik II",
+    "teacher": "Arş. Gör. Dr. Fikriye Ceren BOSTANCI",
+    "room": "213"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf IV",
+    "time": "11.00-11.50",
+    "course": "Kalkınma Ekonomisi",
+    "teacher": "Doç. Dr. Gülten DURSUN",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "13.00-13.50",
+    "course": "İslam Ekonomisi",
+    "teacher": "Prof. Dr. Hasan Bülent KANTARCI",
+    "room": "216"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf III",
+    "time": "13.00-13.50",
+    "course": "Oyun Teorisi",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "221"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf IV",
+    "time": "13.00-13.50",
+    "course": "Türkiye İktisat Tarihi",
+    "teacher": "Dr.Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "14.00-14.50",
+    "course": "İslam Ekonomisi",
+    "teacher": "Prof. Dr. Hasan Bülent KANTARCI",
+    "room": "216"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf III",
+    "time": "14.00-14.50",
+    "course": "Oyun Teorisi",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "221"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf IV",
+    "time": "14.00-14.50",
+    "course": "Türkiye İktisat Tarihi",
+    "teacher": "Dr.Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "15.00-15.50",
+    "course": "Medya ve Ekonomi",
+    "teacher": "Arş. Gör. Dr. Murat EMİKÖNEL",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf III",
+    "time": "15.00-15.50",
+    "course": "Siyaset ve Ekonomi İlişkileri",
+    "teacher": "Prof. Dr. Vedat CENGİZ",
+    "room": "221"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf II",
+    "time": "16.00-16.50",
+    "course": "Medya ve Ekonomi",
+    "teacher": "Arş. Gör. Dr. Murat EMİKÖNEL",
+    "room": "218"
+  },
+  {
+    "day": "Çarşamba",
+    "level": "Sınıf III",
+    "time": "16.00-16.50",
+    "course": "Siyaset ve Ekonomi İlişkileri",
+    "teacher": "Prof. Dr. Vedat CENGİZ",
+    "room": "221"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "08:00-08:50",
+    "course": "Kariyer Planlama",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "09.00-09.50",
+    "course": "Kariyer Planlama",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "09.00-09.50",
+    "course": "Oyun Teorisi",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "215"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "10.00-10.50",
+    "course": "İktisada Giriş II",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "10.00-10.50",
+    "course": "Oyun Teorisi",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "215"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "11.00-11.50",
+    "course": "İktisada Giriş II",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf II",
+    "time": "11.00-11.50",
+    "course": "Mikro İktisat II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "12.00-12.50",
+    "course": "İktisada Giriş II",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf II",
+    "time": "12.00-12.50",
+    "course": "Mikro İktisat II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "13.00-13.50",
+    "course": "İktisadi Uygarlıkların Evrimi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf II",
+    "time": "13.00-13.50",
+    "course": "Mikro İktisat II",
+    "teacher": "Prof. Dr. Şevket Alper KOÇ",
+    "room": "216"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "13.00-13.50",
+    "course": "Araştırma Yöntemleri",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "220"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf IV",
+    "time": "13.00-13.50",
+    "course": "Bankacılık ve Finansal Kurumlar",
+    "teacher": "Doç. Dr. Özgür Bayram SOYLU",
+    "room": "215"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "14.00-14.50",
+    "course": "İktisadi Uygarlıkların Evrimi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "14.00-14.50",
+    "course": "Araştırma Yöntemleri",
+    "teacher": "Prof. Dr. Ferhat PEHLİVANOĞLU",
+    "room": "220"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf IV",
+    "time": "14.00-14.50",
+    "course": "Bankacılık ve Finansal Kurumlar",
+    "teacher": "Doç. Dr. Özgür Bayram SOYLU",
+    "room": "215"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "15.00-15.50",
+    "course": "Hukukun Temel Kavramları II",
+    "teacher": "Dr. Öğr. Üyesi (Doçent) Seydi ÇELİK",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf II",
+    "time": "15.00-15.50",
+    "course": "İktisat Metodolojisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "216"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "15.00-15.50",
+    "course": "Uluslararası Ekonomik Kuruluşlar",
+    "teacher": "Doç. Dr. Gülten DURSUN",
+    "room": "218"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf IV",
+    "time": "15.00-15.50",
+    "course": "Bankacılık ve Finansal Kurumlar",
+    "teacher": "Doç. Dr. Özgür Bayram SOYLU",
+    "room": "215"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf I",
+    "time": "16.00-16.50",
+    "course": "Hukukun Temel Kavramları II",
+    "teacher": "Dr. Öğr. Üyesi (Doçent) Seydi ÇELİK",
+    "room": "213"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf II",
+    "time": "16.00-16.50",
+    "course": "İktisat Metodolojisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Emin YARDIMCI",
+    "room": "216"
+  },
+  {
+    "day": "Perşembe",
+    "level": "Sınıf III",
+    "time": "16.00-16.50",
+    "course": "Uluslararası Ekonomik Kuruluşlar",
+    "teacher": "Doç. Dr. Gülten DURSUN",
+    "room": "218"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf III",
+    "time": "09.00-09.50",
+    "course": "Spor Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Çağrı GÖZEN",
+    "room": "215"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf II",
+    "time": "10.00-10.50",
+    "course": "Anayasa Hukuku",
+    "teacher": "Dr.Öğr.Üyesi Arda ERCAN",
+    "room": "216"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf III",
+    "time": "10.00-10.50",
+    "course": "Spor Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Çağrı GÖZEN",
+    "room": "215"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf I",
+    "time": "11.00-11.50",
+    "course": "Türk Dili II (UE)",
+    "teacher": "Öğr. Gör. Demet KILIÇKAN",
+    "room": "UE"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf II",
+    "time": "11.00-11.50",
+    "course": "Anayasa Hukuku",
+    "teacher": "Dr.Öğr.Üyesi Arda ERCAN",
+    "room": "216"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf IV",
+    "time": "11.00-11.50",
+    "course": "Refah Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Çağrı GÖZEN",
+    "room": "220"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf I",
+    "time": "12.00-12.50",
+    "course": "Türk Dili II (UE)",
+    "teacher": "Öğr. Gör. Demet KILIÇKAN",
+    "room": "UE"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf IV",
+    "time": "12.00-12.50",
+    "course": "Refah Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Mehmet Çağrı GÖZEN",
+    "room": "220"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf II",
+    "time": "15.00-15.50",
+    "course": "Tarım Ekonomisi",
+    "teacher": "Arş. Gör. Dr. Murat EMİKÖNEL",
+    "room": "218"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf IV",
+    "time": "15.00-15.50",
+    "course": "Bilgi Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Ali Rıza SOLMAZ",
+    "room": "220"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf II",
+    "time": "16.00-16.50",
+    "course": "Tarım Ekonomisi",
+    "teacher": "Arş. Gör. Dr. Murat EMİKÖNEL",
+    "room": "218"
+  },
+  {
+    "day": "Cuma",
+    "level": "Sınıf IV",
+    "time": "16.00-16.50",
+    "course": "Bilgi Ekonomisi",
+    "teacher": "Dr. Öğr. Üyesi Ali Rıza SOLMAZ",
+    "room": "220"
+  }
+]

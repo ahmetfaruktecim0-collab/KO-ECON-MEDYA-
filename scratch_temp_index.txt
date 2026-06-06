@@ -1,0 +1,781 @@
+<!DOCTYPE html><html lang="tr"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KOÜ Econ Medya - Gündem</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#004d27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+
+
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#8ee4a6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#9ef6b6",
+                    "outline-variant": "#bec9be",
+                    "background": "#f9f9ff",
+                    "on-surface-variant": "#3f4940",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#00522a",
+                    "inverse-surface": "#273140",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#d1d1d1",
+                    "on-primary-fixed": "#00210e",
+                    "secondary-fixed-dim": "#c5c6c8",
+                    "surface-container-highest": "#d9e3f7",
+                    "tertiary-fixed": "#e2e2e2",
+                    "secondary-container": "#dee0e2",
+                    "inverse-on-surface": "#ebf1ff",
+                    "on-surface": "#121c2a",
+                    "primary-container": "#006837",
+                    "inverse-primary": "#83d99c",
+                    "surface-tint": "#0b6d3b",
+                    "surface-container-high": "#dee9fd",
+                    "tertiary": "#414343",
+                    "surface-container-low": "#eff3ff",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-secondary-container": "#606365",
+                    "primary": "#004d27",
+                    "on-secondary-fixed-variant": "#444749",
+                    "surface-variant": "#d9e3f7",
+                    "surface-dim": "#d0daef",
+                    "surface": "#f9f9ff",
+                    "surface-container": "#e6eeff",
+                    "tertiary-container": "#585a5a",
+                    "secondary-fixed": "#e1e2e4",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "outline": "#6f7a70",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-background": "#121c2a",
+                    "secondary": "#5c5f60",
+                    "primary-fixed-dim": "#83d99c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "2xl": "1rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "gutter": "24px",
+                    "card-padding": "24px",
+                    "stack-gap": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "title-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"],
+                    "body-sm": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #F3F4F6; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="font-body-lg text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="flex min-h-screen">
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 bg-primary py-8 space-y-4 shadow-lg z-50">
+<div class="px-6 mb-8 flex flex-col items-start justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95" onclick="window.location.href='index.html'">
+    <img src="assets/logo-yeni.svg" alt="KOÜ Econ Medya" class="w-56 h-auto" style="filter: brightness(0) invert(1);">
+</div>
+<nav class="flex-grow flex flex-col">
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="index.html" >
+<span class="material-symbols-outlined" data-icon="newspaper">newspaper</span>
+<span class="font-title-md text-title-md">Gündem</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="duyurular.html" >
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-title-md text-title-md">Duyurular</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="hocalar.html" >
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-title-md text-title-md">Akademik Kadro</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="sosyal-kose.html" >
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-title-md text-title-md">Sosyal Köşe</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-title-md text-title-md">Oyun</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="iktisatcinin-kaleminden.html" >
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-title-md text-title-md">İktisatçının Kaleminden</span>
+</a>
+</nav>
+<div class="px-4 py-4 space-y-2 mt-auto">
+<button onclick="openJoinModal()" class="w-full bg-primary-fixed text-on-primary-fixed font-bold py-3 rounded-xl shadow-md active:scale-95 transition-transform">
+                    Bize Katıl
+                </button>
+<div class="flex flex-col pt-4 border-t border-on-primary/10">
+<a class="text-on-primary/70 hover:text-on-primary px-4 py-2 flex items-center space-x-3 text-sm" href="admin.html">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span class="">Yönetim</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary px-4 py-2 flex items-center space-x-3 text-sm" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span class="">Çıkış Yap</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow lg:ml-64 pb-20 lg:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 w-full z-40 bg-surface/80 backdrop-blur-md px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center">
+<div class="flex flex-col lg:hidden">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">KOÜ Econ</h2>
+</div>
+<div class="hidden lg:block">
+<h2 class="text-title-md font-title-md text-primary">Merhaba 👋</h2>
+<p class="text-sm text-on-surface-variant">Bugün ne öğrenmek istersin?</p>
+</div>
+<div class="flex items-center space-x-4">
+    <div id="live-time" class="text-primary font-bold text-lg mr-4">--:--</div>
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-full px-6 py-2 w-64 text-sm focus:ring-2 focus:ring-primary transition-all" placeholder="Ara..." type="text">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+</div>
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border-2 border-primary-fixed">
+<img alt="Ahmet Yılmaz" class="w-full h-full object-cover" src="https://ui-avatars.com/api/?name=Ogrenci&background=006837&color=fff">
+</div>
+</div>
+</header>
+<!-- Dashboard Grid -->
+<div class="px-margin-mobile md:px-margin-desktop py-6">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Hero Section: Article -->
+<section class="col-span-12 lg:col-span-8">
+
+<!-- Announcement Banner for Important Broadcasts -->
+<div id="announcement-banner" class="hidden relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer mb-8 bg-error/10 border-l-4 border-error p-6">
+    <span class="bg-error text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 uppercase tracking-widest font-label-caps block">ACİL DUYURU</span>
+    <h1 id="announcement-title" class="font-headline-lg text-headline-lg text-error max-w-2xl mb-2 leading-tight">Yükleniyor...</h1>
+    <p id="announcement-desc" class="text-error/80 max-w-lg">Lütfen bekleyin...</p>
+</div>
+
+<!-- Dynamic Hero Card from 'news' collection -->
+<div id="hero-section" class="relative rounded-2xl overflow-hidden h-[320px] lg:h-[400px] shadow-lg group cursor-pointer">
+    <!-- Default hero (shown while loading or if no news exists) -->
+    <img id="hero-img" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM4tdBGiQtVpugEzAip_KwDL2yWk5bx26rBOCwJhTyJfdkFjZZVKzkygQJjGTw810diZd6J5zzZnWb49RNZouAp14iEph-QcoVftTKpcsJd61KbqPiedeK6TROM5erXiTVTohSpROspiVeKGPVmi2V0wA6Q85FBOPqN3j9Hpu74B986w63FWgpcxFuv4pKC6yFK6hS8lkfNxNBFQeixMILDdIEwUDPp2IIaSGhpYsPF5nHA9tieoafQMSvCCZ-vju9o0jbfUYSmlw" alt="Ana haber görseli">
+    <div class="absolute inset-0 hero-gradient flex flex-col justify-end p-8 text-white">
+        <span id="hero-category" class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-xs font-bold w-fit mb-4 uppercase tracking-widest font-label-caps">AKADEMİK</span>
+        <h1 id="hero-title" class="font-headline-lg text-headline-lg lg:text-display-lg max-w-2xl mb-4 leading-tight line-clamp-2">Gündem Yükleniyor...</h1>
+        <p id="hero-desc" class="text-white/80 max-w-lg mb-6 hidden md:block line-clamp-1">Lütfen bekleyin...</p>
+        <button onclick="openNewsModal()" class="flex items-center space-x-2 bg-white text-primary font-bold px-6 py-3 rounded-lg w-fit hover:bg-primary-fixed transition-colors active:scale-95">
+            <span>Devamını Oku</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+    </div>
+</div>
+<!-- İktisatçının Kaleminden Section -->
+<div class="mt-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">İktisatçının Kaleminden</h3>
+<a class="text-primary font-bold text-sm hover:underline" href="#">Tümünü Gör</a>
+</div>
+<div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="col-span-full p-8 text-center text-on-surface-variant/50">İçerikler yükleniyor...</div>
+</div>
+</div>
+<section class="mt-12"><div class="flex justify-between items-center mb-6"><h3 class="font-headline-lg text-headline-lg text-on-surface">Akademik Akış</h3><a class="text-primary font-bold text-sm hover:underline" href="#">Tümünü Gör</a></div><div class="bg-white rounded-2xl shadow-md overflow-hidden border border-transparent"><div class="divide-y divide-outline-variant/10">
+
+<div id="schedule-current-block" class="p-card-padding hover:bg-surface-container transition-colors cursor-pointer flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary relative">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<h5 id="schedule-current-name" class="text-sm font-bold text-on-surface">Makroekonomi II</h5>
+<span class="px-1.5 py-0.5 rounded-full bg-primary text-[10px] text-white font-bold tracking-tighter">CANLI</span>
+</div>
+<p id="schedule-current-detail" class="text-xs text-secondary italic">09:00 - 10:30 • Amfi 3 • Prof. Dr. Selçuk Koç</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary">Şu Anki Ders</span>
+</div>
+
+<div id="schedule-next-block" class="p-card-padding hover:bg-surface-container transition-colors cursor-pointer flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div>
+<h5 id="schedule-next-name" class="text-sm font-bold text-on-surface">Ekonometri</h5>
+<p id="schedule-next-detail" class="text-xs text-secondary italic">10:45 - 12:15 • Lab 2 • Doç. Dr. Selim Kaya</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold text-secondary">Sıradaki Ders</p>
+</div>
+</div>
+
+</div></div></section>
+</section>
+<!-- Sidebar Content -->
+<aside class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Duyurular Section -->
+<div class="bg-white rounded-2xl p-card-padding shadow-md">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-md text-title-md text-on-surface">Duyurular</h3>
+<a class="text-primary font-bold text-xs" href="#">Tümünü Gör</a>
+</div>
+<div class="space-y-4" id="announcements-list">
+    <div class="p-4 text-center text-on-surface-variant/50 text-xs">Yükleniyor...</div>
+</div>
+</div>
+
+<!-- Haftanın Hocası -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-md" id="haftanin-hocasi-card">
+    <div class="bg-primary p-4 flex items-center justify-between">
+        <h3 class="text-white font-title-md text-sm">Haftanın Hocası</h3>
+        <span class="material-symbols-outlined text-white/50" style="font-variation-settings:'FILL' 1">stars</span>
+    </div>
+    <div id="voting-container" class="p-4">
+        <!-- JS ile doldurulacak -->
+        <div class="flex items-center justify-center py-8">
+            <span class="material-symbols-outlined animate-spin text-primary text-4xl">progress_activity</span>
+        </div>
+    </div>
+</div>
+
+<!-- Yaklaşan Etkinlikler -->
+<div class="bg-white rounded-2xl p-card-padding shadow-md">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="font-title-md text-title-md text-on-surface">Etkinlikler</h3>
+        <a class="text-primary font-bold text-xs" href="#">Tümünü Gör</a>
+    </div>
+    <div class="space-y-6" id="events-list">
+        <div class="p-4 text-center text-on-surface-variant/50 text-xs">Yükleniyor...</div>
+    </div>
+</div>
+
+
+<script type="module">
+    import { db, collection, query, orderBy, onSnapshot, limit, addDoc, serverTimestamp } from './firebase-config.js';
+
+    // Fetch Announcements
+    const qA = query(collection(db, 'announcements'), orderBy('createdAt', 'desc'), limit(3));
+    onSnapshot(qA, (snapshot) => {
+        const container = document.getElementById('announcements-list');
+        container.innerHTML = '';
+        if(snapshot.empty) {
+            container.innerHTML = '<div class="p-4 text-center text-on-surface-variant/50 text-xs">Duyuru yok.</div>';
+            return;
+        }
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            
+            let timeStr = 'Yeni';
+            if(data.createdAt) {
+                const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else timeStr = Math.floor(diff/60) + ' saat önce';
+            }
+
+            container.innerHTML += `
+            <div class="flex items-start space-x-4 p-3 rounded-xl hover:bg-surface-container transition-colors cursor-pointer group" onclick="window.location.href='duyurular.html'">
+                <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary">
+                    <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div>
+                    <h5 class="text-sm font-bold text-on-surface group-hover:text-primary transition-colors">${data.title}</h5>
+                    <p class="text-xs text-secondary mb-1 line-clamp-1">${data.content}</p>
+                    <span class="text-[10px] text-secondary/60">${timeStr}</span>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // Fetch Events
+    const qE = query(collection(db, 'events'), orderBy('createdAt', 'desc'), limit(3));
+    onSnapshot(qE, (snapshot) => {
+        const container = document.getElementById('events-list');
+        container.innerHTML = '';
+        if(snapshot.empty) {
+            container.innerHTML = '<div class="p-4 text-center text-on-surface-variant/50 text-xs">Etkinlik yok.</div>';
+            return;
+        }
+
+        const monthNames = ["OCA", "ŞUB", "MAR", "NİS", "MAY", "HAZ", "TEM", "AĞU", "EYL", "EKİ", "KAS", "ARA"];
+
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            
+            let day = "--";
+            let month = "---";
+            if(data.date) {
+                const dateObj = new Date(data.date);
+                day = dateObj.getDate();
+                month = monthNames[dateObj.getMonth()];
+            }
+
+            container.innerHTML += `
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col items-center justify-center w-12 h-14 bg-surface-container rounded-lg border-b-4 border-primary">
+                    <span class="text-[10px] text-secondary font-bold uppercase">${month}</span>
+                    <span class="text-lg font-bold text-primary">${day}</span>
+                </div>
+                <div>
+                    <h5 class="text-sm font-bold text-on-surface">${data.title}</h5>
+                    <p class="text-xs text-on-surface-variant flex items-center">
+                        <span class="material-symbols-outlined text-[14px] mr-1">location_on</span>
+                        ${data.location || 'Bilinmiyor'}
+                    </p>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // Fetch Posts
+    const qP = query(collection(db, 'posts'), orderBy('createdAt', 'desc'), limit(2));
+    onSnapshot(qP, (snapshot) => {
+        const container = document.getElementById('posts-container');
+        container.innerHTML = '';
+        if(snapshot.empty) {
+            container.innerHTML = '<div class="col-span-full p-8 text-center text-on-surface-variant/50">İçerik bulunamadı.</div>';
+            return;
+        }
+        
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            
+            container.innerHTML += `
+            <article onclick="window.location.href='iktisatcinin-kaleminden.html'" class="bg-white rounded-2xl p-card-padding shadow-md hover:shadow-lg transition-all border border-transparent hover:border-primary/10 group cursor-pointer flex flex-col h-full">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] font-bold text-primary uppercase tracking-widest px-2 py-1 bg-primary/10 rounded-full">${data.category || 'YAZI'}</span>
+                    </div>
+                    <h4 class="font-title-md text-title-md mb-2 group-hover:text-primary transition-colors line-clamp-2">${data.title}</h4>
+                    <p class="text-body-sm text-secondary mb-4 line-clamp-3">${data.content}</p>
+                    <a href="iktisatcinin-kaleminden.html" class="text-primary font-bold text-xs flex items-center space-x-1 hover:underline mb-4">
+                        <span>Devamını Oku</span><span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                    <div class="mt-auto flex items-center justify-between pt-4 border-t border-outline-variant/10">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://ui-avatars.com/api/?name=${encodeURIComponent(data.authorName || 'Admin')}&background=006837&color=fff">
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs font-bold text-on-surface">${data.authorName || 'Admin'}</span>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-primary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                    </div>
+                </div>
+            </article>
+            `;
+        });
+    });
+
+    // Fetch latest News for Hero section and rotate every 15 seconds
+    const DEFAULT_HERO_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBM4tdBGiQtVpugEzAip_KwDL2yWk5bx26rBOCwJhTyJfdkFjZZVKzkygQJjGTw810diZd6J5zzZnWb49RNZouAp14iEph-QcoVftTKpcsJd61KbqPiedeK6TROM5erXiTVTohSpROspiVeKGPVmi2V0wA6Q85FBOPqN3j9Hpu74B986w63FWgpcxFuv4pKC6yFK6hS8lkfNxNBFQeixMILDdIEwUDPp2IIaSGhpYsPF5nHA9tieoafQMSvCCZ-vju9o0jbfUYSmlw';
+    let heroInterval = null;
+    let heroDocs = [];
+    let currentHeroIndex = 0;
+
+    const renderHero = (index) => {
+        const titleEl   = document.getElementById('hero-title');
+        const descEl    = document.getElementById('hero-desc');
+        const catEl     = document.getElementById('hero-category');
+        const imgEl     = document.getElementById('hero-img');
+        const contentContainer = titleEl?.parentElement;
+        
+        if (heroDocs.length === 0) {
+            if (titleEl) titleEl.textContent = 'KOÜ Econ Medya\'ya Hoş Geldiniz';
+            if (descEl)  descEl.textContent = 'Güncel haberler ve etkinlikler için takipte kalın.';
+            if (catEl)   catEl.textContent = 'AKADEMİK';
+            if (imgEl)   imgEl.src = DEFAULT_HERO_IMG;
+            return;
+        }
+
+        const data = heroDocs[index].data();
+        
+        if (contentContainer) contentContainer.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+        
+        setTimeout(() => {
+            if (titleEl) titleEl.textContent = data.title || '';
+            if (descEl)  { descEl.textContent = data.desc || ''; descEl.classList.remove('hidden'); }
+            if (catEl)   catEl.textContent = data.category || 'HABER';
+            if (imgEl)   imgEl.src = data.imageUrl || DEFAULT_HERO_IMG;
+            if (contentContainer) contentContainer.classList.remove('opacity-0');
+        }, 300);
+    };
+
+    const qN = query(collection(db, 'news'), orderBy('createdAt', 'desc'), limit(5));
+    onSnapshot(qN, (snapshot) => {
+        heroDocs = snapshot.docs;
+        currentHeroIndex = 0;
+        
+        renderHero(currentHeroIndex);
+        
+        if (heroInterval) clearInterval(heroInterval);
+        
+        if (heroDocs.length > 1) {
+            heroInterval = setInterval(() => {
+                currentHeroIndex = (currentHeroIndex + 1) % heroDocs.length;
+                renderHero(currentHeroIndex);
+            }, 15000);
+        }
+    });
+    // Join Modal Logic
+    window.openJoinModal = function() {
+        const modal = document.getElementById('join-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('join-modal-content').classList.remove('scale-95');
+        }, 10);
+    };
+
+    window.closeJoinModal = function() {
+        const modal = document.getElementById('join-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('join-modal-content').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            
+            // Clear fields
+            document.getElementById('join-name').value = '';
+            document.getElementById('join-about').value = '';
+            document.getElementById('join-skill').value = '5';
+        }, 300);
+    };
+
+    window.submitJoinForm = async function(btn) {
+        const name = document.getElementById('join-name').value.trim();
+        const about = document.getElementById('join-about').value.trim();
+        const skill = document.getElementById('join-skill').value;
+
+        if (!name || !about) {
+            alert('Lütfen İsim Soyisim ve Kendinden Bahset alanlarını doldurun.');
+            return;
+        }
+
+        const oldText = btn.innerText;
+        btn.disabled = true;
+        btn.innerText = 'Gönderiliyor...';
+
+        try {
+            await addDoc(collection(db, 'applications'), {
+                name: name,
+                about: about,
+                designSkillLevel: parseInt(skill),
+                status: 'pending',
+                createdAt: serverTimestamp()
+            });
+            alert('Başvurunuz başarıyla alındı! Ekibimiz sizinle iletişime geçecektir.');
+            window.closeJoinModal();
+        } catch (e) {
+            alert('Hata: ' + e.message);
+        } finally {
+            btn.innerText = oldText;
+            btn.disabled = false;
+        }
+    };
+
+    // News Details Modal Logic
+    window.openNewsModal = function() {
+        if (!heroDocs || heroDocs.length === 0) return;
+        
+        const data = heroDocs[currentHeroIndex].data();
+        
+        document.getElementById('news-modal-title').textContent = data.title || 'Haber Detayı';
+        document.getElementById('news-modal-category').textContent = data.category || 'HABER';
+        document.getElementById('news-modal-date').textContent = data.createdAt ? new Date(data.createdAt.toMillis()).toLocaleDateString('tr-TR', {day: 'numeric', month: 'long', year: 'numeric'}) : 'Yeni';
+        
+        // Show full content if exists, otherwise fallback to description
+        const contentHtml = data.content ? data.content.replace(/\n/g, '<br>') : (data.desc ? data.desc.replace(/\n/g, '<br>') : 'Detay bulunamadı.');
+        document.getElementById('news-modal-body').innerHTML = contentHtml;
+        
+        if (data.imageUrl) {
+            document.getElementById('news-modal-image').src = data.imageUrl;
+            document.getElementById('news-modal-image-container').classList.remove('hidden');
+        } else {
+            document.getElementById('news-modal-image-container').classList.add('hidden');
+        }
+
+        const modal = document.getElementById('news-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('news-modal-content').classList.remove('scale-95');
+        }, 10);
+    };
+
+    window.closeNewsModal = function() {
+        const modal = document.getElementById('news-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('news-modal-content').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    };
+</script>
+
+<!-- Join Modal HTML -->
+<div id="join-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 transform scale-95 transition-transform duration-300 mx-4" id="join-modal-content">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-on-surface">Econ Medya Ekibine Katıl</h3>
+            <button onclick="closeJoinModal()" class="text-on-surface-variant hover:text-error transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="space-y-4">
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">İsim Soyisim</label>
+                <input id="join-name" type="text" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Kendinden Bahset</label>
+                <textarea id="join-about" rows="3" class="w-full bg-surface-dim/30 border border-outline-variant/10 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Hobilerin, ilgi alanların, projelerin..."></textarea>
+            </div>
+            <div>
+                <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Canva / Adobe Photoshop Bilgisi</label>
+                <input id="join-skill" type="range" min="1" max="10" value="5" class="w-full accent-primary h-2 bg-surface-container rounded-lg appearance-none cursor-pointer">
+                <div class="flex justify-between text-[10px] text-on-surface-variant/60 mt-1 font-bold">
+                    <span>Başlangıç</span>
+                    <span>İleri Seviye</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 mt-8 pt-4 border-t border-outline-variant/10">
+            <button onclick="closeJoinModal()" class="px-5 py-2 text-sm font-bold text-on-surface-variant hover:bg-surface-dim rounded-xl transition-colors">İptal</button>
+            <button onclick="submitJoinForm(this)" class="px-5 py-2 text-sm font-bold bg-primary text-white hover:shadow-lg hover:shadow-primary/20 rounded-xl transition-all">Başvuruyu Gönder</button>
+        </div>
+    </div>
+</div>
+
+<!-- News Details Modal HTML -->
+<div id="news-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col transform scale-95 transition-transform duration-300 mx-4 overflow-hidden" id="news-modal-content">
+        <!-- Header -->
+        <div class="flex justify-between items-center p-6 border-b border-outline-variant/10 sticky top-0 bg-white z-10">
+            <div class="flex flex-col">
+                <span id="news-modal-category" class="text-[10px] font-bold tracking-widest text-primary mb-1">KATEGORİ</span>
+                <span id="news-modal-date" class="text-xs text-on-surface-variant">Tarih</span>
+            </div>
+            <button onclick="closeNewsModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+        
+        <!-- Scrollable Body -->
+        <div class="p-6 overflow-y-auto custom-scrollbar">
+            <h2 id="news-modal-title" class="text-2xl lg:text-3xl font-display-lg font-bold text-on-surface mb-6 leading-tight">Haber Başlığı</h2>
+            
+            <div id="news-modal-image-container" class="mb-6 rounded-xl overflow-hidden hidden">
+                <img id="news-modal-image" class="w-full h-auto object-cover max-h-80" src="" alt="Haber Görseli">
+            </div>
+            
+            <div id="news-modal-body" class="text-body-lg text-on-surface-variant leading-relaxed space-y-4">
+                Haber metni burada yer alacak...
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.1); border-radius: 10px; }
+</style>
+
+<script src="professors.js"></script>
+<script src="app.js"></script>
+
+
+
+
+
+
+
+
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant/20 flex justify-around items-center pb-[env(safe-area-inset-bottom,16px)] pt-2 px-1 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+    <a href="index.html" class="flex flex-col items-center p-2 text-primary min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-index" style="font-variation-settings: 'FILL' 1;">newspaper</span>
+        <span class="text-[9px] font-bold mt-1">Gündem</span>
+    </a>
+    <a href="duyurular.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-duyurular">campaign</span>
+        <span class="text-[9px] font-bold mt-1">Duyurular</span>
+    </a>
+    <a href="sosyal-kose.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-sosyal-kose">group</span>
+        <span class="text-[9px] font-bold mt-1">Sosyal</span>
+    </a>
+    <a href="hocalar.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-hocalar">school</span>
+        <span class="text-[9px] font-bold mt-1">Kadro</span>
+    </a>
+    <a href="iktisatcinin-kaleminden.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-iktisatcinin-kaleminden">menu_book</span>
+        <span class="text-[9px] font-bold mt-1 text-center leading-tight">Yazılar</span>
+    </a>
+</nav>
+<style>
+@media (max-width: 1024px) { body { padding-bottom: 80px; } }
+/* Hide scrollbar for nav */
+nav.lg\:hidden::-webkit-scrollbar { display: none; }
+nav.lg\:hidden { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<!-- Survey Modal (ESK� S�STEM - A�ILIR L�STE) -->
+<div id="survey-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="bg-surface rounded-3xl p-8 w-full max-w-md shadow-2xl relative">
+        <button onclick="document.getElementById('survey-modal').classList.add('hidden')" class="absolute top-4 right-4 text-outline hover:text-primary transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-orange-500/20 text-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="material-symbols-outlined text-3xl">how_to_vote</span>
+            </div>
+            <h2 class="text-2xl font-bold text-primary">Haftan�n Hocas� Anketi</h2>
+            <p class="text-sm text-on-surface-variant mt-2">En �ok ilham veren hocan�z� se�in. (�simler asla yay�nlanmaz, sadece say�m i�indir).</p>
+        </div>
+
+        <form id="vote-form" class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-on-surface">Ad Soyad (G�venlik ��in)</label>
+                <input type="text" id="voter-name" required class="w-full bg-surface-container-low border border-outline-variant/50 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-on-surface transition-all" placeholder="Ahmet Y�lmaz">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-on-surface">Hoca Se�iniz</label>
+                <select id="voter-selection" required class="w-full bg-surface-container-low border border-outline-variant/50 rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-on-surface transition-all appearance-none">
+                    <option value="" disabled selected>Listeden se�in...</option>
+                </select>
+            </div>
+            <button type="submit" id="vote-submit-btn" class="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-3 rounded-xl shadow-lg active:scale-95 transition-all">Oyumu G�nder</button>
+        </form>
+        <div class="mt-6 border-t border-outline-variant/20 pt-6">
+            <h3 class="text-lg font-bold text-center mb-4">Mevcut Durum (S�ralama)</h3>
+            <div id="vote-results" class="space-y-3 max-h-48 overflow-y-auto custom-scrollbar pr-2">
+                <div class="text-center text-sm text-outline animate-pulse">Sonu�lar y�kleniyor...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="professors.js"></script>
+<script type="module">
+import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+
+    const select = document.getElementById('voter-selection');
+    if(typeof professorsData !== 'undefined') {
+        professorsData.forEach(prof => {
+            const option = document.createElement('option');
+            option.value = prof.name;
+            option.textContent = prof.title + " " + prof.name;
+            select.appendChild(option);
+        });
+    }
+
+    const voteForm = document.getElementById('vote-form');
+    const submitBtn = document.getElementById('vote-submit-btn');
+
+    voteForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const voterName = document.getElementById('voter-name').value.trim();
+        const professorName = document.getElementById('voter-selection').value;
+        
+        if(!voterName || !professorName) return;
+        
+        if(localStorage.getItem('has_voted_this_week')) {
+            alert('Bu hafta zaten oy kulland�n�z! Sadece bir kez oy verebilirsiniz.');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> G�nderiliyor...';
+
+        try {
+            await addDoc(collection(db, 'haftanin_hocasi_oylari'), {
+                voterName: voterName,
+                professorName: professorName,
+                timestamp: serverTimestamp()
+            });
+            localStorage.setItem('has_voted_this_week', 'true');
+            alert('Oyunuz ba�ar�yla kaydedildi! Te�ekk�r ederiz.');
+            document.getElementById('survey-modal').classList.add('hidden');
+            
+            // Native card butonu devre disi birakmak icin:
+            if(window.initVoting) window.initVoting(); 
+        } catch(error) {
+            console.error(error);
+            alert('Hata olu�tu. L�tfen tekrar deneyin.');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Oyumu G�nder';
+        }
+        });
+</script>
+</body></html>

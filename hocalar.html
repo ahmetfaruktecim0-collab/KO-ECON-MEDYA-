@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Akademik Kadro - KOÜ Econ Medya</title>
+<link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg"><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#004d27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-secondary-container": "#606365",
+                        "error-container": "#ffdad6",
+                        "outline": "#6f7a70",
+                        "tertiary": "#414343",
+                        "background": "#f9f9ff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary": "#5c5f60",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-fixed-dim": "#c5c6c8",
+                        "on-surface-variant": "#3f4940",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-variant": "#d9e3f7",
+                        "on-primary-fixed-variant": "#00522a",
+                        "surface": "#f9f9ff",
+                        "outline-variant": "#bec9be",
+                        "surface-container": "#e6eeff",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#eff3ff",
+                        "surface-container-high": "#dee9fd",
+                        "on-primary-container": "#8ee4a6",
+                        "inverse-surface": "#273140",
+                        "surface-tint": "#0b6d3b",
+                        "on-surface": "#121c2a",
+                        "primary-container": "#006837",
+                        "inverse-on-surface": "#ebf1ff",
+                        "primary": "#004d27",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-background": "#121c2a",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#d9e3f7",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#585a5a",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#83d99c",
+                        "on-tertiary-container": "#d1d1d1",
+                        "secondary-container": "#dee0e2",
+                        "inverse-primary": "#83d99c",
+                        "on-primary-fixed": "#00210e",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-dim": "#d0daef",
+                        "secondary-fixed": "#e1e2e4",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#9ef6b6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "card-padding": "24px",
+                        "stack-gap": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-md": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1 !important;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #006837;
+            border-radius: 10px;
+        }
+    </style>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCSkBGBYYgmTWtnZh61jD2zDh2Yh_WOCE",
+    authDomain: "kousbf-tv.firebaseapp.com",
+    projectId: "kousbf-tv",
+    storageBucket: "kousbf-tv.firebasestorage.app",
+    messagingSenderId: "904837402529",
+    appId: "1:904837402529:web:247a597060beac4c0405e0"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+    <script defer src="chat-widget.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-lg overflow-x-hidden min-h-screen flex">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 bg-primary dark:bg-primary-container py-8 space-y-4 shadow-lg z-50">
+<div class="px-6 mb-8 flex flex-col items-start justify-center cursor-pointer transition-transform hover:scale-105 active:scale-95" onclick="window.location.href='index.html'">
+    <img src="assets/logo-yeni.svg" alt="KOÜ Econ Medya" class="w-56 h-auto" style="filter: brightness(0) invert(1);">
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="index.html" >
+<span class="material-symbols-outlined" data-icon="newspaper">newspaper</span>
+<span class="font-title-md text-title-md">Gündem</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="duyurular.html" >
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-title-md text-title-md">Duyurular</span>
+</a>
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="hocalar.html" >
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-title-md text-title-md">Akademik Kadro</span>
+</a>
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="sosyal-kose.html" >
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-title-md text-title-md">Sosyal Köşe</span>
+</a>
+<a class="flex items-center text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3 hover:bg-on-primary/5 transition-all" href="oyun.html">
+<span class="material-symbols-outlined mr-3" data-icon="sports_esports">sports_esports</span>
+<span class="font-title-md text-title-md">Oyun</span>
+</a>
+
+
+<a class="text-on-primary/70 hover:text-on-primary hover:bg-on-primary/5 mx-2 px-4 py-3 flex items-center space-x-3 transition-all" href="iktisatcinin-kaleminden.html" >
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-title-md text-title-md">Bir İktisatçının Günlüğü</span>
+</a>
+
+
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-on-primary-container text-primary font-bold py-3 rounded-xl hover:opacity-90 transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span>Bize Katıl</span>
+</button>
+</div>
+<div class="border-t border-on-primary/10 pt-4 space-y-1">
+<a class="flex items-center text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="font-title-md text-title-md">Ayarlar</span>
+</a>
+<a class="flex items-center text-on-primary/70 hover:text-on-primary mx-2 px-4 py-3" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span class="font-title-md text-title-md">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<div class="flex-1 lg:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background flex justify-between items-center px-6 md:px-margin-desktop py-4 w-full sticky top-0 z-40">
+<div class="flex items-center space-x-4">
+<button class="lg:hidden p-2 text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface-variant">Akademik Birim</span>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold">Kadro Rehberi</h2>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/20 focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input id="prof-search-input" class="bg-transparent border-none focus:ring-0 text-sm ml-2 w-64" placeholder="Hoca veya anahtar kelime ara..." type="text"/>
+</div>
+<div class="flex items-center space-x-3">
+<button class="p-2 text-on-surface-variant hover:text-primary relative scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<img alt="User profile photo of Ahmet Yılmaz" class="w-10 h-10 rounded-full border-2 border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSh3qKsUfAo3NLpnH9J-vXEydgyUEZypbHxrd3rQ0jmt9dPA3G_PVXSKfaFgZMqq-QcOXU6Z0sp77jbdDizwDdQV9aNEOYHj5N-7yeJHacx1AiWNs4kCxS3zDx5pfRJFj7bsEhERmOvz5M01Y5FRdkzKtdTgCgAaW1Qub5urlELk8C9XdkL3VhFUmFLpZD4FMHJBLPXKcdZb-3UlxdT8PkPHHh03CvBwyOfUSBrKJmws3vffAfbYNXaaE1WOYHGKmVH5-5FpghWxk"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-6 md:p-margin-desktop space-y-gutter overflow-y-auto custom-scrollbar bg-[#F3F4F6]">
+<!-- Filters & Search Section -->
+<section class="bg-white rounded-2xl p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.04)] flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-3" id="title-filters">
+<button class="title-filter-btn px-5 py-2 rounded-full bg-primary text-white font-bold text-sm transition-all hover:shadow-lg" data-title="Tümü">Hepsi</button>
+<button class="title-filter-btn px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-semibold text-sm hover:border-primary hover:text-primary transition-all" data-title="Prof. Dr.">Prof. Dr.</button>
+<button class="title-filter-btn px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-semibold text-sm hover:border-primary hover:text-primary transition-all" data-title="Doç. Dr.">Doç. Dr.</button>
+<button class="title-filter-btn px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-semibold text-sm hover:border-primary hover:text-primary transition-all" data-title="Dr. Öğr. Üyesi">Dr. Öğr. Üyesi</button>
+<button class="title-filter-btn px-5 py-2 rounded-full border border-outline-variant text-on-surface-variant font-semibold text-sm hover:border-primary hover:text-primary transition-all" data-title="Arş. Gör.">Arş. Gör.</button>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-body-sm text-outline font-semibold uppercase tracking-wider">Sırala:</span>
+<select id="prof-sort-select" class="bg-surface-container-low border-none rounded-lg text-sm font-semibold text-on-surface-variant focus:ring-1 focus:ring-primary">
+<option value="name">A'dan Z'ye</option>
+<option value="title">Ünvan Derecesi</option>
+<option value="dept">Departman</option>
+</select>
+</div>
+</section>
+<!-- Faculty Grid -->
+<section id="professors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Dynamic Content -->
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-background border-t border-outline-variant/10 flex flex-wrap justify-between items-center px-6 md:px-margin-desktop py-6 w-full">
+<div class="flex items-center space-x-4 mb-4 md:mb-0">
+<span class="text-body-sm text-secondary dark:text-secondary-fixed">© 2024 KOÜ Econ Medya</span>
+<div class="h-4 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<div class="flex space-x-4">
+<a class="text-body-sm text-secondary hover:text-primary transition-all" href="#">Hakkımızda</a>
+<a class="text-body-sm text-secondary hover:text-primary transition-all" href="#">Gizlilik Politikası</a>
+<a class="text-body-sm text-secondary hover:text-primary transition-all" href="#">İletişim</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-low text-secondary hover:text-primary hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</a>
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-secondary opacity-60 cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-secondary opacity-60 cursor-pointer" data-icon="rss_feed">rss_feed</span>
+</div>
+</div>
+</footer>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface dark:bg-surface-container z-50 rounded-t-xl shadow-xl border-t border-outline-variant/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary" href="index.html" >
+<span class="material-symbols-outlined group-hover:scale-110 transition-all" data-icon="home">home</span>
+<span class="font-label-caps text-[10px] uppercase">Gündem</span>
+</a>
+<a class="bg-on-primary/10 text-on-primary rounded-lg mx-2 px-4 py-3 flex items-center space-x-3 transition-all translate-x-1" href="hocalar.html" >
+<span class="material-symbols-outlined" data-icon="school" >school</span>
+<span class="font-label-caps text-[10px] uppercase">Akademik</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-all" data-icon="movie">movie</span>
+<span class="font-label-caps text-[10px] uppercase">Medya</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-all" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-caps text-[10px] uppercase">Takvim</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-all" data-icon="person">person</span>
+<span class="font-label-caps text-[10px] uppercase">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic for buttons
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+            });
+            el.addEventListener('mouseup', () => {
+                el.classList.remove('scale-95');
+            });
+        });
+
+        // Search highlight interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput?.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20', 'bg-white');
+        });
+        searchInput?.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20', 'bg-white');
+        });
+    </script>
+
+<script src="professors.js"></script>
+<script src="app.js"></script>
+
+
+
+
+
+
+
+
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant/20 flex justify-around items-center pb-[env(safe-area-inset-bottom,16px)] pt-2 px-1 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] overflow-x-auto">
+    <a href="index.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-index">newspaper</span>
+        <span class="text-[9px] font-bold mt-1">Gündem</span>
+    </a>
+    <a href="duyurular.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-duyurular">campaign</span>
+        <span class="text-[9px] font-bold mt-1">Duyurular</span>
+    </a>
+    <a href="sosyal-kose.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-sosyal-kose">group</span>
+        <span class="text-[9px] font-bold mt-1">Sosyal</span>
+    </a>
+    <a href="hocalar.html" class="flex flex-col items-center p-2 text-primary min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-hocalar" style="font-variation-settings: 'FILL' 1;">school</span>
+        <span class="text-[9px] font-bold mt-1">Kadro</span>
+    </a>
+    <a href="iktisatcinin-kaleminden.html" class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors min-w-[60px]">
+        <span class="material-symbols-outlined" id="nav-icon-iktisatcinin-kaleminden">menu_book</span>
+        <span class="text-[9px] font-bold mt-1 text-center leading-tight">Yazılar</span>
+    </a>
+</nav>
+<style>
+@media (max-width: 1024px) { body { padding-bottom: 80px; } }
+/* Hide scrollbar for nav */
+nav.lg\:hidden::-webkit-scrollbar { display: none; }
+nav.lg\:hidden { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+
+
+
+</body></html>
