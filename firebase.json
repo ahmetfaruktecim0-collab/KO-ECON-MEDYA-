@@ -5,15 +5,8 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "YAYINLA.bat",
-      "DESIGN.md",
-      "scratch/**"
+      "**/*.apk",
+      "**/*.bat"
     ]
-  },
-  "firestore": {
-    "rules": "firestore.rules"
-  },
-  "storage": {
-    "rules": "storage.rules"
   }
 }
