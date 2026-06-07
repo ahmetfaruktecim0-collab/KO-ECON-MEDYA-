@@ -229,77 +229,97 @@
 </header>
 <!-- Canvas -->
 
-<main class="flex-1 p-4 md:p-6 lg:ml-64 space-y-gutter overflow-y-auto custom-scrollbar bg-[#F3F4F6] relative h-screen">
+<main class="flex-1 p-4 md:p-6 lg:ml-64 space-y-gutter overflow-y-auto custom-scrollbar bg-[#F3F4F6] relative min-h-screen pb-24">
     <!-- Header -->
     <header class="flex justify-between items-center mb-6">
         <div>
-            <h1 class="text-title-lg font-bold text-on-surface">Statecraft: Türkiye</h1>
-            <div class="mt-2 flex gap-2">
-                <a href="merkez-bankasi.html" class="inline-flex items-center gap-1 bg-primary/10 text-primary font-bold text-xs px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors border border-primary/20">
-                    <span class="material-symbols-outlined text-[14px]">account_balance</span>
-                    YENİ: Merkez Bankası Benim!
-                </a>
-            </div>
-            <p class="text-body-sm text-secondary">Siyasi Strateji ve Ynetim Simlasyonu</p>
+            <h1 class="text-3xl font-display-lg font-bold text-on-surface">Econ Oyun Merkezi</h1>
+            <p class="text-body-sm text-secondary">Siyasi Strateji ve Ekonomi Simülasyonları</p>
         </div>
-        <button onclick="toggleFullscreen()" class="p-2 bg-surface-container rounded-lg text-on-surface hover:bg-primary hover:text-white transition-colors border border-outline-variant/20 shadow-sm" title="Tam Ekran">
-            <span class="material-symbols-outlined" id="fs-icon">fullscreen</span>
-        </button>
     </header>
 
-    <!-- Game Container -->
-    <div class="w-full bg-surface rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20 relative" style="height: calc(100vh - 140px);">
-        <!-- Launcher Overlay -->
-        <div id="game-launcher" class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-surface-container-high to-surface z-10 transition-opacity duration-500">
-            <div class="w-32 h-32 bg-primary rounded-3xl flex items-center justify-center shadow-lg mb-6 transform hover:scale-105 transition-transform duration-300">
-                <span class="material-symbols-outlined text-white text-6xl" style="font-variation-settings: 'FILL' 1;">public</span>
+    <!-- Game Hub Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="game-hub-container">
+        
+        <!-- Merkez Bankası Benim -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-primary/10 group flex flex-col">
+            <div class="h-48 bg-gradient-to-br from-primary to-primary-container relative flex items-center justify-center overflow-hidden">
+                <span class="material-symbols-outlined text-white/10 text-[160px] absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform duration-700">account_balance</span>
+                <span class="material-symbols-outlined text-white text-6xl relative z-10 drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+                <span class="absolute top-4 left-4 bg-error text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest animate-pulse">YENİ OYUN</span>
             </div>
-            <h2 class="text-headline-lg font-bold text-on-surface mb-2 text-center">Statecraft: Türkiye</h2>
-            <p class="text-body-lg text-on-surface-variant mb-8 max-w-md text-center">Türkiye'nin stratejik kararlarını ver, ekonomiyi yönet ve ülkenin kaderini belirle.</p>
-            <button onclick="startGame()" class="bg-primary hover:bg-primary-fixed text-white font-bold py-4 px-12 rounded-full shadow-md transition-all hover:shadow-lg active:scale-95 flex items-center gap-3 text-lg">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-                Oyuna Başla
-            </button>
+            <div class="p-6 flex flex-col flex-grow">
+                <h2 class="text-2xl font-bold text-on-surface mb-2 font-display-lg">Merkez Bankası Benim!</h2>
+                <p class="text-sm text-on-surface-variant mb-6 flex-grow">TCMB Başkanı olarak enflasyonu düşür, işsizliği dengede tut. Kararların milyonların kaderini belirleyecek. <span class="text-primary font-bold">(Mobil Uyumlu)</span></p>
+                <button onclick="window.location.href='merkez-bankasi.html'" class="w-full bg-primary hover:bg-primary-container text-white font-bold py-4 rounded-xl shadow-md transition-all active:scale-95 flex justify-center items-center gap-2">
+                    <span class="material-symbols-outlined">play_arrow</span> Oyuna Başla
+                </button>
+            </div>
         </div>
-        <!-- Iframe -->
-        <iframe id="game-iframe" src="" class="w-full h-full border-0 hidden"></iframe>
+
+        <!-- Statecraft Türkiye -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-primary/10 group flex flex-col">
+            <div class="h-48 bg-gradient-to-br from-inverse-surface to-surface-variant relative flex items-center justify-center overflow-hidden">
+                <span class="material-symbols-outlined text-white/20 text-[160px] absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform duration-700">public</span>
+                <span class="material-symbols-outlined text-white text-6xl relative z-10 drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">public</span>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+                <h2 class="text-2xl font-bold text-on-surface mb-2 font-display-lg">Statecraft: Türkiye</h2>
+                <p class="text-sm text-on-surface-variant mb-6 flex-grow">Türkiye'nin stratejik kararlarını ver, bütçeyi yönet ve ülkenin global kaderini çiz. Kapsamlı siyasi simülasyon.</p>
+                <button onclick="startStatecraft()" class="w-full bg-inverse-surface hover:bg-on-surface text-white font-bold py-4 rounded-xl shadow-md transition-all active:scale-95 flex justify-center items-center gap-2">
+                    <span class="material-symbols-outlined">play_arrow</span> Oyuna Başla
+                </button>
+            </div>
+        </div>
+
     </div>
-    
+
+    <!-- Iframe Container for Statecraft (Hidden initially) -->
+    <div id="statecraft-container" class="hidden w-full bg-surface rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20 relative" style="height: calc(100vh - 140px);">
+        <header class="bg-inverse-surface text-white p-2 flex justify-between items-center">
+            <button onclick="closeStatecraft()" class="p-2 hover:bg-white/10 rounded-lg transition-colors flex items-center gap-2 text-sm font-bold">
+                <span class="material-symbols-outlined">arrow_back</span> Oyunlara Dön
+            </button>
+            <button onclick="toggleFullscreen()" class="p-2 hover:bg-white/10 rounded-lg transition-colors" title="Tam Ekran">
+                <span class="material-symbols-outlined" id="fs-icon">fullscreen</span>
+            </button>
+        </header>
+        <iframe id="game-iframe" src="" class="w-full h-[calc(100%-48px)] border-0"></iframe>
+    </div>
+
     <script>
-        function startGame() {
-            const launcher = document.getElementById('game-launcher');
-            const iframe = document.getElementById('game-iframe');
-            
-            // Fade out the launcher
-            launcher.classList.add('opacity-0', 'pointer-events-none');
-            
-            // After fade completes, hide launcher and load iframe
-            setTimeout(() => {
-                launcher.style.display = 'none';
-                iframe.src = 'statecraft/index.html';
-                iframe.classList.remove('hidden');
-            }, 500); // 500ms matches the duration-500 class
+        function startStatecraft() {
+            document.getElementById('game-hub-container').classList.add('hidden');
+            const container = document.getElementById('statecraft-container');
+            container.classList.remove('hidden');
+            document.getElementById('game-iframe').src = 'statecraft/index.html';
+        }
+
+        function closeStatecraft() {
+            document.getElementById('statecraft-container').classList.add('hidden');
+            document.getElementById('game-hub-container').classList.remove('hidden');
+            document.getElementById('game-iframe').src = '';
         }
 
         function toggleFullscreen() {
-            const iframeContainer = document.getElementById('game-iframe').parentElement;
+            const iframeContainer = document.getElementById('statecraft-container');
             const icon = document.getElementById('fs-icon');
             
             if (!document.fullscreenElement) {
                 if (iframeContainer.requestFullscreen) {
                     iframeContainer.requestFullscreen();
-                } else if (iframeContainer.webkitRequestFullscreen) { /* Safari */
+                } else if (iframeContainer.webkitRequestFullscreen) {
                     iframeContainer.webkitRequestFullscreen();
-                } else if (iframeContainer.msRequestFullscreen) { /* IE11 */
+                } else if (iframeContainer.msRequestFullscreen) {
                     iframeContainer.msRequestFullscreen();
                 }
                 icon.textContent = 'fullscreen_exit';
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
+                } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
+                } else if (document.msExitFullscreen) {
                     document.msExitFullscreen();
                 }
                 icon.textContent = 'fullscreen';
@@ -308,7 +328,7 @@
         
         document.addEventListener('fullscreenchange', () => {
             const icon = document.getElementById('fs-icon');
-            if (!document.fullscreenElement) {
+            if (!document.fullscreenElement && icon) {
                 icon.textContent = 'fullscreen';
             }
         });
