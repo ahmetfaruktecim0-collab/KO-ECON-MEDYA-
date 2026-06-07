@@ -1,4 +1,4 @@
-const CACHE_NAME = 'econ-medya-v1780869815358';
+const CACHE_NAME = 'econ-medya-v1780870100000';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -12,7 +12,6 @@ const ASSETS_TO_CACHE = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      // Adding assets manually. Failure to cache one shouldn't stop the SW installation.
       return Promise.allSettled(ASSETS_TO_CACHE.map(url => cache.add(url)));
     }).then(() => self.skipWaiting())
   );
@@ -33,13 +32,25 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // Network-first strategy: her zaman önce internetten güncelini çekmeye çalışır.
+  // İnternet yoksa (offline) cache'den (önbellekten) yükler.
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Return cached response if found, else fetch from network
-      return response || fetch(event.request);
+    fetch(event.request).then(response => {
+      // Başarılı bir şekilde internetten indiyse, cache'i de bu yeni veriyle güncelle.
+      return caches.open(CACHE_NAME).then(cache => {
+        // Sadece HTTP ve HTTPS isteklerini cache'le (chrome-extension vb. hatalarını engeller)
+        if (event.request.url.startsWith('http')) {
+            cache.put(event.request, response.clone());
+        }
+        return response;
+      });
     }).catch(() => {
-      // Offline fallback
-      return caches.match('/index.html');
+      // İnternet yoksa veya hata verdiyse cache'den getir.
+      return caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) return cachedResponse;
+        // Eğer cache'de de yoksa index.html'e yönlendir
+        return caches.match('/index.html');
+      });
     })
   );
 });
