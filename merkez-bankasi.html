@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merkez Bankası Benim! - KOÜ Econ Medya</title>
+    <title>Merkez Bankası Benim! V2 - KOÜ Econ Medya</title>
     <link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg">
     <meta name="theme-color" content="#004d27">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -37,20 +37,43 @@
                         outline: "#6f7a70",
                         "surface-container-low": "#eff3ff",
                         "surface-container": "#e6eeff",
-                        "surface-container-high": "#dee9fd"
+                        "surface-container-high": "#dee9fd",
+                        warning: "#f59e0b",
+                        info: "#3b82f6"
                     },
                     fontFamily: {
                         "display-lg": ["Hanken Grotesk"],
                         "title-md": ["Hanken Grotesk"],
                         "body-lg": ["Hanken Grotesk"],
                         "label-caps": ["Inter"]
+                    },
+                    animation: {
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'flash': 'flash 1s ease-out',
+                        'marquee': 'marquee 20s linear infinite',
+                    },
+                    keyframes: {
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        flash: {
+                            '0%': { backgroundColor: 'rgba(186, 26, 26, 0.4)' },
+                            '100%': { backgroundColor: 'transparent' }
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #F3F4F6; }
+        body { background-color: #F3F4F6; transition: background-color 0.3s; }
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined' !important;
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -60,28 +83,51 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
+        .flash-overlay {
+            pointer-events: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 9999;
+            background: transparent;
+        }
+        .kkm-active { box-shadow: 0 0 15px #f59e0b; border-color: #f59e0b; }
     </style>
 </head>
-<body class="font-body-lg text-on-background min-h-screen flex flex-col">
+<body class="font-body-lg text-on-background min-h-screen flex flex-col relative overflow-x-hidden">
+    
+    <div id="flash-fx" class="flash-overlay"></div>
+
     <!-- Header -->
-    <header class="bg-primary text-on-primary py-4 px-6 flex items-center justify-between shadow-md">
+    <header class="bg-primary text-on-primary py-4 px-6 flex items-center justify-between shadow-md relative z-20">
         <div class="flex items-center gap-4">
-            <button onclick="window.location.href='index.html'" class="p-2 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center">
+            <button onclick="window.location.href='oyun.html'" class="p-2 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center" title="Çıkış Yap">
                 <span class="material-symbols-outlined">arrow_back</span>
             </button>
             <div class="flex flex-col">
-                <h1 class="text-xl font-bold font-display-lg">Merkez Bankası Benim!</h1>
-                <span class="text-xs text-on-primary/80 font-label-caps tracking-widest">Ekonomi Simülasyonu</span>
+                <h1 class="text-xl font-bold font-display-lg flex items-center gap-2">
+                    Merkez Bankası Benim! <span class="bg-warning text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">V2</span>
+                </h1>
+                <span class="text-xs text-on-primary/80 font-label-caps tracking-widest">Gelişmiş Ekonomi Simülasyonu</span>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-white/50">account_balance</span>
-            <span class="font-bold text-sm hidden sm:inline">Dönem: <span id="ui-month">1</span></span>
+        <div class="flex items-center gap-4">
+            <div class="hidden sm:flex flex-col text-right">
+                <span class="text-[10px] text-on-primary/70 font-bold uppercase tracking-widest">Dönem</span>
+                <span class="font-bold text-lg leading-tight">Ay <span id="ui-month">1</span>/12</span>
+            </div>
         </div>
     </header>
 
+    <!-- Ticker News -->
+    <div class="bg-inverse-surface text-white py-1 overflow-hidden relative border-b border-outline/20">
+        <div class="absolute left-0 top-0 bottom-0 bg-error px-3 flex items-center z-10 font-bold text-xs">SON DAKİKA</div>
+        <div class="whitespace-nowrap animate-marquee pl-[120px] text-xs font-bold" id="news-ticker-text">
+            Yeni TCMB Başkanı göreve başladı. Piyasalar ilk faiz kararını merakla bekliyor...
+        </div>
+    </div>
+
     <!-- Main Game Area -->
-    <main class="flex-grow p-4 md:p-8 max-w-6xl mx-auto w-full space-y-6">
+    <main class="flex-grow p-4 md:p-6 max-w-7xl mx-auto w-full space-y-6 relative z-10">
         
         <!-- Welcome Modal -->
         <div id="welcome-modal" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm">
@@ -90,13 +136,14 @@
                     <span class="material-symbols-outlined text-5xl text-primary">account_balance</span>
                 </div>
                 <h2 class="text-3xl font-bold font-display-lg text-primary mb-2">TCMB Başkanlığına Hoş Geldin!</h2>
-                <p class="text-on-surface-variant mb-6 text-sm">Ülke ekonomisi zor günlerden geçiyor. Enflasyon yüksek, döviz kurları hareketli. Senin görevin Politika Faizini (TCMB Faizi) belirleyerek ekonomiyi soğutmak veya canlandırmak.</p>
+                <p class="text-on-surface-variant mb-6 text-sm">Ülke ekonomisi zor günlerden geçiyor. Enflasyon yüksek, döviz kurları hareketli. Artık elinde çok daha fazla silah var.</p>
                 <div class="bg-surface-container-low p-4 rounded-xl text-left mb-6 border border-outline/20">
                     <h3 class="font-bold text-sm text-primary mb-2">Görev Tanımı:</h3>
                     <ul class="text-xs space-y-2 text-on-surface-variant list-disc pl-4">
-                        <li>Enflasyonu <b>%10'un altına</b> indirmeye çalış.</li>
-                        <li>Ancak dikkat et, faizleri çok artırırsan <b>İşsizlik patlar</b>.</li>
-                        <li>Eğer Enflasyon %100'ü veya İşsizlik %25'i geçerse <b>görevden alınırsın!</b></li>
+                        <li>Enflasyonu <b>%10'un altına</b> indirmeye çalış. (Kriz %100)</li>
+                        <li><b>Rezervleri</b> dikkatli kullan. Biterse kur patlar!</li>
+                        <li>Para basmak cezbedicidir ama sonu felakettir.</li>
+                        <li>Kur Korumalı Mevduat (KKM) pimi çekilmiş bir bombadır.</li>
                     </ul>
                 </div>
                 <button onclick="startGame()" class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all shadow-md active:scale-95">Göreve Başla</button>
@@ -106,8 +153,8 @@
         <!-- Game Over Modal -->
         <div id="game-over-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-md">
             <div class="bg-white rounded-3xl p-8 max-w-md shadow-2xl text-center border-t-8 border-error">
-                <span class="material-symbols-outlined text-6xl text-error mb-4">cancel</span>
-                <h2 class="text-3xl font-bold font-display-lg text-error mb-2">Görevden Alındın!</h2>
+                <span class="material-symbols-outlined text-6xl text-error mb-4" id="end-icon">cancel</span>
+                <h2 class="text-3xl font-bold font-display-lg text-error mb-2" id="end-title">Görevden Alındın!</h2>
                 <p id="game-over-reason" class="text-on-surface-variant mb-6 font-bold">Enflasyon çığrından çıktı.</p>
                 <div class="grid grid-cols-2 gap-4 mb-6 text-left">
                     <div class="bg-surface-container-low p-3 rounded-lg">
@@ -127,112 +174,166 @@
         </div>
 
         <!-- Dashboard Widgets -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
             
             <!-- Inflation -->
-            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">Enflasyon (TÜFE)</span>
-                    <span class="material-symbols-outlined text-error text-xl">trending_up</span>
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Enflasyon</span>
+                    <span class="material-symbols-outlined text-error text-lg">trending_up</span>
                 </div>
                 <div>
-                    <div class="flex items-baseline gap-2">
-                        <h3 id="val-inflation" class="text-3xl font-bold text-error">%65.0</h3>
-                        <span id="trend-inflation" class="text-xs font-bold text-error"></span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-error">%</span>
+                        <h3 id="val-inflation" class="text-3xl font-bold text-error tabular-nums">65.0</h3>
+                        <span id="trend-inflation" class="text-[10px] font-bold text-error ml-1"></span>
                     </div>
-                    <div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
-                        <div id="bar-inflation" class="bg-error h-full" style="width: 65%"></div>
+                    <div class="w-full bg-surface-container h-1 rounded-full mt-2 overflow-hidden">
+                        <div id="bar-inflation" class="bg-error h-full transition-all duration-1000" style="width: 65%"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Interest Rate -->
-            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-2 border-primary/20">
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between border-2 border-primary/20">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold text-primary uppercase tracking-widest">Politika Faizi</span>
-                    <span class="material-symbols-outlined text-primary text-xl">account_balance</span>
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-widest">Politika Faizi</span>
+                    <span class="material-symbols-outlined text-primary text-lg">account_balance</span>
                 </div>
                 <div>
-                    <h3 id="val-interest" class="text-3xl font-bold text-primary">%45.0</h3>
-                    <p class="text-[10px] text-secondary mt-1">Sizin Kontrolünüzde</p>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-primary">%</span>
+                        <h3 id="val-interest" class="text-3xl font-bold text-primary tabular-nums">45.0</h3>
+                    </div>
+                    <p class="text-[9px] text-secondary mt-1">Ana Silahın</p>
                 </div>
             </div>
 
             <!-- Unemployment -->
-            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">İşsizlik Oranı</span>
-                    <span class="material-symbols-outlined text-orange-500 text-xl">group_remove</span>
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">İşsizlik</span>
+                    <span class="material-symbols-outlined text-orange-500 text-lg">group_remove</span>
                 </div>
                 <div>
-                    <div class="flex items-baseline gap-2">
-                        <h3 id="val-unemployment" class="text-3xl font-bold text-orange-600">%9.5</h3>
-                        <span id="trend-unemployment" class="text-xs font-bold text-orange-600"></span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-orange-600">%</span>
+                        <h3 id="val-unemployment" class="text-3xl font-bold text-orange-600 tabular-nums">9.5</h3>
+                        <span id="trend-unemployment" class="text-[10px] font-bold text-orange-600 ml-1"></span>
                     </div>
-                    <div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
-                        <div id="bar-unemployment" class="bg-orange-500 h-full" style="width: 9.5%"></div>
+                    <div class="w-full bg-surface-container h-1 rounded-full mt-2 overflow-hidden">
+                        <div id="bar-unemployment" class="bg-orange-500 h-full transition-all duration-1000" style="width: 38%"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Exchange Rate -->
-            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">Dolar/TL Kuru</span>
-                    <span class="material-symbols-outlined text-green-600 text-xl">payments</span>
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">USD/TL Kuru</span>
+                    <span class="material-symbols-outlined text-green-600 text-lg">payments</span>
                 </div>
                 <div>
-                    <div class="flex items-baseline gap-2">
-                        <h3 id="val-usd" class="text-3xl font-bold text-green-700">₺31.50</h3>
-                        <span id="trend-usd" class="text-xs font-bold text-green-700"></span>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-green-700">₺</span>
+                        <h3 id="val-usd" class="text-3xl font-bold text-green-700 tabular-nums">31.50</h3>
+                        <span id="trend-usd" class="text-[10px] font-bold text-green-700 ml-1"></span>
                     </div>
-                    <p class="text-[10px] text-secondary mt-1">Serbest Piyasa</p>
+                    <p class="text-[9px] text-secondary mt-1" id="kkm-status-text">Serbest Piyasa</p>
                 </div>
             </div>
+
+            <!-- Reserves -->
+            <div class="glass-card p-4 rounded-2xl flex flex-col justify-between bg-surface-container-low">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Net Rezervler</span>
+                    <span class="material-symbols-outlined text-info text-lg">savings</span>
+                </div>
+                <div>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-info">$</span>
+                        <h3 id="val-reserves" class="text-3xl font-bold text-info tabular-nums">40</h3>
+                        <span class="text-sm font-bold text-info">Mlyr</span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1 rounded-full mt-2 overflow-hidden">
+                        <div id="bar-reserves" class="bg-info h-full transition-all duration-1000" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Controls & Chart -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Game Controls & Chart -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            <!-- Monetary Policy Controls -->
-            <div class="glass-card p-6 rounded-2xl col-span-1 flex flex-col">
-                <h3 class="font-bold text-on-surface mb-6 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-primary">tune</span> 
-                    Para Politikası Kurulu
+            <!-- Monetary Policy Tools (Left Panel) -->
+            <div class="glass-card p-6 rounded-2xl col-span-1 lg:col-span-5 flex flex-col h-full">
+                <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2 border-b border-outline/10 pb-4">
+                    <span class="material-symbols-outlined text-primary">build</span> 
+                    PPK Politika Araçları
                 </h3>
                 
-                <div class="mb-8 flex-grow">
-                    <label class="block text-sm font-bold text-on-surface-variant mb-4">Yeni Faiz Oranını Belirle:</label>
-                    <div class="flex items-center justify-between mb-2">
-                        <button onclick="changeInterest(-2.5)" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold text-lg flex items-center justify-center shadow-sm">-</button>
-                        <span id="input-interest" class="text-4xl font-display-lg font-bold text-primary">%45.0</span>
-                        <button onclick="changeInterest(2.5)" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold text-lg flex items-center justify-center shadow-sm">+</button>
+                <div class="space-y-6 flex-grow">
+                    
+                    <!-- 1. Interest Rate -->
+                    <div class="bg-surface-container-low p-4 rounded-xl border border-outline/10">
+                        <label class="flex justify-between items-center text-sm font-bold text-on-surface mb-2">
+                            <span>Politika Faizi (1 Hafta Repo)</span>
+                            <span id="input-interest" class="text-xl text-primary bg-primary/10 px-2 rounded">%45.0</span>
+                        </label>
+                        <input type="range" id="slider-interest" min="5" max="100" step="0.5" value="45" class="w-full accent-primary h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer" oninput="updateSliders()">
                     </div>
-                    <div class="flex justify-between text-xs text-secondary mt-4 font-bold">
-                        <button onclick="setInterest(10)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%10</button>
-                        <button onclick="setInterest(30)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%30</button>
-                        <button onclick="setInterest(50)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%50</button>
-                        <button onclick="setInterest(75)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%75</button>
+
+                    <!-- 2. Reserve Requirements (ZKO) -->
+                    <div class="bg-surface-container-low p-4 rounded-xl border border-outline/10">
+                        <label class="flex justify-between items-center text-sm font-bold text-on-surface mb-2">
+                            <span title="Bankaların MB'de tutmak zorunda olduğu para oranı.">Zorunlu Karşılık Oranı (ZKO)</span>
+                            <span id="input-zko" class="text-xl text-secondary bg-surface-variant px-2 rounded">%15.0</span>
+                        </label>
+                        <input type="range" id="slider-zko" min="5" max="40" step="1" value="15" class="w-full accent-secondary h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer" oninput="updateSliders()">
                     </div>
+
+                    <!-- 3. Action Buttons -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- FX Intervention -->
+                        <button onclick="interveneFX()" id="btn-fx" class="bg-info/10 text-info hover:bg-info hover:text-white border border-info/20 font-bold py-3 px-2 rounded-xl text-[11px] transition-all flex flex-col items-center justify-center gap-1 active:scale-95 group">
+                            <span class="material-symbols-outlined text-xl group-hover:animate-bounce">sell</span>
+                            <span>Döviz Sat (-$5 Mlyr)</span>
+                        </button>
+                        
+                        <!-- Money Printer -->
+                        <button onclick="printMoney()" id="btn-print" class="bg-error/10 text-error hover:bg-error hover:text-white border border-error/20 font-bold py-3 px-2 rounded-xl text-[11px] transition-all flex flex-col items-center justify-center gap-1 active:scale-95 group">
+                            <span class="material-symbols-outlined text-xl group-hover:animate-pulse">print</span>
+                            <span>Para Bas (+Likidite)</span>
+                        </button>
+                    </div>
+
+                    <!-- KKM Bomb -->
+                    <button onclick="activateKKM()" id="btn-kkm" class="w-full bg-warning/10 text-warning-700 hover:bg-warning hover:text-white border border-warning/30 font-bold py-3 px-4 rounded-xl text-xs transition-all flex items-center justify-between active:scale-95">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined">security</span>
+                            Kur Korumalı Mevduat (KKM) İlan Et
+                        </span>
+                        <span class="bg-warning text-white text-[9px] px-2 py-0.5 rounded-full">1 Kullanım</span>
+                    </button>
+
                 </div>
 
-                <div class="bg-primary/5 p-4 rounded-xl border border-primary/10 mb-6">
-                    <p class="text-xs text-on-surface-variant italic">"Faiz artırımı talebi kısar, enflasyonu ve kuru düşürür ancak işsizliği artırır. Faiz indirimi ise tam tersi etki yaratır."</p>
+                <div class="mt-6 pt-4 border-t border-outline/10">
+                    <button onclick="nextMonth()" class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-[0_4px_14px_0_rgba(0,77,39,0.39)] hover:shadow-[0_6px_20px_rgba(0,77,39,0.23)] hover:bg-primary-container transition-all active:scale-95 flex justify-center items-center gap-2 text-lg">
+                        <span class="material-symbols-outlined">fast_forward</span>
+                        Ayı Kapat (Sonraki Dönem)
+                    </button>
                 </div>
-
-                <button onclick="nextMonth()" class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-primary-container transition-all active:scale-95 flex justify-center items-center gap-2 text-lg">
-                    <span class="material-symbols-outlined">fast_forward</span>
-                    Ayı Kapat (Sonraki Dönem)
-                </button>
             </div>
 
-            <!-- Chart Area -->
-            <div class="glass-card p-6 rounded-2xl col-span-1 lg:col-span-2 flex flex-col">
-                <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+            <!-- Chart Area (Right Panel) -->
+            <div class="glass-card p-6 rounded-2xl col-span-1 lg:col-span-7 flex flex-col">
+                <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2 border-b border-outline/10 pb-4">
                     <span class="material-symbols-outlined text-primary">analytics</span> 
-                    Ekonomik Gelişim
+                    Makroekonomik Gelişim
                 </h3>
-                <div class="flex-grow relative w-full" style="min-height: 300px;">
+                <div class="flex-grow relative w-full h-[400px]">
                     <canvas id="econChart"></canvas>
                 </div>
             </div>
@@ -243,184 +344,307 @@
 
     <!-- Game Logic -->
     <script>
-        // Game State
+        // --- GAME STATE ---
         let state = {
             month: 1,
             inflation: 65.0,
             interest: 45.0,
             unemployment: 9.5,
             usd: 31.50,
+            reserves: 40.0,
+            zko: 15.0,
             
-            // Pending changes by user
-            targetInterest: 45.0
+            // Flags and accumulators
+            targetInterest: 45.0,
+            targetZko: 15.0,
+            kkmActive: false,
+            kkmMonthsLeft: 0,
+            fxInterventionCountThisMonth: 0,
+            moneyPrintedThisMonth: 0
         };
 
-        // History for chart
         let history = {
             labels: ['Ay 1'],
             inflation: [65.0],
-            interest: [45.0]
+            interest: [45.0],
+            usd: [31.50]
         };
 
         let chart;
 
-        function startGame() {
-            document.getElementById('welcome-modal').classList.add('hidden');
-            initChart();
-            updateUI();
+        // --- ANIMATION HELPERS ---
+        function animateValue(obj, start, end, duration, isCurrency = false) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                // Ease out
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const currentVal = start + (end - start) * easeProgress;
+                obj.innerText = isCurrency ? currentVal.toFixed(2) : currentVal.toFixed(1);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
         }
 
-        function changeInterest(amount) {
-            state.targetInterest = Math.max(5.0, Math.min(100.0, state.targetInterest + amount));
+        function triggerShake() {
+            document.body.classList.remove('animate-shake');
+            void document.body.offsetWidth; // trigger reflow
+            document.body.classList.add('animate-shake');
+        }
+
+        function triggerFlash() {
+            const fx = document.getElementById('flash-fx');
+            fx.classList.remove('animate-flash');
+            void fx.offsetWidth;
+            fx.classList.add('animate-flash');
+        }
+
+        function pushNews(text, isBad = false) {
+            const ticker = document.getElementById('news-ticker-text');
+            ticker.innerText = text;
+            if(isBad) ticker.classList.add('text-error');
+            else ticker.classList.remove('text-error');
+        }
+
+        // --- UI BINDINGS ---
+        function updateSliders() {
+            state.targetInterest = parseFloat(document.getElementById('slider-interest').value);
+            state.targetZko = parseFloat(document.getElementById('slider-zko').value);
             document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
+            document.getElementById('input-zko').innerText = `%${state.targetZko.toFixed(1)}`;
         }
 
-        function setInterest(val) {
-            state.targetInterest = val;
-            document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
-        }
-
-        function nextMonth() {
-            // Core Economic Engine (Simplified)
+        // --- ACTIONS ---
+        function interveneFX() {
+            if (state.reserves <= 0) {
+                pushNews("UYARI: MB Rezervleri Tükendi! Müdahale edilemiyor.", true);
+                triggerShake();
+                return;
+            }
+            state.reserves -= 5.0; // Burn 5B USD
+            state.fxInterventionCountThisMonth += 1;
             
+            // Instantly drop USD slightly
+            let oldUsd = state.usd;
+            state.usd = Math.max(10, state.usd * 0.98); 
+            
+            document.getElementById('val-reserves').innerText = state.reserves.toFixed(1);
+            document.getElementById('bar-reserves').style.width = `${Math.max(0, (state.reserves/100)*100)}%`;
+            animateValue(document.getElementById('val-usd'), oldUsd, state.usd, 500, true);
+            
+            pushNews("TCMB piyasaya arka kapıdan döviz satıyor. Rezervler eriyor!");
+        }
+
+        function printMoney() {
+            state.moneyPrintedThisMonth += 1;
+            
+            // Instantly drop unemployment slightly, but build up huge inflation pressure
+            let oldUnemp = state.unemployment;
+            state.unemployment = Math.max(4, state.unemployment - 0.5);
+            animateValue(document.getElementById('val-unemployment'), oldUnemp, state.unemployment, 500);
+            
+            pushNews("Matbaalar çalıştı! Piyasaya milyarlarca TL likidite sağlandı. (Enflasyon uyarısı!)", true);
+        }
+
+        function activateKKM() {
+            if (state.kkmActive) return;
+            state.kkmActive = true;
+            state.kkmMonthsLeft = 4; // 4 months of fake relief
+            
+            document.getElementById('btn-kkm').disabled = true;
+            document.getElementById('btn-kkm').classList.add('opacity-50', 'cursor-not-allowed');
+            document.getElementById('btn-kkm').innerText = "KKM Devrede!";
+            document.getElementById('kkm-status-text').innerText = "KKM Baskısı";
+            document.getElementById('val-usd').parentElement.parentElement.classList.add('kkm-active');
+
+            // Instant drop in USD
+            let oldUsd = state.usd;
+            state.usd = state.usd * 0.85;
+            animateValue(document.getElementById('val-usd'), oldUsd, state.usd, 1000, true);
+
+            pushNews("Flaş: Kur Korumalı Mevduat ilan edildi! Dövizde sert düşüş yaşandı.");
+        }
+
+        // --- CORE ENGINE ---
+        function nextMonth() {
             let oldInf = state.inflation;
             let oldUnemp = state.unemployment;
             let oldUsd = state.usd;
+            let oldRes = state.reserves;
 
-            // 1. Apply user's interest rate
+            // Apply Slider Values
             state.interest = state.targetInterest;
-            
-            // 2. Calculate Real Interest Rate (Reel Faiz)
-            // Real = Nominal - Expected Inflation (simplified to current inflation)
-            let realInterest = state.interest - state.inflation; 
+            state.zko = state.targetZko;
 
-            // 3. Effect on Inflation
-            // High real interest drops inflation. Low/Negative real interest spikes inflation.
-            let inflationDelta = 0;
-            if (realInterest < -20) {
-                inflationDelta = (Math.random() * 5) + 3; // Hyperinflation risk
-            } else if (realInterest < 0) {
-                inflationDelta = (Math.random() * 3) + 0.5; // Inflation rises
-            } else if (realInterest > 10) {
-                inflationDelta = -(Math.random() * 4) - 1.5; // Fast disinflation
-            } else {
-                inflationDelta = -(Math.random() * 2) - 0.1; // Slow disinflation
+            // 1. Calculate Real Interest
+            let realInterest = state.interest - state.inflation;
+
+            // 2. Inflation Logic
+            let infDelta = 0;
+            // Base effect of real interest
+            infDelta += (realInterest < 0) ? (Math.abs(realInterest) * 0.1) : (realInterest * -0.05);
+            
+            // Effect of ZKO (Reserve Requirements) - removes money multiplier
+            infDelta -= (state.zko - 15) * 0.2;
+
+            // Effect of Money Printing (Massive delayed penalty)
+            infDelta += (state.moneyPrintedThisMonth * 8.0);
+
+            // KKM Explosion Risk
+            if (state.kkmActive) {
+                state.kkmMonthsLeft--;
+                if (state.kkmMonthsLeft <= 0) {
+                    infDelta += 25.0; // The bomb goes off
+                    state.kkmActive = false;
+                    document.getElementById('val-usd').parentElement.parentElement.classList.remove('kkm-active');
+                    pushNews("KKM dönüşleri başladı! Hazineye devasa yük bindi, enflasyon ve kur patladı!", true);
+                    triggerShake();
+                    triggerFlash();
+                } else {
+                    infDelta += 2.0; // Gradual cost of KKM
+                }
             }
-            
-            // Add some base stickiness / global shocks
-            inflationDelta += (Math.random() * 1.5) - 0.5; 
 
-            state.inflation = Math.max(1.0, state.inflation + inflationDelta);
+            // Global/Random shocks
+            infDelta += (Math.random() * 2) - 1;
+            state.inflation = Math.max(1.0, state.inflation + infDelta);
 
-            // 4. Effect on Unemployment (Phillips Curve Trade-off)
-            // High interest rate slows economy, creates unemployment
+            // 3. Unemployment Logic (Phillips Curve)
             let unempDelta = 0;
-            if (state.interest > 50) {
-                unempDelta = (Math.random() * 1.5) + 0.5;
-            } else if (state.interest > 30) {
-                unempDelta = (Math.random() * 0.8) + 0.1;
-            } else if (state.interest < 15) {
-                unempDelta = -(Math.random() * 0.8) - 0.2; // Overheating economy creates jobs
-            }
+            // High interest kills jobs
+            unempDelta += (state.interest - 40) * 0.05;
+            // High ZKO kills jobs (no credit)
+            unempDelta += (state.zko - 15) * 0.1;
+            // High inflation temporarily creates fake jobs
+            unempDelta -= (infDelta > 5) ? 1.0 : 0;
+            
             state.unemployment = Math.max(4.0, state.unemployment + unempDelta);
 
-            // 5. Effect on Exchange Rate (USD/TRY)
-            // High real interest appreciates local currency (or slows depreciation)
-            // In Turkey, structural inflation means USD naturally goes up, but rate depends on real interest.
-            let usdDeltaPct = state.inflation / 100 / 12; // Base monthly depreciation due to inflation diff
-            if (realInterest > 5) {
-                usdDeltaPct -= 0.02; // Foreign capital inflow
-            } else if (realInterest < -10) {
-                usdDeltaPct += 0.04; // Capital flight
-            }
+            // 4. USD/TRY Logic
+            let usdDeltaPct = (state.inflation / 100 / 12); // Base inflation diff
+            usdDeltaPct -= (realInterest * 0.001); // Real return effect
             
-            let newUsd = state.usd * (1 + usdDeltaPct + ((Math.random() * 0.02) - 0.01));
-            state.usd = Math.max(10.0, newUsd);
+            // If they intervened but have no reserves, market panics
+            if (state.reserves <= 0 && state.fxInterventionCountThisMonth > 0) {
+                usdDeltaPct += 0.10; // Panic
+            }
 
-            // 6. Advance Time
+            if (state.kkmActive && state.kkmMonthsLeft > 0) {
+                usdDeltaPct *= 0.2; // KKM suppresses USD movement
+            }
+
+            state.usd = state.usd * (1 + usdDeltaPct);
+
+            // Natural Reserve depletion if USD goes too high without intervention
+            if (usdDeltaPct > 0.05 && state.reserves > 0 && !state.kkmActive) {
+                state.reserves -= 1.0; // Indirect loss
+            }
+
+            // Reset monthly counters
+            state.fxInterventionCountThisMonth = 0;
+            state.moneyPrintedThisMonth = 0;
             state.month += 1;
 
-            // 7. Update History
+            // Update History
             history.labels.push(`Ay ${state.month}`);
             history.inflation.push(state.inflation.toFixed(1));
             history.interest.push(state.interest.toFixed(1));
+            history.usd.push(state.usd.toFixed(2));
 
-            // 8. Update UI & Chart
-            updateUI(oldInf, oldUnemp, oldUsd);
+            // Visual Effects for bad decisions
+            if (infDelta > 5 || state.usd > oldUsd * 1.1) {
+                triggerShake();
+                triggerFlash();
+                if(!state.kkmActive || state.kkmMonthsLeft<=0) pushNews("Piyasalar yangın yeri! Kararların tepki çekiyor.", true);
+            } else if (infDelta < -2) {
+                pushNews("Enflasyonda düşüş eğilimi hızlandı. Piyasalar olumlu fiyatlıyor.");
+            }
+
+            // Update UI
+            updateUIDynamic(oldInf, oldUnemp, oldUsd, oldRes);
             chart.update();
 
-            // 9. Check Win/Loss conditions
+            // Check conditions
             checkGameEnd();
         }
 
-        function updateUI(oldInf = state.inflation, oldUnemp = state.unemployment, oldUsd = state.usd) {
+        function updateUIDynamic(oldInf, oldUnemp, oldUsd, oldRes) {
             document.getElementById('ui-month').innerText = state.month;
             
-            // Inflation
-            document.getElementById('val-inflation').innerText = `%${state.inflation.toFixed(1)}`;
+            // Animate Numbers
+            animateValue(document.getElementById('val-inflation'), oldInf, state.inflation, 800);
+            animateValue(document.getElementById('val-unemployment'), oldUnemp, state.unemployment, 800);
+            animateValue(document.getElementById('val-usd'), oldUsd, state.usd, 800, true);
+            animateValue(document.getElementById('val-reserves'), oldRes, state.reserves, 800);
+
+            // Update Bars
             document.getElementById('bar-inflation').style.width = `${Math.min(100, state.inflation)}%`;
-            updateTrend('trend-inflation', state.inflation - oldInf, true); // true means up is bad
+            document.getElementById('bar-unemployment').style.width = `${Math.min(100, state.unemployment*3)}%`;
+            document.getElementById('bar-reserves').style.width = `${Math.max(0, (state.reserves/100)*100)}%`;
 
-            // Unemployment
-            document.getElementById('val-unemployment').innerText = `%${state.unemployment.toFixed(1)}`;
-            document.getElementById('bar-unemployment').style.width = `${Math.min(100, state.unemployment*4)}%`;
+            // Update Trends
+            updateTrend('trend-inflation', state.inflation - oldInf, true);
             updateTrend('trend-unemployment', state.unemployment - oldUnemp, true);
-
-            // USD
-            document.getElementById('val-usd').innerText = `₺${state.usd.toFixed(2)}`;
             updateTrend('trend-usd', state.usd - oldUsd, true);
-
-            // Interest (Static parts)
-            document.getElementById('val-interest').innerText = `%${state.interest.toFixed(1)}`;
-            document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
         }
 
         function updateTrend(elementId, delta, upIsBad) {
             const el = document.getElementById(elementId);
-            if (Math.abs(delta) < 0.01) {
-                el.innerText = '−';
-                el.className = 'text-xs font-bold text-secondary';
-                return;
-            }
-            
+            if (Math.abs(delta) < 0.1) { el.innerText = '−'; el.className = 'text-[10px] font-bold text-secondary ml-1'; return; }
             const isUp = delta > 0;
             const isBad = (isUp && upIsBad) || (!isUp && !upIsBad);
-            
             el.innerText = isUp ? `▲ ${Math.abs(delta).toFixed(1)}` : `▼ ${Math.abs(delta).toFixed(1)}`;
-            el.className = `text-xs font-bold ${isBad ? 'text-error' : 'text-primary'}`;
+            el.className = `text-[10px] font-bold ml-1 ${isBad ? 'text-error' : 'text-primary'}`;
         }
 
         function checkGameEnd() {
-            if (state.inflation > 100) {
-                showGameOver("Hiperenflasyon! Halk sokaklara döküldü, marketlerde etiketler saatlik değişiyor. Görevden affını istedin.");
-            } else if (state.unemployment > 25) {
-                showGameOver("Ekonomi durma noktasına geldi. Şirketler iflas ediyor, milyonlarca işsiz var. Hükümet faturayı sana kesti ve görevden alındın.");
-            } else if (state.usd > 100) {
-                showGameOver("Kur krizi! Döviz kontrolden çıktı, Merkez Bankası'nın rezervleri tükendi. Görevden alındın.");
-            } else if (state.inflation <= 5.0 && state.month > 12) {
-                // Win Condition
-                const modal = document.getElementById('game-over-modal');
-                modal.classList.remove('hidden');
-                modal.querySelector('.text-error').classList.replace('text-error', 'text-primary'); // Icon color
-                modal.querySelector('.text-error').textContent = 'workspace_premium'; // Icon
-                modal.querySelector('h2').classList.replace('text-error', 'text-primary');
-                modal.querySelector('h2').textContent = "Ekonomik Mucize!";
-                document.getElementById('game-over-reason').textContent = "Enflasyonu tek haneye indirdin ve ekonomiyi soğuttun. Tarihe geçtin!";
-                document.getElementById('final-month').textContent = state.month;
-                document.getElementById('final-inf').textContent = `%${state.inflation.toFixed(1)}`;
-                document.getElementById('final-inf').classList.replace('text-error', 'text-primary');
-            }
+            setTimeout(() => {
+                if (state.inflation > 100) {
+                    showGameOver("Hiperenflasyon! Marketlerde etiketler saatlik değişiyor. Görevden affını istedin.", "cancel", "text-error");
+                } else if (state.unemployment > 25) {
+                    showGameOver("Ekonomi durma noktasına geldi. Şirketler iflas ediyor. Hükümet faturayı sana kesti.", "cancel", "text-error");
+                } else if (state.usd > 100) {
+                    showGameOver("Kur krizi! Döviz kontrolden çıktı, rezervler sıfırlandı. Görevden alındın.", "cancel", "text-error");
+                } else if (state.month >= 12) {
+                    if(state.inflation <= 10.0) {
+                        showGameOver("Enflasyonu tek haneye indirdin! Tarihe geçtin. Yılın Merkez Bankacısı!", "workspace_premium", "text-primary", "Tebrikler!");
+                    } else {
+                        showGameOver("Yılı tamamladın ama hedeflere ulaşamadın. Enflasyon hala yüksek. Görevden alındın.", "sentiment_dissatisfied", "text-warning", "Süre Doldu");
+                    }
+                }
+            }, 1000); // Wait for animations to finish
         }
 
-        function showGameOver(reason) {
-            document.getElementById('game-over-modal').classList.remove('hidden');
+        function showGameOver(reason, iconName, colorClass, title="Görevden Alındın!") {
+            const modal = document.getElementById('game-over-modal');
+            modal.classList.remove('hidden');
+            
+            const icon = document.getElementById('end-icon');
+            icon.textContent = iconName;
+            icon.className = `material-symbols-outlined text-6xl mb-4 ${colorClass}`;
+            
+            const titleEl = document.getElementById('end-title');
+            titleEl.textContent = title;
+            titleEl.className = `text-3xl font-bold font-display-lg mb-2 ${colorClass}`;
+            
             document.getElementById('game-over-reason').innerText = reason;
             document.getElementById('final-month').innerText = state.month;
             document.getElementById('final-inf').innerText = `%${state.inflation.toFixed(1)}`;
+            document.getElementById('final-inf').className = `text-lg font-bold ${colorClass}`;
+        }
+
+        function startGame() {
+            document.getElementById('welcome-modal').classList.add('hidden');
+            initChart();
+            updateSliders(); // Initial sync
         }
 
         function initChart() {
             const ctx = document.getElementById('econChart').getContext('2d');
+            Chart.defaults.font.family = 'Hanken Grotesk';
             chart = new Chart(ctx, {
                 type: 'line',
                 data: {
@@ -429,43 +653,40 @@
                         {
                             label: 'Enflasyon (%)',
                             data: history.inflation,
-                            borderColor: '#ba1a1a', // Error red
+                            borderColor: '#ba1a1a',
                             backgroundColor: 'rgba(186, 26, 26, 0.1)',
                             borderWidth: 3,
-                            tension: 0.3,
+                            tension: 0.4,
                             fill: true,
                             yAxisID: 'y'
                         },
                         {
-                            label: 'Politika Faizi (%)',
+                            label: 'Faiz (%)',
                             data: history.interest,
-                            borderColor: '#004d27', // Primary green
+                            borderColor: '#004d27',
                             borderWidth: 2,
                             borderDash: [5, 5],
                             tension: 0.1,
                             yAxisID: 'y'
+                        },
+                        {
+                            label: 'Kur (₺)',
+                            data: history.usd,
+                            borderColor: '#16a34a',
+                            borderWidth: 2,
+                            tension: 0.2,
+                            yAxisID: 'y1'
                         }
                     ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    plugins: {
-                        legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } }
-                    },
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { position: 'top', labels: { usePointStyle: true } } },
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                            suggestedMax: 100,
-                            grid: { color: 'rgba(0,0,0,0.05)' }
-                        },
-                        x: {
-                            grid: { display: false }
-                        }
+                        y: { type: 'linear', display: true, position: 'left', min: 0, suggestedMax: 100 },
+                        y1: { type: 'linear', display: true, position: 'right', min: 0, grid: { drawOnChartArea: false } }
                     }
                 }
             });
