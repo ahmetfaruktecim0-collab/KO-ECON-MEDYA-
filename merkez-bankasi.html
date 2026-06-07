@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="tr" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merkez Bankası Benim! - KOÜ Econ Medya</title>
+    <link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg">
+    <meta name="theme-color" content="#004d27">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#004d27",
+                        "primary-container": "#006837",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#8ee4a6",
+                        secondary: "#5c5f60",
+                        "secondary-container": "#dee0e2",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#606365",
+                        error: "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        background: "#f9f9ff",
+                        "on-background": "#121c2a",
+                        surface: "#f9f9ff",
+                        "on-surface": "#121c2a",
+                        "surface-variant": "#d9e3f7",
+                        "on-surface-variant": "#3f4940",
+                        outline: "#6f7a70",
+                        "surface-container-low": "#eff3ff",
+                        "surface-container": "#e6eeff",
+                        "surface-container-high": "#dee9fd"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Hanken Grotesk"],
+                        "title-md": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #F3F4F6; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="font-body-lg text-on-background min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-primary text-on-primary py-4 px-6 flex items-center justify-between shadow-md">
+        <div class="flex items-center gap-4">
+            <button onclick="window.location.href='index.html'" class="p-2 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div class="flex flex-col">
+                <h1 class="text-xl font-bold font-display-lg">Merkez Bankası Benim!</h1>
+                <span class="text-xs text-on-primary/80 font-label-caps tracking-widest">Ekonomi Simülasyonu</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-white/50">account_balance</span>
+            <span class="font-bold text-sm hidden sm:inline">Dönem: <span id="ui-month">1</span></span>
+        </div>
+    </header>
+
+    <!-- Main Game Area -->
+    <main class="flex-grow p-4 md:p-8 max-w-6xl mx-auto w-full space-y-6">
+        
+        <!-- Welcome Modal -->
+        <div id="welcome-modal" class="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4 backdrop-blur-sm">
+            <div class="glass-card rounded-3xl p-8 max-w-lg shadow-2xl text-center transform transition-all">
+                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="material-symbols-outlined text-5xl text-primary">account_balance</span>
+                </div>
+                <h2 class="text-3xl font-bold font-display-lg text-primary mb-2">TCMB Başkanlığına Hoş Geldin!</h2>
+                <p class="text-on-surface-variant mb-6 text-sm">Ülke ekonomisi zor günlerden geçiyor. Enflasyon yüksek, döviz kurları hareketli. Senin görevin Politika Faizini (TCMB Faizi) belirleyerek ekonomiyi soğutmak veya canlandırmak.</p>
+                <div class="bg-surface-container-low p-4 rounded-xl text-left mb-6 border border-outline/20">
+                    <h3 class="font-bold text-sm text-primary mb-2">Görev Tanımı:</h3>
+                    <ul class="text-xs space-y-2 text-on-surface-variant list-disc pl-4">
+                        <li>Enflasyonu <b>%10'un altına</b> indirmeye çalış.</li>
+                        <li>Ancak dikkat et, faizleri çok artırırsan <b>İşsizlik patlar</b>.</li>
+                        <li>Eğer Enflasyon %100'ü veya İşsizlik %25'i geçerse <b>görevden alınırsın!</b></li>
+                    </ul>
+                </div>
+                <button onclick="startGame()" class="w-full bg-primary hover:bg-primary-container text-white font-bold py-3 rounded-xl transition-all shadow-md active:scale-95">Göreve Başla</button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 backdrop-blur-md">
+            <div class="bg-white rounded-3xl p-8 max-w-md shadow-2xl text-center border-t-8 border-error">
+                <span class="material-symbols-outlined text-6xl text-error mb-4">cancel</span>
+                <h2 class="text-3xl font-bold font-display-lg text-error mb-2">Görevden Alındın!</h2>
+                <p id="game-over-reason" class="text-on-surface-variant mb-6 font-bold">Enflasyon çığrından çıktı.</p>
+                <div class="grid grid-cols-2 gap-4 mb-6 text-left">
+                    <div class="bg-surface-container-low p-3 rounded-lg">
+                        <span class="block text-[10px] uppercase text-secondary font-bold">Kaldığın Ay</span>
+                        <span id="final-month" class="text-lg font-bold text-on-surface">12</span>
+                    </div>
+                    <div class="bg-surface-container-low p-3 rounded-lg">
+                        <span class="block text-[10px] uppercase text-secondary font-bold">Son Enflasyon</span>
+                        <span id="final-inf" class="text-lg font-bold text-error">%85.4</span>
+                    </div>
+                </div>
+                <button onclick="location.reload()" class="w-full bg-surface-variant text-primary font-bold py-3 rounded-xl transition-all hover:bg-surface-container-high shadow-sm active:scale-95 flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">refresh</span>
+                    Yeniden Dene
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Widgets -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- Inflation -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">Enflasyon (TÜFE)</span>
+                    <span class="material-symbols-outlined text-error text-xl">trending_up</span>
+                </div>
+                <div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 id="val-inflation" class="text-3xl font-bold text-error">%65.0</h3>
+                        <span id="trend-inflation" class="text-xs font-bold text-error"></span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+                        <div id="bar-inflation" class="bg-error h-full" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interest Rate -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-2 border-primary/20">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold text-primary uppercase tracking-widest">Politika Faizi</span>
+                    <span class="material-symbols-outlined text-primary text-xl">account_balance</span>
+                </div>
+                <div>
+                    <h3 id="val-interest" class="text-3xl font-bold text-primary">%45.0</h3>
+                    <p class="text-[10px] text-secondary mt-1">Sizin Kontrolünüzde</p>
+                </div>
+            </div>
+
+            <!-- Unemployment -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">İşsizlik Oranı</span>
+                    <span class="material-symbols-outlined text-orange-500 text-xl">group_remove</span>
+                </div>
+                <div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 id="val-unemployment" class="text-3xl font-bold text-orange-600">%9.5</h3>
+                        <span id="trend-unemployment" class="text-xs font-bold text-orange-600"></span>
+                    </div>
+                    <div class="w-full bg-surface-container h-1.5 rounded-full mt-2 overflow-hidden">
+                        <div id="bar-unemployment" class="bg-orange-500 h-full" style="width: 9.5%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exchange Rate -->
+            <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-xs font-bold text-secondary uppercase tracking-widest">Dolar/TL Kuru</span>
+                    <span class="material-symbols-outlined text-green-600 text-xl">payments</span>
+                </div>
+                <div>
+                    <div class="flex items-baseline gap-2">
+                        <h3 id="val-usd" class="text-3xl font-bold text-green-700">₺31.50</h3>
+                        <span id="trend-usd" class="text-xs font-bold text-green-700"></span>
+                    </div>
+                    <p class="text-[10px] text-secondary mt-1">Serbest Piyasa</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls & Chart -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Monetary Policy Controls -->
+            <div class="glass-card p-6 rounded-2xl col-span-1 flex flex-col">
+                <h3 class="font-bold text-on-surface mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">tune</span> 
+                    Para Politikası Kurulu
+                </h3>
+                
+                <div class="mb-8 flex-grow">
+                    <label class="block text-sm font-bold text-on-surface-variant mb-4">Yeni Faiz Oranını Belirle:</label>
+                    <div class="flex items-center justify-between mb-2">
+                        <button onclick="changeInterest(-2.5)" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold text-lg flex items-center justify-center shadow-sm">-</button>
+                        <span id="input-interest" class="text-4xl font-display-lg font-bold text-primary">%45.0</span>
+                        <button onclick="changeInterest(2.5)" class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold text-lg flex items-center justify-center shadow-sm">+</button>
+                    </div>
+                    <div class="flex justify-between text-xs text-secondary mt-4 font-bold">
+                        <button onclick="setInterest(10)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%10</button>
+                        <button onclick="setInterest(30)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%30</button>
+                        <button onclick="setInterest(50)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%50</button>
+                        <button onclick="setInterest(75)" class="px-2 py-1 rounded bg-surface hover:bg-surface-variant transition-colors border border-outline/10">%75</button>
+                    </div>
+                </div>
+
+                <div class="bg-primary/5 p-4 rounded-xl border border-primary/10 mb-6">
+                    <p class="text-xs text-on-surface-variant italic">"Faiz artırımı talebi kısar, enflasyonu ve kuru düşürür ancak işsizliği artırır. Faiz indirimi ise tam tersi etki yaratır."</p>
+                </div>
+
+                <button onclick="nextMonth()" class="w-full bg-primary text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-primary-container transition-all active:scale-95 flex justify-center items-center gap-2 text-lg">
+                    <span class="material-symbols-outlined">fast_forward</span>
+                    Ayı Kapat (Sonraki Dönem)
+                </button>
+            </div>
+
+            <!-- Chart Area -->
+            <div class="glass-card p-6 rounded-2xl col-span-1 lg:col-span-2 flex flex-col">
+                <h3 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">analytics</span> 
+                    Ekonomik Gelişim
+                </h3>
+                <div class="flex-grow relative w-full" style="min-height: 300px;">
+                    <canvas id="econChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Game Logic -->
+    <script>
+        // Game State
+        let state = {
+            month: 1,
+            inflation: 65.0,
+            interest: 45.0,
+            unemployment: 9.5,
+            usd: 31.50,
+            
+            // Pending changes by user
+            targetInterest: 45.0
+        };
+
+        // History for chart
+        let history = {
+            labels: ['Ay 1'],
+            inflation: [65.0],
+            interest: [45.0]
+        };
+
+        let chart;
+
+        function startGame() {
+            document.getElementById('welcome-modal').classList.add('hidden');
+            initChart();
+            updateUI();
+        }
+
+        function changeInterest(amount) {
+            state.targetInterest = Math.max(5.0, Math.min(100.0, state.targetInterest + amount));
+            document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
+        }
+
+        function setInterest(val) {
+            state.targetInterest = val;
+            document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
+        }
+
+        function nextMonth() {
+            // Core Economic Engine (Simplified)
+            
+            let oldInf = state.inflation;
+            let oldUnemp = state.unemployment;
+            let oldUsd = state.usd;
+
+            // 1. Apply user's interest rate
+            state.interest = state.targetInterest;
+            
+            // 2. Calculate Real Interest Rate (Reel Faiz)
+            // Real = Nominal - Expected Inflation (simplified to current inflation)
+            let realInterest = state.interest - state.inflation; 
+
+            // 3. Effect on Inflation
+            // High real interest drops inflation. Low/Negative real interest spikes inflation.
+            let inflationDelta = 0;
+            if (realInterest < -20) {
+                inflationDelta = (Math.random() * 5) + 3; // Hyperinflation risk
+            } else if (realInterest < 0) {
+                inflationDelta = (Math.random() * 3) + 0.5; // Inflation rises
+            } else if (realInterest > 10) {
+                inflationDelta = -(Math.random() * 4) - 1.5; // Fast disinflation
+            } else {
+                inflationDelta = -(Math.random() * 2) - 0.1; // Slow disinflation
+            }
+            
+            // Add some base stickiness / global shocks
+            inflationDelta += (Math.random() * 1.5) - 0.5; 
+
+            state.inflation = Math.max(1.0, state.inflation + inflationDelta);
+
+            // 4. Effect on Unemployment (Phillips Curve Trade-off)
+            // High interest rate slows economy, creates unemployment
+            let unempDelta = 0;
+            if (state.interest > 50) {
+                unempDelta = (Math.random() * 1.5) + 0.5;
+            } else if (state.interest > 30) {
+                unempDelta = (Math.random() * 0.8) + 0.1;
+            } else if (state.interest < 15) {
+                unempDelta = -(Math.random() * 0.8) - 0.2; // Overheating economy creates jobs
+            }
+            state.unemployment = Math.max(4.0, state.unemployment + unempDelta);
+
+            // 5. Effect on Exchange Rate (USD/TRY)
+            // High real interest appreciates local currency (or slows depreciation)
+            // In Turkey, structural inflation means USD naturally goes up, but rate depends on real interest.
+            let usdDeltaPct = state.inflation / 100 / 12; // Base monthly depreciation due to inflation diff
+            if (realInterest > 5) {
+                usdDeltaPct -= 0.02; // Foreign capital inflow
+            } else if (realInterest < -10) {
+                usdDeltaPct += 0.04; // Capital flight
+            }
+            
+            let newUsd = state.usd * (1 + usdDeltaPct + ((Math.random() * 0.02) - 0.01));
+            state.usd = Math.max(10.0, newUsd);
+
+            // 6. Advance Time
+            state.month += 1;
+
+            // 7. Update History
+            history.labels.push(`Ay ${state.month}`);
+            history.inflation.push(state.inflation.toFixed(1));
+            history.interest.push(state.interest.toFixed(1));
+
+            // 8. Update UI & Chart
+            updateUI(oldInf, oldUnemp, oldUsd);
+            chart.update();
+
+            // 9. Check Win/Loss conditions
+            checkGameEnd();
+        }
+
+        function updateUI(oldInf = state.inflation, oldUnemp = state.unemployment, oldUsd = state.usd) {
+            document.getElementById('ui-month').innerText = state.month;
+            
+            // Inflation
+            document.getElementById('val-inflation').innerText = `%${state.inflation.toFixed(1)}`;
+            document.getElementById('bar-inflation').style.width = `${Math.min(100, state.inflation)}%`;
+            updateTrend('trend-inflation', state.inflation - oldInf, true); // true means up is bad
+
+            // Unemployment
+            document.getElementById('val-unemployment').innerText = `%${state.unemployment.toFixed(1)}`;
+            document.getElementById('bar-unemployment').style.width = `${Math.min(100, state.unemployment*4)}%`;
+            updateTrend('trend-unemployment', state.unemployment - oldUnemp, true);
+
+            // USD
+            document.getElementById('val-usd').innerText = `₺${state.usd.toFixed(2)}`;
+            updateTrend('trend-usd', state.usd - oldUsd, true);
+
+            // Interest (Static parts)
+            document.getElementById('val-interest').innerText = `%${state.interest.toFixed(1)}`;
+            document.getElementById('input-interest').innerText = `%${state.targetInterest.toFixed(1)}`;
+        }
+
+        function updateTrend(elementId, delta, upIsBad) {
+            const el = document.getElementById(elementId);
+            if (Math.abs(delta) < 0.01) {
+                el.innerText = '−';
+                el.className = 'text-xs font-bold text-secondary';
+                return;
+            }
+            
+            const isUp = delta > 0;
+            const isBad = (isUp && upIsBad) || (!isUp && !upIsBad);
+            
+            el.innerText = isUp ? `▲ ${Math.abs(delta).toFixed(1)}` : `▼ ${Math.abs(delta).toFixed(1)}`;
+            el.className = `text-xs font-bold ${isBad ? 'text-error' : 'text-primary'}`;
+        }
+
+        function checkGameEnd() {
+            if (state.inflation > 100) {
+                showGameOver("Hiperenflasyon! Halk sokaklara döküldü, marketlerde etiketler saatlik değişiyor. Görevden affını istedin.");
+            } else if (state.unemployment > 25) {
+                showGameOver("Ekonomi durma noktasına geldi. Şirketler iflas ediyor, milyonlarca işsiz var. Hükümet faturayı sana kesti ve görevden alındın.");
+            } else if (state.usd > 100) {
+                showGameOver("Kur krizi! Döviz kontrolden çıktı, Merkez Bankası'nın rezervleri tükendi. Görevden alındın.");
+            } else if (state.inflation <= 5.0 && state.month > 12) {
+                // Win Condition
+                const modal = document.getElementById('game-over-modal');
+                modal.classList.remove('hidden');
+                modal.querySelector('.text-error').classList.replace('text-error', 'text-primary'); // Icon color
+                modal.querySelector('.text-error').textContent = 'workspace_premium'; // Icon
+                modal.querySelector('h2').classList.replace('text-error', 'text-primary');
+                modal.querySelector('h2').textContent = "Ekonomik Mucize!";
+                document.getElementById('game-over-reason').textContent = "Enflasyonu tek haneye indirdin ve ekonomiyi soğuttun. Tarihe geçtin!";
+                document.getElementById('final-month').textContent = state.month;
+                document.getElementById('final-inf').textContent = `%${state.inflation.toFixed(1)}`;
+                document.getElementById('final-inf').classList.replace('text-error', 'text-primary');
+            }
+        }
+
+        function showGameOver(reason) {
+            document.getElementById('game-over-modal').classList.remove('hidden');
+            document.getElementById('game-over-reason').innerText = reason;
+            document.getElementById('final-month').innerText = state.month;
+            document.getElementById('final-inf').innerText = `%${state.inflation.toFixed(1)}`;
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('econChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: history.labels,
+                    datasets: [
+                        {
+                            label: 'Enflasyon (%)',
+                            data: history.inflation,
+                            borderColor: '#ba1a1a', // Error red
+                            backgroundColor: 'rgba(186, 26, 26, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Politika Faizi (%)',
+                            data: history.interest,
+                            borderColor: '#004d27', // Primary green
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.1,
+                            yAxisID: 'y'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: 100,
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
