@@ -1,4 +1,4 @@
-const CACHE_NAME = 'econ-medya-v1780904929848';
+const CACHE_NAME = 'econ-medya-v1780905241719';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
