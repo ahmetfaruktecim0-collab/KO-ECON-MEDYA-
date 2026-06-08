@@ -8,101 +8,11 @@
 <meta name="theme-color" content="#004d27">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary-fixed-variant": "#444749",
-                        "on-secondary-container": "#606365",
-                        "error-container": "#ffdad6",
-                        "outline": "#6f7a70",
-                        "tertiary": "#414343",
-                        "background": "#f9f9ff",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "secondary": "#5c5f60",
-                        "on-secondary": "#ffffff",
-                        "surface-bright": "#f9f9ff",
-                        "secondary-fixed-dim": "#c5c6c8",
-                        "on-surface-variant": "#3f4940",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "surface-variant": "#d9e3f7",
-                        "on-primary-fixed-variant": "#00522a",
-                        "surface": "#f9f9ff",
-                        "outline-variant": "#bec9be",
-                        "surface-container": "#e6eeff",
-                        "on-tertiary": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "surface-container-low": "#eff3ff",
-                        "surface-container-high": "#dee9fd",
-                        "on-primary-container": "#8ee4a6",
-                        "inverse-surface": "#273140",
-                        "surface-tint": "#0b6d3b",
-                        "on-surface": "#121c2a",
-                        "primary-container": "#006837",
-                        "inverse-on-surface": "#ebf1ff",
-                        "primary": "#004d27",
-                        "on-secondary-fixed": "#191c1e",
-                        "on-background": "#121c2a",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed": "#e2e2e2",
-                        "surface-container-highest": "#d9e3f7",
-                        "on-error": "#ffffff",
-                        "tertiary-container": "#585a5a",
-                        "error": "#ba1a1a",
-                        "primary-fixed-dim": "#83d99c",
-                        "on-tertiary-container": "#d1d1d1",
-                        "secondary-container": "#dee0e2",
-                        "inverse-primary": "#83d99c",
-                        "on-primary-fixed": "#00210e",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "surface-dim": "#d0daef",
-                        "secondary-fixed": "#e1e2e4",
-                        "surface-container-lowest": "#ffffff",
-                        "primary-fixed": "#9ef6b6"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter": "24px",
-                        "margin-desktop": "32px",
-                        "margin-mobile": "16px",
-                        "card-padding": "24px",
-                        "stack-gap": "16px",
-                        "base": "4px"
-                    },
-                    "fontFamily": {
-                        "display-lg": ["Hanken Grotesk"],
-                        "body-lg": ["Hanken Grotesk"],
-                        "title-md": ["Hanken Grotesk"],
-                        "body-sm": ["Hanken Grotesk"],
-                        "headline-lg-mobile": ["Hanken Grotesk"],
-                        "headline-lg": ["Hanken Grotesk"],
-                        "label-caps": ["Inter"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
-                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
-                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
+<link href="tailwind-compiled.min.css" rel="stylesheet">
+    <style>
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined' !important;
             font-feature-settings: 'liga' !important;
@@ -130,8 +40,8 @@
     </style>
 
 <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyDCSkBGBYYgmTWtnZh61jD2zDh2Yh_WOCE",
