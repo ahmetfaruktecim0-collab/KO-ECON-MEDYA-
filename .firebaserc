@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "kousbf-tv"
+  },
+  "targets": {
+    "kousbf-tv": {
+      "hosting": {
+        "default": [
+          "kousbf-tv"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

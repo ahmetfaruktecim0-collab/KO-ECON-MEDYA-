@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logo Extractor</title>
+</head>
+<body style="background: #fff; margin: 0; padding: 0;">
+  <video id="vid" src="loading_animation.mp4" muted style="max-width: 100%; display: block; margin: 0 auto;"></video>
+  <canvas id="canvas" style="display: block; margin: 20px auto; border: 1px solid #ccc;"></canvas>
+  <div id="status" style="text-align: center; font-family: sans-serif; margin-top: 10px; color: #555;">Loading video...</div>
+  <script>
+    const video = document.getElementById('vid');
+    const canvas = document.getElementById('canvas');
+    const status = document.getElementById('status');
+
+    video.addEventListener('loadedmetadata', () => {
+      status.innerText = 'Metadata loaded. Waiting to seek...';
+      // Seek to near the end where logo is fully resolved and static
+      video.currentTime = video.duration - 0.5;
+    });
+
+    video.addEventListener('seeked', () => {
+      status.innerText = 'Seeked. Capturing frame...';
+      
+      const vWidth = video.videoWidth;
+      const vHeight = video.videoHeight;
+      
+      // Let's crop to the central 45% area of the video frame where the logo is
+      const cropWidth = Math.round(vWidth * 0.55);
+      const cropHeight = Math.round(vHeight * 0.55);
+      const cropX = Math.round((vWidth - cropWidth) / 2);
+      const cropY = Math.round((vHeight - cropHeight) / 2);
+
+      canvas.width = cropWidth;
+      canvas.height = cropHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+      
+      const base64 = canvas.toDataURL('image/png');
+      
+      const div = document.createElement('div');
+      div.id = "base64_result";
+      div.style.wordBreak = "break-all";
+      div.style.fontSize = "10px";
+      div.style.padding = "20px";
+      div.style.background = "#f4f4f4";
+      div.style.margin = "20px";
+      div.innerText = base64;
+      document.body.appendChild(div);
+      
+      status.innerText = 'Frame captured successfully!';
+    });
+  </script>
+</body>
+</html>
