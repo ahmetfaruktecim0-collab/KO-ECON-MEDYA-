@@ -1,8 +1,7 @@
-const CACHE_NAME = 'econ-medya-v1780907657877';
+const CACHE_NAME = 'econ-medya-v1782164027471';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/tailwind-v2.min.css',
   '/oyun.html',
   '/merkez-bankasi.html',
   '/manifest.json',
