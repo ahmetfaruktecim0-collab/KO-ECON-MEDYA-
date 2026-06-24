@@ -1,6 +1,6 @@
 import { auth, onAuthStateChanged, signOut } from './firebase-config.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+function initHeaderAuth() {
     const profileBtn = document.getElementById('user-profile-btn');
     if (!profileBtn) return;
 
@@ -22,4 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
     });
-});
+}
+
+// Ensure the code runs whether DOM is still loading or already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderAuth);
+} else {
+    initHeaderAuth();
+}
