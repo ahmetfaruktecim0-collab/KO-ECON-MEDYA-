@@ -9,7 +9,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 import {
-    getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+    getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged,
+    signInWithEmailAndPassword, createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -30,6 +31,7 @@ const googleProvider = new GoogleAuthProvider();
 
 export {
     auth, googleProvider, signInWithPopup, signOut, onAuthStateChanged,
+    signInWithEmailAndPassword, createUserWithEmailAndPassword,
     db, storage,
     collection, addDoc, getDocs, onSnapshot, query, orderBy,
     serverTimestamp, deleteDoc, doc, updateDoc, where, limit, setDoc,
