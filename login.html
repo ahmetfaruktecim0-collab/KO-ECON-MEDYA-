@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Öğrenci Girişi | KOÜ Econ Medya</title>
+    <link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0BA350">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1C2120;
+            color: #1C2120;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .app-shell {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            background-color: #0BA350;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.35);
+            overflow: hidden;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .app-shell.page-exit {
+            opacity: 0;
+            transform: scale(0.97);
+        }
+
+        /* Views */
+        .view-section {
+            display: none;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100dvh;
+            width: 100%;
+        }
+
+        .view-section.active {
+            display: flex;
+        }
+
+        /* Keyframe Animations */
+        @keyframes heroZoom {
+            0% {
+                opacity: 0;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes sheetSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(64px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes errorShake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+        }
+
+        @keyframes spinRing {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes btnShine {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        .anim-item {
+            opacity: 0;
+            animation: fadeSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: var(--d, 0.1s);
+        }
+
+        /* LOGIN VIEW TOP IMAGE */
+        .login-hero-wrap {
+            width: 100%;
+            height: 42vh;
+            min-height: 270px;
+            max-height: 390px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background-color: #f5f5f5;
+        }
+
+        .login-hero {
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/sbf-top.jpg');
+            background-size: cover;
+            background-position: center top;
+            animation: heroZoom 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* LOGIN GREEN SHEET */
+        .login-sheet {
+            flex: 1;
+            background-color: #0BA350;
+            margin-top: -36px;
+            border-top-right-radius: 75px;
+            border-top-left-radius: 28px;
+            padding: 36px 36px 40px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.12);
+            animation: sheetSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .login-title {
+            font-size: 44px;
+            font-weight: 800;
+            color: #1C2120;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .login-subtitle {
+            font-size: 13.5px;
+            font-weight: 400;
+            color: #1C2120;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .login-form {
+            width: 100%;
+            max-width: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .field-group-center {
+            width: 100%;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .field-label-center {
+            font-size: 14px;
+            font-weight: 400;
+            color: #1C2120;
+            letter-spacing: 0.14em;
+            margin-bottom: 8px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .field-group-center:focus-within .field-label-center {
+            transform: translateY(-2px);
+            font-weight: 500;
+        }
+
+        .pill-input-login {
+            width: 100%;
+            height: 58px;
+            background-color: #96D7B3;
+            border: none;
+            border-radius: 20px;
+            padding: 0 24px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            color: #1C2120;
+            outline: none;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .pill-input-login::placeholder {
+            color: rgba(28, 33, 32, 0.7);
+        }
+
+        .pill-input-login:focus {
+            background-color: #ace8c7;
+            transform: translateY(-2px) scale(1.015);
+            box-shadow: 0 8px 20px rgba(28, 33, 32, 0.14), 0 0 0 2.5px rgba(28, 33, 32, 0.2);
+        }
+
+        /* REGISTER VIEW TOP HEADER */
+        .register-hero-wrap {
+            width: 100%;
+            height: 175px;
+            background-color: #1C2120;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .register-hero {
+            width: 100%;
+            height: 100%;
+            background-color: #1C2120;
+            background-image: url('assets/reg-top.png');
+            background-size: cover;
+            background-position: center top;
+            animation: heroZoom 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Invisible hit area over the back arrow in reg-top.png */
+        .back-arrow-hit {
+            position: absolute;
+            top: 24px;
+            left: 16px;
+            width: 80px;
+            height: 60px;
+            z-index: 10;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        /* REGISTER GREEN SHEET */
+        .register-sheet {
+            flex: 1;
+            background-color: #0BA350;
+            margin-top: -38px;
+            border-top-left-radius: 75px;
+            padding: 34px 36px 40px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.15);
+            animation: sheetSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .register-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1C2120;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 28px;
+            letter-spacing: -0.01em;
+        }
+
+        .register-form {
+            width: 100%;
+            max-width: 340px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-group-left {
+            width: 100%;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .field-label-left {
+            font-size: 12.5px;
+            font-weight: 400;
+            color: #1C2120;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            padding-left: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .field-group-left:focus-within .field-label-left {
+            transform: translateX(3px);
+            font-weight: 600;
+        }
+
+        .pill-input-register {
+            width: 100%;
+            height: 56px;
+            background-color: #68C692;
+            border: none;
+            border-radius: 18px;
+            padding: 0 22px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            color: #1C2120;
+            outline: none;
+            transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .pill-input-register::placeholder {
+            color: rgba(28, 33, 32, 0.65);
+        }
+
+        .pill-input-register:focus {
+            background-color: #7ed8a6;
+            transform: translateY(-2px) scale(1.015);
+            box-shadow: 0 8px 20px rgba(28, 33, 32, 0.14), 0 0 0 2.5px rgba(28, 33, 32, 0.2);
+        }
+
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-wrapper::after {
+            content: 'expand_more';
+            font-family: 'Material Symbols Outlined';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(28, 33, 32, 0.7);
+            pointer-events: none;
+            font-size: 22px;
+        }
+
+        /* DARK SUBMIT BUTTON */
+        .dark-btn {
+            width: 100%;
+            height: 54px;
+            background-color: #1C2120;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(28, 33, 32, 0.24);
+        }
+
+        .dark-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transform: skewX(-20deg);
+        }
+
+        .dark-btn:hover::after {
+            animation: btnShine 0.75s ease;
+        }
+
+        .dark-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(28, 33, 32, 0.32);
+        }
+
+        .dark-btn:active {
+            transform: scale(0.96);
+        }
+
+        .dark-btn:disabled {
+            opacity: 0.8;
+            cursor: wait;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2.5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #FFFFFF;
+            border-radius: 50%;
+            animation: spinRing 0.7s linear infinite;
+        }
+
+        /* TOP ADMIN BADGE */
+        .top-admin-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(28, 33, 32, 0.88);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            z-index: 20;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
+        }
+
+        .top-admin-badge:hover {
+            background: #0BA350;
+            color: #1C2120;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .admin-direct-wrap {
+            width: 100%;
+            max-width: 340px;
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px dashed rgba(28, 33, 32, 0.25);
+            display: flex;
+            justify-content: center;
+        }
+
+        .admin-direct-btn {
+            width: 100%;
+            height: 48px;
+            background: rgba(28, 33, 32, 0.12);
+            border: 1.5px solid rgba(28, 33, 32, 0.28);
+            border-radius: 14px;
+            color: #1C2120;
+            font-size: 13.5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .admin-direct-btn:hover {
+            background: #1C2120;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(28, 33, 32, 0.25);
+        }
+
+        .admin-direct-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* BOTTOM TEXT LINKS */
+        .bottom-links {
+            margin-top: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .text-link-btn {
+            background: none;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: #1C2120;
+            cursor: pointer;
+            padding: 4px 12px;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .text-link-btn:hover {
+            opacity: 0.75;
+            transform: translateY(-1px);
+            text-decoration: underline;
+        }
+
+        .text-link-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Error Banner */
+        .error-box {
+            width: 100%;
+            max-width: 340px;
+            background-color: #1C2120;
+            color: #ffdad6;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            text-align: left;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-box.show {
+            display: flex;
+            animation: errorShake 0.4s ease;
+        }
+
+        /* Forgot Password Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 9999;
+        }
+
+        .modal-backdrop.show {
+            display: flex;
+            animation: fadeSlideUp 0.25s ease forwards;
+        }
+
+        .modal-card {
+            background: #0BA350;
+            border: 2px solid rgba(28, 33, 32, 0.15);
+            border-radius: 28px;
+            width: 100%;
+            max-width: 360px;
+            padding: 28px 24px;
+            color: #1C2120;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-shell" id="app-shell">
+        <!-- VIEW 1: LOGIN ("Hoşgeldin") -->
+        <section id="login-view" class="view-section active">
+            <div class="login-hero-wrap" style="position: relative;">
+                <div class="login-hero"></div>
+                <a href="admin.html" class="top-admin-badge" title="Yönetici Paneli Girişi">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">shield_person</span>
+                    <span>Yönetici</span>
+                </a>
+            </div>
+            <div class="login-sheet">
+                <h1 class="login-title anim-item" style="--d: 0.10s;">Hoşgeldin</h1>
+                <p class="login-subtitle anim-item" style="--d: 0.16s;">Giriş Yapmak İçin Bilgilerini Gir</p>
+
+                <div id="login-error" class="error-box">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">error</span>
+                    <span id="login-error-text">Hata mesajı</span>
+                </div>
+
+                <form id="login-form" class="login-form">
+                    <div class="field-group-center anim-item" style="--d: 0.22s;">
+                        <label for="login-student-id" class="field-label-center">Öğrenci No veya Kurumsal E-Posta</label>
+                        <input type="text" id="login-student-id" class="pill-input-login" placeholder="Örn: 220201011 veya hoca@kocaeli.edu.tr" autocomplete="off" required>
+                    </div>
+
+                    <div class="field-group-center anim-item" style="--d: 0.28s;">
+                        <label for="login-password" class="field-label-center">Şifre</label>
+                        <input type="password" id="login-password" class="pill-input-login" placeholder="******" autocomplete="current-password" required>
+                    </div>
+
+                    <button type="submit" id="login-submit-btn" class="dark-btn anim-item" style="--d: 0.34s;">
+                        <span>Giriş Yap</span>
+                    </button>
+                </form>
+
+                <div class="bottom-links anim-item" style="--d: 0.40s;">
+                    <div style="display: flex; gap: 18px; align-items: center;">
+                        <button type="button" class="text-link-btn" onclick="openForgotModal()">Şifremi Unuttum</button>
+                        <span style="opacity: 0.35;">•</span>
+                        <button type="button" class="text-link-btn" onclick="switchView('register')" style="font-weight: 600;">Kayıt Ol</button>
+                    </div>
+                </div>
+
+                <!-- Yönetici Paneline Doğrudan Geçiş Butonu -->
+                <div class="admin-direct-wrap anim-item" style="--d: 0.46s;">
+                    <a href="admin.html" class="admin-direct-btn" title="Yönetici Paneli Girişi">
+                        <span class="material-symbols-outlined" style="font-size: 20px;">admin_panel_settings</span>
+                        <span>Yönetici Paneli Girişi</span>
+                        <span class="material-symbols-outlined" style="font-size: 16px; margin-left: auto;">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: REGISTER ("Yeni Bir Hesap Oluştur") -->
+        <section id="register-view" class="view-section">
+            <div class="register-hero-wrap" onclick="switchView('login')" title="Giriş Ekranına Dön">
+                <div class="register-hero"></div>
+                <button type="button" class="back-arrow-hit" aria-label="Geri Dön"></button>
+            </div>
+            <div class="register-sheet">
+                <h1 class="register-title anim-item" style="--d: 0.08s;">Yeni Bir Hesap<br>Oluştur</h1>
+
+                <div id="register-error" class="error-box">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">error</span>
+                    <span id="register-error-text">Hata mesajı</span>
+                </div>
+
+                
+                <!-- Role Toggle (Öğrenci vs Akademik Personel) -->
+                <div class="account-type-toggle anim-item" style="--d: 0.10s; display: flex; background: rgba(0,0,0,0.06); padding: 4px; border-radius: 999px; margin-bottom: 18px; border: 1px solid rgba(0,0,0,0.08); width: 100%;">
+                    <button type="button" id="role-tab-student" onclick="setRegisterRole('student')" style="flex: 1; padding: 10px 12px; border-radius: 999px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.25s; background: #1C2120; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">school</span>
+                        <span>Öğrenci</span>
+                    </button>
+                    <button type="button" id="role-tab-academic" onclick="setRegisterRole('academic')" style="flex: 1; padding: 10px 12px; border-radius: 999px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.25s; background: transparent; color: #1C2120; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">badge</span>
+                        <span>Akademik Personel</span>
+                    </button>
+                </div>
+
+                <form id="register-form" class="register-form">
+                    <!-- STUDENT FIELDS -->
+                    <div id="student-fields" style="display: flex; flex-direction: column; width: 100%;">
+                        <div class="field-group-left anim-item" style="--d: 0.14s;">
+                            <label for="reg-name" class="field-label-left">AD SOYAD</label>
+                            <input type="text" id="reg-name" class="pill-input-register" placeholder="Adınız Soyadınız">
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.20s;">
+                            <label for="reg-student-id" class="field-label-left">ÖĞRENCİ NUMARASI</label>
+                            <input type="text" inputmode="numeric" id="reg-student-id" class="pill-input-register" placeholder="Örn: 220201011">
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.26s;">
+                            <label for="reg-password" class="field-label-left">ŞİFRE OLUŞTUR</label>
+                            <input type="password" id="reg-password" class="pill-input-register" placeholder="******">
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.32s;">
+                            <label for="reg-class" class="field-label-left">SINIF</label>
+                            <div class="select-wrapper">
+                                <select id="reg-class" class="pill-input-register">
+                                    <option value="" disabled selected>Sınıfınızı Seçin</option>
+                                    <option value="1-I">1. Sınıf - I. Öğretim</option>
+                                    <option value="1-II">1. Sınıf - II. Öğretim</option>
+                                    <option value="2-I">2. Sınıf - I. Öğretim</option>
+                                    <option value="2-II">2. Sınıf - II. Öğretim</option>
+                                    <option value="3-I">3. Sınıf - I. Öğretim</option>
+                                    <option value="3-II">3. Sınıf - II. Öğretim</option>
+                                    <option value="4-I">4. Sınıf - I. Öğretim</option>
+                                    <option value="4-II">4. Sınıf - II. Öğretim</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACADEMIC FIELDS -->
+                    <div id="academic-fields" style="display: none; flex-direction: column; width: 100%;">
+                        <div class="field-group-left anim-item" style="--d: 0.14s;">
+                            <label for="reg-academic-title" class="field-label-left">UNVAN</label>
+                            <div class="select-wrapper">
+                                <select id="reg-academic-title" class="pill-input-register">
+                                    <option value="Prof. Dr." selected>Prof. Dr.</option>
+                                    <option value="Doç. Dr.">Doç. Dr.</option>
+                                    <option value="Dr. Öğr. Üyesi">Dr. Öğr. Üyesi</option>
+                                    <option value="Arş. Gör.">Arş. Gör.</option>
+                                    <option value="Öğr. Gör.">Öğr. Gör.</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.18s;">
+                            <label for="reg-academic-name" class="field-label-left">AD SOYAD</label>
+                            <input type="text" id="reg-academic-name" class="pill-input-register" placeholder="Örn: Yusuf Bayraktutan">
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.22s;">
+                            <label for="reg-academic-dept" class="field-label-left">BÖLÜM</label>
+                            <div class="select-wrapper">
+                                <select id="reg-academic-dept" class="pill-input-register">
+                                    <option value="İktisat" selected>İktisat</option>
+                                    <option value="İşletme">İşletme</option>
+                                    <option value="Siyaset Bilimi ve Kamu Yönetimi">Siyaset Bilimi ve Kamu Yönetimi</option>
+                                    <option value="Uluslararası İlişkiler">Uluslararası İlişkiler</option>
+                                    <option value="Çalışma Ekonomisi ve Endüstri İlişkileri">Çalışma Ekonomisi</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.26s;">
+                            <label for="reg-academic-email" class="field-label-left">KURUMSAL E-POSTA / SİCİL</label>
+                            <input type="email" id="reg-academic-email" class="pill-input-register" placeholder="ad.soyad@kocaeli.edu.tr">
+                        </div>
+
+                        <div class="field-group-left anim-item" style="--d: 0.30s;">
+                            <label for="reg-academic-password" class="field-label-left">ŞİFRE OLUŞTUR</label>
+                            <input type="password" id="reg-academic-password" class="pill-input-register" placeholder="******">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="register-submit-btn" class="dark-btn anim-item" style="--d: 0.36s; margin-top: 10px;">
+                        <span>Kayıt Ol</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Şifremi Unuttum Modal -->
+    <div id="forgot-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Şifremi Unuttum</h3>
+            <p style="font-size: 13px; margin-bottom: 18px; line-height: 1.4;">
+                Öğrenci numaranızı girin. Şifre sıfırlama talebiniz yönetici ekranına iletilecektir.
+            </p>
+            <input type="text" inputmode="numeric" id="forgot-student-id" class="pill-input-login" placeholder="Öğrenci Numaranız" style="margin-bottom: 12px; height: 50px;">
+            <input type="password" id="forgot-new-pass" class="pill-input-login" placeholder="Yeni Şifre Talebiniz (En az 6 hane)" style="margin-bottom: 14px; height: 50px;">
+            <button type="button" id="forgot-submit-btn" class="dark-btn" style="height: 48px; margin-top: 0;">Talep Gönder</button>
+            <button type="button" onclick="closeForgotModal()" class="text-link-btn" style="margin-top: 12px; font-weight: 600;">Kapat</button>
+        </div>
+    </div>
+
+    <!-- Kayıt Onay Bildirimi Modal -->
+    <div id="approval-notice-modal" class="modal-backdrop">
+        <div class="modal-card" style="text-align: center; max-width: 420px; padding: 28px 24px;">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(11, 163, 80, 0.15); color: #0BA350; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 2px solid rgba(11, 163, 80, 0.3);">
+                <span class="material-symbols-outlined" style="font-size: 34px;">verified_user</span>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 10px; color: #1C2120;">Kayıt Alındı!</h3>
+            <div id="approval-notice-text" style="font-size: 13px; margin-bottom: 22px; line-height: 1.6; color: #444; background: #f8fafc; padding: 14px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: left;">
+                Hesabınız başarıyla oluşturuldu. Güvenlik gereği hesabınız <b>yönetici onayına sunulmuştur</b>.<br><br>Yönetici onayladıktan sonra numaranız ve şifrenizle giriş yapabilirsiniz.
+            </div>
+            <button type="button" onclick="closeApprovalModal()" class="dark-btn" style="height: 48px; margin-top: 0; font-weight: 700;">Giriş Ekranına Dön</button>
+        </div>
+    </div>
+
+    <script>
+        window.switchView = function(target) {
+            const loginView = document.getElementById('login-view');
+            const registerView = document.getElementById('register-view');
+            document.getElementById('login-error').classList.remove('show');
+            document.getElementById('register-error').classList.remove('show');
+
+            const nextView = target === 'register' ? registerView : loginView;
+            const prevView = target === 'register' ? loginView : registerView;
+
+            prevView.classList.remove('active');
+            nextView.classList.add('active');
+
+            // Re-trigger staggered animations cleanly
+            nextView.querySelectorAll('.anim-item, .login-sheet, .register-sheet, .login-hero, .register-hero').forEach(el => {
+                el.style.animation = 'none';
+                void el.offsetHeight;
+                el.style.animation = '';
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        window.openForgotModal = function() {
+            const loginId = document.getElementById('login-student-id').value.trim();
+            if (loginId) document.getElementById('forgot-student-id').value = loginId;
+            document.getElementById('forgot-modal').classList.add('show');
+        };
+
+        
+        window.currentRegisterRole = 'student';
+        window.setRegisterRole = function(role) {
+            window.currentRegisterRole = role;
+            const tabStudent = document.getElementById('role-tab-student');
+            const tabAcademic = document.getElementById('role-tab-academic');
+            const studentFields = document.getElementById('student-fields');
+            const academicFields = document.getElementById('academic-fields');
+
+            if (role === 'student') {
+                tabStudent.style.background = '#1C2120';
+                tabStudent.style.color = '#FFFFFF';
+                tabAcademic.style.background = 'transparent';
+                tabAcademic.style.color = '#1C2120';
+                studentFields.style.display = 'flex';
+                academicFields.style.display = 'none';
+            } else {
+                tabAcademic.style.background = '#1C2120';
+                tabAcademic.style.color = '#FFFFFF';
+                tabStudent.style.background = 'transparent';
+                tabStudent.style.color = '#1C2120';
+                studentFields.style.display = 'none';
+                academicFields.style.display = 'flex';
+            }
+        };
+
+        window.openApprovalModal = function(name, identifier, role = 'student') {
+            const textEl = document.getElementById('approval-notice-text');
+            if (textEl) {
+                const roleTitle = role === 'academic' ? 'Akademik Personel' : 'Öğrenci';
+                textEl.innerHTML = 'Sayın <b>' + name + '</b> (' + identifier + '),<br><br>' + roleTitle + ' hesabınız başarıyla oluşturuldu. <b>KOÜ Econ Medya</b> güvenlik politikası gereği hesabınız <b>yönetici onayına sunulmuştur</b>.<br><br>Yönetici onayladıktan sonra bilgilerinizle sisteme giriş yapabilirsiniz.';
+            }
+            const modal = document.getElementById('approval-notice-modal');
+            if (modal) modal.classList.add('show');
+        };
+// old: window.openApprovalModal_replaced
+            const textEl = document.getElementById('approval-notice-text');
+            if (textEl) {
+                textEl.innerHTML = 'Sayın <b>' + name + '</b> (' + studentId + '),<br><br>Hesabınız başarıyla oluşturuldu. <b>KOÜ Econ Medya</b> güvenlik kuralları gereği hesabınız <b>yönetici onayına sunulmuştur</b>.<br><br>Yönetici onayladıktan sonra öğrenci numaranız ve şifrenizle sisteme giriş yapabilirsiniz.';
+            }
+            const modal = document.getElementById('approval-notice-modal');
+            if (modal) modal.classList.add('show');
+        };
+
+        window.closeApprovalModal = function() {
+            const modal = document.getElementById('approval-notice-modal');
+            if (modal) modal.classList.remove('show');
+            window.switchView('login');
+        };
+
+        window.closeForgotModal = function() {
+            document.getElementById('forgot-modal').classList.remove('show');
+        };
+    </script>
+
+    <script type="module">
+        import {
+            auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile,
+            onAuthStateChanged, signOut, db, doc, setDoc, getDoc, collection, addDoc, serverTimestamp
+        } from './firebase-config.js';
+
+        function toStudentEmail(rawInput) {
+            const clean = rawInput.trim();
+            if (clean.includes('@')) return clean;
+            const digitsOnly = clean.replace(/\s+/g, '');
+            return `${digitsOnly}@kousbf.local`;
+        }
+
+        function showError(type, msg) {
+            const box = document.getElementById(type === 'login' ? 'login-error' : 'register-error');
+            const txt = document.getElementById(type === 'login' ? 'login-error-text' : 'register-error-text');
+            if (box && txt) {
+                txt.textContent = msg;
+                box.classList.remove('show');
+                void box.offsetWidth;
+                box.classList.add('show');
+            }
+        }
+
+        function navigateWithExit(url) {
+            const shell = document.getElementById('app-shell');
+            if (shell) shell.classList.add('page-exit');
+            setTimeout(() => {
+                window.location.replace(url);
+            }, 260);
+        }
+
+        // LOGIN SUBMIT
+        const loginForm = document.getElementById('login-form');
+        const loginBtn = document.getElementById('login-submit-btn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('login-error').classList.remove('show');
+
+            const rawId = document.getElementById('login-student-id').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            if (!rawId || !password) {
+                showError('login', 'Lütfen öğrenci numaranızı ve şifrenizi girin.');
+                return;
+            }
+
+            const email = toStudentEmail(rawId);
+            loginBtn.disabled = true;
+            loginBtn.innerHTML = '<div class="spinner"></div><span>Giriş Yapılıyor...</span>';
+
+            try {
+                const cred = await signInWithEmailAndPassword(auth, email, password);
+                try {
+                    const snap = await getDoc(doc(db, 'users', cred.user.uid));
+                    if (snap.exists()) {
+                        const d = snap.data();
+                        // Approval check for students
+                        if (d.role !== 'admin' && d.approved === false) {
+                            await signOut(auth);
+                            showError('login', '⚠️ Hesabınız henüz yönetici tarafından onaylanmamıştır. Lütfen yöneticinin onaylamasını bekleyin.');
+                            loginBtn.disabled = false;
+                            loginBtn.innerHTML = '<span>Giriş Yap</span>';
+                            return;
+                        }
+                        if (d.classLevel) localStorage.setItem('schedule_classLevel', d.classLevel);
+                        if (d.classType) localStorage.setItem('schedule_classType', d.classType);
+                    }
+                } catch (e) {
+                    console.warn('Profil onay kontrolü okunamadı:', e);
+                }
+                loginBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px;">check_circle</span><span>Hoşgeldin!</span>';
+                navigateWithExit('index.html');
+            } catch (error) {
+                console.error('Login error:', error);
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password') {
+                    showError('login', 'Öğrenci numarası veya şifre hatalı.');
+                } else {
+                    showError('login', 'Giriş yapılamadı: ' + error.message);
+                }
+                loginBtn.disabled = false;
+                loginBtn.innerHTML = '<span>Giriş Yap</span>';
+            }
+        });
+
+        // REGISTER SUBMIT
+        const registerForm = document.getElementById('register-form');
+        const registerBtn = document.getElementById('register-submit-btn');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('register-error').classList.remove('show');
+
+            if (window.currentRegisterRole === 'student') {
+                const name = document.getElementById('reg-name').value.trim();
+                const studentId = document.getElementById('reg-student-id').value.trim();
+                const password = document.getElementById('reg-password').value;
+                const classVal = document.getElementById('reg-class').value;
+
+                if (!name || !studentId || !password || !classVal) {
+                    showError('register', 'Lütfen tüm alanları doldurun ve sınıfınızı seçin.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError('register', 'Şifreniz en az 6 karakter olmalıdır.');
+                    return;
+                }
+
+                const [classLevel, classType] = classVal.split('-');
+                const email = toStudentEmail(studentId);
+
+                registerBtn.disabled = true;
+                registerBtn.innerHTML = '<div class="spinner"></div><span>Kaydediliyor...</span>';
+
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+
+                    try {
+                        await updateProfile(user, { displayName: name });
+                    } catch (e) {}
+
+                    localStorage.setItem('schedule_classLevel', classLevel);
+                    localStorage.setItem('schedule_classType', classType);
+
+                    try {
+                        await setDoc(doc(db, 'users', user.uid), {
+                            studentId: studentId,
+                            name: name,
+                            classLevel: classLevel,
+                            classType: classType,
+                            classFull: classVal,
+                            createdAt: serverTimestamp(),
+                            role: 'student',
+                            approved: false,
+                            status: 'pending'
+                        });
+                    } catch (err) {
+                        console.warn('Firestore user profile creation skipped:', err);
+                    }
+
+                    await signOut(auth);
+
+                    registerBtn.disabled = false;
+                    registerBtn.innerHTML = '<span>Kayıt Ol</span>';
+                    registerForm.reset();
+
+                    window.openApprovalModal(name, studentId, 'student');
+                } catch (error) {
+                    console.error('Register error:', error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        showError('register', 'Bu numara/e-posta ile zaten kayıt olunmuş. Giriş yapmayı deneyin.');
+                    } else if (error.code === 'auth/weak-password') {
+                        showError('register', 'Şifre çok zayıf. En az 6 karakter girin.');
+                    } else {
+                        showError('register', 'Kayıt hatası: ' + error.message);
+                    }
+                    registerBtn.disabled = false;
+                    registerBtn.innerHTML = '<span>Kayıt Ol</span>';
+                }
+            } else {
+                // ACADEMIC STAFF REGISTRATION
+                const title = document.getElementById('reg-academic-title').value;
+                const name = document.getElementById('reg-academic-name').value.trim();
+                const dept = document.getElementById('reg-academic-dept').value;
+                const email = document.getElementById('reg-academic-email').value.trim();
+                const password = document.getElementById('reg-academic-password').value;
+
+                if (!name || !email || !password) {
+                    showError('register', 'Lütfen isim, kurumsal e-posta ve şifrenizi girin.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError('register', 'Şifreniz en az 6 karakter olmalıdır.');
+                    return;
+                }
+
+                registerBtn.disabled = true;
+                registerBtn.innerHTML = '<div class="spinner"></div><span>Kaydediliyor...</span>';
+
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+                    const fullName = title + ' ' + name;
+
+                    try {
+                        await updateProfile(user, { displayName: fullName });
+                    } catch (e) {}
+
+                    try {
+                        await setDoc(doc(db, 'users', user.uid), {
+                            name: fullName,
+                            shortName: name,
+                            title: title,
+                            dept: dept,
+                            email: email,
+                            studentId: email.split('@')[0],
+                            createdAt: serverTimestamp(),
+                            role: 'academic',
+                            approved: false, // Yönetici Onayı Bekliyor!
+                            status: 'pending'
+                        });
+                    } catch (err) {
+                        console.warn('Firestore academic profile creation skipped:', err);
+                    }
+
+                    await signOut(auth);
+
+                    registerBtn.disabled = false;
+                    registerBtn.innerHTML = '<span>Kayıt Ol</span>';
+                    registerForm.reset();
+
+                    window.openApprovalModal(fullName, email, 'academic');
+                } catch (error) {
+                    console.error('Academic Register error:', error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        showError('register', 'Bu e-posta adresi ile zaten kayıt olunmuş. Giriş yapmayı deneyin.');
+                    } else if (error.code === 'auth/weak-password') {
+                        showError('register', 'Şifre çok zayıf. En az 6 karakter girin.');
+                    } else {
+                        showError('register', 'Kayıt hatası: ' + error.message);
+                    }
+                    registerBtn.disabled = false;
+                    registerBtn.innerHTML = '<span>Kayıt Ol</span>';
+                }
+            }
+        });
+
+        // FORGOT PASSWORD REQUEST
+        const forgotBtn = document.getElementById('forgot-submit-btn');
+        if (forgotBtn) {
+            forgotBtn.addEventListener('click', async () => {
+                const stId = document.getElementById('forgot-student-id').value.trim();
+                const newPass = document.getElementById('forgot-new-pass').value;
+                if (!stId) {
+                    alert('Lütfen öğrenci numaranızı girin.');
+                    return;
+                }
+                forgotBtn.disabled = true;
+                forgotBtn.textContent = 'Gönderiliyor...';
+                try {
+                    await addDoc(collection(db, 'password_resets'), {
+                        studentId: stId,
+                        requestedPassword: newPass || '',
+                        status: 'pending',
+                        createdAt: serverTimestamp()
+                    });
+                    alert('Şifre sıfırlama talebiniz yöneticiye iletildi!');
+                    window.closeForgotModal();
+                } catch (e) {
+                    alert('Talebiniz alındı, yönetici ekibimizle iletişime geçebilirsiniz.');
+                    window.closeForgotModal();
+                } finally {
+                    forgotBtn.disabled = false;
+                    forgotBtn.textContent = 'Talep Gönder';
+                }
+            });
+        }
+
+        // Reset session if requested
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('logout') === 'true' || urlParams.get('reset') === 'true') {
+            signOut(auth);
+            localStorage.removeItem('schedule_classLevel');
+            localStorage.removeItem('schedule_classType');
+            localStorage.removeItem('schedule_viewMode');
+        }
+
+        // Redirect if already logged in (only if approved)
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    const snap = await getDoc(doc(db, 'users', user.uid));
+                    if (snap.exists() && snap.data().role !== 'admin' && snap.data().approved === false) {
+                        await signOut(auth);
+                        return;
+                    }
+                } catch(e) {}
+                window.location.replace('index.html');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KOÜ Econ Medya - Bağımsız Yönetim Paneli</title>
+<link rel="icon" type="image/svg+xml" href="assets/econ-medya.svg"><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#004d27">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Poppins', 'Inter', sans-serif; background-color: #1C2120; }
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-feature-settings: 'liga' !important;
+            -webkit-font-feature-settings: 'liga' !important;
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-sidebar {
+            background: #1C2120;
+            border: 1px solid rgba(11, 163, 80, 0.25);
+            color: #ffffff;
+        }
+        .glass-sidebar a[data-tab] {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+        .glass-sidebar a[data-tab]:hover {
+            background-color: rgba(11, 163, 80, 0.15) !important;
+            color: #ffffff !important;
+        }
+        .glass-sidebar h1, .glass-sidebar p {
+            color: #ffffff !important;
+        }
+        .floating-canvas {
+            margin: 1.5rem;
+            margin-left: 17.5rem;
+            border-radius: 2rem;
+            background: #f8faf9;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+            min-height: calc(100vh - 3rem);
+            overflow: hidden;
+            border-top: 8px solid #0BA350;
+        }
+        @media (max-width: 1024px) {
+            .floating-canvas {
+                margin: 0;
+                border-radius: 0;
+                border-top: none;
+                padding-bottom: 5.5rem;
+                min-height: 100vh;
+            }
+        }
+        .nav-item-active {
+            background-color: #0BA350 !important;
+            color: #1C2120 !important;
+            font-weight: 700 !important;
+        }
+        .nav-item-active span {
+            color: #1C2120 !important;
+        }
+        .mobile-admin-nav-active {
+            background-color: #0BA350 !important;
+            color: #1C2120 !important;
+        }
+        /* Mobile App-like Header for Admin */
+        @media (max-width: 1024px) {
+            header.admin-top-bar {
+                background-color: #0BA350 !important;
+                color: #1C2120 !important;
+                border-bottom-left-radius: 28px;
+                border-bottom-right-radius: 28px;
+                padding: 1.25rem 1.5rem !important;
+                box-shadow: 0 8px 20px rgba(11, 163, 80, 0.25);
+            }
+            header.admin-top-bar h2, header.admin-top-bar p {
+                color: #1C2120 !important;
+            }
+        }
+</style>
+    <script defer src="chat-widget.js"></script>
+<style id="tailwind-inlined">
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\!container{max-width:1536px!important}.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.-bottom-20{bottom:-5rem}.-bottom-4{bottom:-1rem}.-right-1{right:-.25rem}.-right-20{right:-5rem}.-right-4{right:-1rem}.-right-6{right:-1.5rem}.-top-1{top:-.25rem}.-top-12{top:-3rem}.-top-6{top:-1.5rem}.bottom-0{bottom:0}.bottom-4{bottom:1rem}.bottom-8{bottom:2rem}.bottom-\[-100px\]{bottom:-100px}.bottom-full{bottom:100%}.left-0{left:0}.left-4{left:1rem}.left-6{left:1.5rem}.left-\[-200px\]{left:-200px}.right-0{right:0}.right-1{right:.25rem}.right-1\.5{right:.375rem}.right-2{right:.5rem}.right-2\.5{right:.625rem}.right-4{right:1rem}.right-8{right:2rem}.right-\[-100px\]{right:-100px}.right-\[calc\(50\%-68px\)\]{right:calc(50% - 68px)}.top-0{top:0}.top-1{top:.25rem}.top-1\.5{top:.375rem}.top-1\/2{top:50%}.top-2{top:.5rem}.top-2\.5{top:.625rem}.top-4{top:1rem}.top-6{top:1.5rem}.top-\[-200px\]{top:-200px}.top-\[32px\]{top:32px}.-z-10{z-index:-10}.z-10{z-index:10}.z-20{z-index:20}.z-40{z-index:40}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[99999\]{z-index:99999}.z-\[9999\]{z-index:9999}.col-span-1{grid-column:span 1/span 1}.col-span-12{grid-column:span 12/span 12}.col-span-full{grid-column:1/-1}.mx-2{margin-left:.5rem;margin-right:.5rem}.mx-4{margin-left:1rem;margin-right:1rem}.mx-auto{margin-left:auto;margin-right:auto}.-mr-16{margin-right:-4rem}.-mt-16{margin-top:-4rem}.mb-0\.5{margin-bottom:.125rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:.25rem}.ml-2{margin-left:.5rem}.ml-auto{margin-left:auto}.mr-1{margin-right:.25rem}.mr-2{margin-right:.5rem}.mr-3{margin-right:.75rem}.mr-4{margin-right:1rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-20{margin-top:5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.mt-gutter{margin-top:24px}.line-clamp-1{-webkit-line-clamp:1}.line-clamp-1,.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical}.line-clamp-2{-webkit-line-clamp:2}.line-clamp-3{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.contents{display:contents}.hidden{display:none}.h-1{height:.25rem}.h-1\.5{height:.375rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-3{height:.75rem}.h-32{height:8rem}.h-36{height:9rem}.h-4{height:1rem}.h-48{height:12rem}.h-5{height:1.25rem}.h-64{height:16rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[320px\]{height:320px}.h-\[400px\]{height:400px}.h-\[500px\]{height:500px}.h-\[600px\]{height:600px}.h-\[80px\]{height:80px}.h-\[calc\(100\%-48px\)\]{height:calc(100% - 48px)}.h-\[calc\(100vh-3rem\)\]{height:calc(100vh - 3rem)}.h-\[calc\(100vh-80px\)\]{height:calc(100vh - 80px)}.h-auto{height:auto}.h-full{height:100%}.h-screen{height:100vh}.max-h-48{max-height:12rem}.max-h-80{max-height:20rem}.max-h-\[85vh\]{max-height:85vh}.max-h-\[90vh\]{max-height:90vh}.min-h-\[120px\]{min-height:120px}.min-h-\[260px\]{min-height:260px}.min-h-screen{min-height:100vh}.w-1{width:.25rem}.w-1\.5{width:.375rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-2{width:.5rem}.w-20{width:5rem}.w-24{width:6rem}.w-3{width:.75rem}.w-32{width:8rem}.w-48{width:12rem}.w-5{width:1.25rem}.w-56{width:14rem}.w-64{width:16rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[1px\]{width:1px}.w-\[500px\]{width:500px}.w-\[600px\]{width:600px}.w-auto{width:auto}.w-fit{width:-moz-fit-content;width:fit-content}.w-full{width:100%}.min-w-0{min-width:0}.min-w-\[160px\]{min-width:160px}.min-w-\[60px\]{min-width:60px}.min-w-\[80px\]{min-width:80px}.min-w-max{min-width:-moz-max-content;min-width:max-content}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-7xl{max-width:80rem}.max-w-\[85\%\]{max-width:85%}.max-w-\[90\%\]{max-width:90%}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xs{max-width:20rem}.flex-1{flex:1 1 0%}.flex-shrink-0,.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.border-collapse{border-collapse:collapse}.-translate-x-full{--tw-translate-x:-100%}.-translate-x-full,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.translate-x-1{--tw-translate-x:0.25rem}.translate-x-1,.translate-y-2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-2{--tw-translate-y:0.5rem}.translate-y-full{--tw-translate-y:100%}.scale-110,.translate-y-full{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}.scale-125{--tw-scale-x:1.25;--tw-scale-y:1.25}.scale-125,.scale-95{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-95{--tw-scale-x:.95;--tw-scale-y:.95}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.animate-bounce{animation:bounce 1s infinite}@keyframes ping{75%,to{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes spin{to{transform:rotate(1turn)}}.animate-spin{animation:spin 1s linear infinite}.cursor-default{cursor:default}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.resize-y{resize:vertical}.list-disc{list-style-type:disc}.appearance-none{-webkit-appearance:none;-moz-appearance:none;appearance:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.gap-gutter{gap:24px}.gap-x-4{-moz-column-gap:1rem;column-gap:1rem}.gap-y-2{row-gap:.5rem}.space-x-1>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.25rem*var(--tw-space-x-reverse));margin-left:calc(.25rem*(1 - var(--tw-space-x-reverse)))}.space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem*var(--tw-space-x-reverse));margin-left:calc(.5rem*(1 - var(--tw-space-x-reverse)))}.space-x-3>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.75rem*var(--tw-space-x-reverse));margin-left:calc(.75rem*(1 - var(--tw-space-x-reverse)))}.space-x-4>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem*var(--tw-space-x-reverse));margin-left:calc(1rem*(1 - var(--tw-space-x-reverse)))}.space-x-6>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem*var(--tw-space-x-reverse));margin-left:calc(1.5rem*(1 - var(--tw-space-x-reverse)))}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.space-y-8>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem*var(--tw-space-y-reverse))}.space-y-gutter>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(24px*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(24px*var(--tw-space-y-reverse))}.space-y-stack-gap>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(16px*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(16px*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-outline-variant\/10>:not([hidden])~:not([hidden]){border-color:hsla(120,9%,77%,.1)}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.whitespace-pre-wrap{white-space:pre-wrap}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.rounded-b-2xl{border-bottom-right-radius:1rem;border-bottom-left-radius:1rem}.rounded-t-xl{border-top-left-radius:.75rem;border-top-right-radius:.75rem}.rounded-tl-sm{border-top-left-radius:.125rem}.rounded-tr-sm{border-top-right-radius:.125rem}.border{border-width:1px}.border-0{border-width:0}.border-2{border-width:2px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-b-4{border-bottom-width:4px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-t-8{border-top-width:8px}.border-dashed{border-style:dashed}.border-none{border-style:none}.border-\[\#0b6d3b\]\/10{border-color:rgba(11,109,59,.1)}.border-\[rgba\(190\2c 201\2c 190\2c 0\.2\)\]{border-color:hsla(120,9%,77%,.2)}.border-black\/5{border-color:rgba(0,0,0,.05)}.border-error{--tw-border-opacity:1;border-color:rgb(186 26 26/var(--tw-border-opacity,1))}.border-error\/20{border-color:rgba(186,26,26,.2)}.border-on-primary\/10{border-color:hsla(0,0%,100%,.1)}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(190 201 190/var(--tw-border-opacity,1))}.border-outline-variant\/10{border-color:hsla(120,9%,77%,.1)}.border-outline-variant\/20{border-color:hsla(120,9%,77%,.2)}.border-outline-variant\/30{border-color:hsla(120,9%,77%,.3)}.border-outline-variant\/5{border-color:hsla(120,9%,77%,.05)}.border-outline-variant\/50{border-color:hsla(120,9%,77%,.5)}.border-outline\/10{border-color:hsla(125,5%,46%,.1)}.border-outline\/20{border-color:hsla(125,5%,46%,.2)}.border-primary{--tw-border-opacity:1;border-color:rgb(0 77 39/var(--tw-border-opacity,1))}.border-primary-fixed{--tw-border-opacity:1;border-color:rgb(158 246 182/var(--tw-border-opacity,1))}.border-primary-fixed-dim{--tw-border-opacity:1;border-color:rgb(131 217 156/var(--tw-border-opacity,1))}.border-primary\/10{border-color:rgba(0,77,39,.1)}.border-primary\/20{border-color:rgba(0,77,39,.2)}.border-primary\/30{border-color:rgba(0,77,39,.3)}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-surface{--tw-border-opacity:1;border-color:rgb(249 249 255/var(--tw-border-opacity,1))}.border-transparent{border-color:transparent}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.border-white\/5{border-color:hsla(0,0%,100%,.05)}.border-white\/50{border-color:hsla(0,0%,100%,.5)}.border-yellow-400{--tw-border-opacity:1;border-color:rgb(250 204 21/var(--tw-border-opacity,1))}.bg-\[\#004d27\]{--tw-bg-opacity:1;background-color:rgb(0 77 39/var(--tw-bg-opacity,1))}.bg-\[\#004d27\]\/40{background-color:rgba(0,77,39,.4)}.bg-\[\#006837\]{--tw-bg-opacity:1;background-color:rgb(0 104 55/var(--tw-bg-opacity,1))}.bg-\[\#0b6d3b\]\/10{background-color:rgba(11,109,59,.1)}.bg-\[\#8ee4a6\]{--tw-bg-opacity:1;background-color:rgb(142 228 166/var(--tw-bg-opacity,1))}.bg-\[\#8ee4a6\]\/20{background-color:rgba(142,228,166,.2)}.bg-\[\#F3F4F6\]{--tw-bg-opacity:1;background-color:rgb(243 244 246/var(--tw-bg-opacity,1))}.bg-\[\#eff3ff\]{--tw-bg-opacity:1;background-color:rgb(239 243 255/var(--tw-bg-opacity,1))}.bg-\[\#eff3ff\]\/30{background-color:rgba(239,243,255,.3)}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11/var(--tw-bg-opacity,1))}.bg-background{--tw-bg-opacity:1;background-color:rgb(249 249 255/var(--tw-bg-opacity,1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity,1))}.bg-black\/5{background-color:rgba(0,0,0,.05)}.bg-black\/50{background-color:rgba(0,0,0,.5)}.bg-black\/60{background-color:rgba(0,0,0,.6)}.bg-black\/80{background-color:rgba(0,0,0,.8)}.bg-blue-500\/10{background-color:rgba(59,130,246,.1)}.bg-blue-500\/5{background-color:rgba(59,130,246,.05)}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-error{--tw-bg-opacity:1;background-color:rgb(186 26 26/var(--tw-bg-opacity,1))}.bg-error\/10{background-color:rgba(186,26,26,.1)}.bg-error\/5{background-color:rgba(186,26,26,.05)}.bg-green-400{--tw-bg-opacity:1;background-color:rgb(74 222 128/var(--tw-bg-opacity,1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-inverse-surface{--tw-bg-opacity:1;background-color:rgb(39 49 64/var(--tw-bg-opacity,1))}.bg-on-primary{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-on-primary-container{--tw-bg-opacity:1;background-color:rgb(142 228 166/var(--tw-bg-opacity,1))}.bg-on-primary\/10{background-color:hsla(0,0%,100%,.1)}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22/var(--tw-bg-opacity,1))}.bg-orange-500\/10{background-color:rgba(249,115,22,.1)}.bg-orange-500\/20{background-color:rgba(249,115,22,.2)}.bg-orange-500\/5{background-color:rgba(249,115,22,.05)}.bg-outline-variant\/30{background-color:hsla(120,9%,77%,.3)}.bg-primary{--tw-bg-opacity:1;background-color:rgb(0 77 39/var(--tw-bg-opacity,1))}.bg-primary-container{--tw-bg-opacity:1;background-color:rgb(0 104 55/var(--tw-bg-opacity,1))}.bg-primary-container\/10{background-color:rgba(0,104,55,.1)}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.bg-primary-fixed-dim{--tw-bg-opacity:1;background-color:rgb(131 217 156/var(--tw-bg-opacity,1))}.bg-primary\/10{background-color:rgba(0,77,39,.1)}.bg-primary\/5{background-color:rgba(0,77,39,.05)}.bg-secondary-container{--tw-bg-opacity:1;background-color:rgb(222 224 226/var(--tw-bg-opacity,1))}.bg-secondary\/10{background-color:rgba(92,95,96,.1)}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(249 249 255/var(--tw-bg-opacity,1))}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(230 238 255/var(--tw-bg-opacity,1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(222 233 253/var(--tw-bg-opacity,1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(239 243 255/var(--tw-bg-opacity,1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-surface-container\/50{background-color:rgba(230,238,255,.5)}.bg-surface-dim{--tw-bg-opacity:1;background-color:rgb(208 218 239/var(--tw-bg-opacity,1))}.bg-surface-dim\/30{background-color:rgba(208,218,239,.3)}.bg-surface-dim\/40{background-color:rgba(208,218,239,.4)}.bg-surface-dim\/50{background-color:rgba(208,218,239,.5)}.bg-surface-variant{--tw-bg-opacity:1;background-color:rgb(217 227 247/var(--tw-bg-opacity,1))}.bg-surface\/80{background-color:rgba(249,249,255,.8)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/5{background-color:hsla(0,0%,100%,.05)}.bg-white\/60{background-color:hsla(0,0%,100%,.6)}.bg-white\/80{background-color:hsla(0,0%,100%,.8)}.bg-white\/90{background-color:hsla(0,0%,100%,.9)}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21/var(--tw-bg-opacity,1))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right,var(--tw-gradient-stops))}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgba(251,191,36,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-blue-400{--tw-gradient-from:#60a5fa var(--tw-gradient-from-position);--tw-gradient-to:rgba(96,165,250,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-emerald-400{--tw-gradient-from:#34d399 var(--tw-gradient-from-position);--tw-gradient-to:rgba(52,211,153,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-error{--tw-gradient-from:#ba1a1a var(--tw-gradient-from-position);--tw-gradient-to:rgba(186,26,26,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-inverse-surface{--tw-gradient-from:#273140 var(--tw-gradient-from-position);--tw-gradient-to:rgba(39,49,64,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-orange-500{--tw-gradient-from:#f97316 var(--tw-gradient-from-position);--tw-gradient-to:rgba(249,115,22,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-primary{--tw-gradient-from:#004d27 var(--tw-gradient-from-position);--tw-gradient-to:rgba(0,77,39,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-primary\/20{--tw-gradient-from:rgba(0,77,39,.2) var(--tw-gradient-from-position);--tw-gradient-to:rgba(0,77,39,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-primary\/80{--tw-gradient-from:rgba(0,77,39,.8) var(--tw-gradient-from-position);--tw-gradient-to:rgba(0,77,39,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-surface-container-highest{--tw-gradient-from:#d9e3f7 var(--tw-gradient-from-position);--tw-gradient-to:rgba(217,227,247,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-white{--tw-gradient-from:#fff var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-yellow-500{--tw-gradient-from:#eab308 var(--tw-gradient-from-position);--tw-gradient-to:rgba(234,179,8,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-\[\#8ee4a6\]{--tw-gradient-to:#8ee4a6 var(--tw-gradient-to-position)}.to-amber-600{--tw-gradient-to:#d97706 var(--tw-gradient-to-position)}.to-error-container{--tw-gradient-to:#ffdad6 var(--tw-gradient-to-position)}.to-orange-500{--tw-gradient-to:#f97316 var(--tw-gradient-to-position)}.to-primary-container{--tw-gradient-to:#006837 var(--tw-gradient-to-position)}.to-red-500{--tw-gradient-to:#ef4444 var(--tw-gradient-to-position)}.to-surface{--tw-gradient-to:#f9f9ff var(--tw-gradient-to-position)}.to-surface-variant{--tw-gradient-to:#d9e3f7 var(--tw-gradient-to-position)}.to-teal-500{--tw-gradient-to:#14b8a6 var(--tw-gradient-to-position)}.to-teal-600{--tw-gradient-to:#0d9488 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-clip-text{-webkit-background-clip:text;background-clip:text}.object-cover{-o-object-fit:cover;object-fit:cover}.object-top{-o-object-position:top;object-position:top}.p-1{padding:.25rem}.p-12{padding:3rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-\[3px\]{padding:3px}.p-card-padding{padding:24px}.px-1{padding-left:.25rem;padding-right:.25rem}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.px-margin-desktop{padding-left:32px;padding-right:32px}.px-margin-mobile{padding-left:16px;padding-right:16px}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pb-20{padding-bottom:5rem}.pb-24{padding-bottom:6rem}.pb-4{padding-bottom:1rem}.pb-\[env\(safe-area-inset-bottom\2c 16px\)\]{padding-bottom:env(safe-area-inset-bottom,16px)}.pl-1{padding-left:.25rem}.pl-3{padding-left:.75rem}.pl-4{padding-left:1rem}.pl-\[120px\]{padding-left:120px}.pr-2{padding-right:.5rem}.pr-8{padding-right:2rem}.pt-10{padding-top:2.5rem}.pt-2{padding-top:.5rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.pt-8{padding-top:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-\[\'Playfair_Display\'\]{font-family:Playfair Display}.font-body-lg,.font-body-sm,.font-display-lg,.font-headline-lg,.font-headline-lg-mobile{font-family:Hanken Grotesk}.font-label-caps{font-family:Inter}.font-title-md{font-family:Hanken Grotesk}.\!text-\[16px\]{font-size:16px!important}.\!text-\[18px\]{font-size:18px!important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[120px\]{font-size:120px}.text-\[12px\]{font-size:12px}.text-\[14px\]{font-size:14px}.text-\[160px\]{font-size:160px}.text-\[16px\]{font-size:16px}.text-\[18px\]{font-size:18px}.text-\[300px\]{font-size:300px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-body-lg{font-size:16px;line-height:26px;font-weight:400}.text-body-sm{font-size:14px;line-height:20px;font-weight:400}.text-headline-lg{font-size:32px;line-height:40px;font-weight:600}.text-headline-lg-mobile{font-size:24px;line-height:32px;font-weight:600}.text-label-caps{font-size:12px;line-height:16px;letter-spacing:.05em;font-weight:700}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-title-md{font-size:18px;line-height:24px;font-weight:600}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-light{font-weight:300}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-tighter{letter-spacing:-.05em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-\[\#004d27\]{--tw-text-opacity:1;color:rgb(0 77 39/var(--tw-text-opacity,1))}.text-\[\#121c2a\]{--tw-text-opacity:1;color:rgb(18 28 42/var(--tw-text-opacity,1))}.text-\[\#8ee4a6\]{--tw-text-opacity:1;color:rgb(142 228 166/var(--tw-text-opacity,1))}.text-\[\#ba1a1a\]{--tw-text-opacity:1;color:rgb(186 26 26/var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246/var(--tw-text-opacity,1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235/var(--tw-text-opacity,1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26/var(--tw-text-opacity,1))}.text-error\/80{color:rgba(186,26,26,.8)}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74/var(--tw-text-opacity,1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61/var(--tw-text-opacity,1))}.text-on-background{--tw-text-opacity:1;color:rgb(18 28 42/var(--tw-text-opacity,1))}.text-on-primary{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-on-primary-container{--tw-text-opacity:1;color:rgb(142 228 166/var(--tw-text-opacity,1))}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.text-on-primary\/70{color:hsla(0,0%,100%,.7)}.text-on-primary\/80{color:hsla(0,0%,100%,.8)}.text-on-primary\/90{color:hsla(0,0%,100%,.9)}.text-on-surface{--tw-text-opacity:1;color:rgb(18 28 42/var(--tw-text-opacity,1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(63 73 64/var(--tw-text-opacity,1))}.text-on-surface-variant\/20{color:rgba(63,73,64,.2)}.text-on-surface-variant\/40{color:rgba(63,73,64,.4)}.text-on-surface-variant\/50{color:rgba(63,73,64,.5)}.text-on-surface-variant\/60{color:rgba(63,73,64,.6)}.text-orange-500{--tw-text-opacity:1;color:rgb(249 115 22/var(--tw-text-opacity,1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12/var(--tw-text-opacity,1))}.text-outline{--tw-text-opacity:1;color:rgb(111 122 112/var(--tw-text-opacity,1))}.text-outline-variant{--tw-text-opacity:1;color:rgb(190 201 190/var(--tw-text-opacity,1))}.text-outline\/30{color:hsla(125,5%,46%,.3)}.text-primary{--tw-text-opacity:1;color:rgb(0 77 39/var(--tw-text-opacity,1))}.text-primary-container{--tw-text-opacity:1;color:rgb(0 104 55/var(--tw-text-opacity,1))}.text-secondary{--tw-text-opacity:1;color:rgb(92 95 96/var(--tw-text-opacity,1))}.text-secondary\/60{color:rgba(92,95,96,.6)}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-transparent{color:transparent}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-white\/10{color:hsla(0,0%,100%,.1)}.text-white\/20{color:hsla(0,0%,100%,.2)}.text-white\/50{color:hsla(0,0%,100%,.5)}.text-white\/70{color:hsla(0,0%,100%,.7)}.text-white\/80{color:hsla(0,0%,100%,.8)}.text-yellow-600{--tw-text-opacity:1;color:rgb(202 138 4/var(--tw-text-opacity,1))}.accent-primary{accent-color:#004d27}.accent-secondary{accent-color:#5c5f60}.opacity-0{opacity:0}.opacity-10{opacity:.1}.opacity-20{opacity:.2}.opacity-40{opacity:.4}.opacity-5{opacity:.05}.opacity-50{opacity:.5}.opacity-60{opacity:.6}.opacity-75{opacity:.75}.opacity-80{opacity:.8}.mix-blend-screen{mix-blend-mode:screen}.mix-blend-overlay{mix-blend-mode:overlay}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-\[0_-4px_20px_rgba\(0\2c 0\2c 0\2c 0\.05\)\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_-4px_20px_rgba\(0\2c 0\2c 0\2c 0\.05\)\]{--tw-shadow:0 -4px 20px rgba(0,0,0,.05);--tw-shadow-colored:0 -4px 20px var(--tw-shadow-color)}.shadow-\[0_10px_25px_rgba\(249\2c 115\2c 22\2c 0\.5\)\]{--tw-shadow:0 10px 25px rgba(249,115,22,.5);--tw-shadow-colored:0 10px 25px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_4px_14px_0_rgba\(0\2c 77\2c 39\2c 0\.39\)\]{--tw-shadow:0 4px 14px 0 rgba(0,77,39,.39);--tw-shadow-colored:0 4px 14px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0px_4px_20px_rgba\(0\2c 0\2c 0\2c 0\.04\)\]{--tw-shadow:0px 4px 20px rgba(0,0,0,.04);--tw-shadow-colored:0px 4px 20px var(--tw-shadow-color)}.shadow-\[0px_4px_20px_rgba\(0\2c 0\2c 0\2c 0\.04\)\],.shadow-inner{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgba(0,0,0,.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-sm,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.outline-none{outline:2px solid transparent;outline-offset:2px}.outline{outline-style:solid}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-primary\/10{--tw-ring-color:rgba(0,77,39,.1)}.ring-primary\/20{--tw-ring-color:rgba(0,77,39,.2)}.ring-surface-dim{--tw-ring-opacity:1;--tw-ring-color:rgb(208 218 239/var(--tw-ring-opacity,1))}.ring-white{--tw-ring-opacity:1;--tw-ring-color:rgb(255 255 255/var(--tw-ring-opacity,1))}.blur{--tw-blur:blur(8px)}.blur,.blur-3xl{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.blur-3xl{--tw-blur:blur(64px)}.drop-shadow-lg{--tw-drop-shadow:drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 3px rgba(0,0,0,.1))}.drop-shadow-lg,.invert{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.invert{--tw-invert:invert(100%)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-1000{transition-duration:1s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.duration-700{transition-duration:.7s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.selection\:bg-primary-fixed ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.selection\:bg-primary-fixed ::selection{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.selection\:text-on-primary-fixed ::-moz-selection{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.selection\:text-on-primary-fixed ::selection{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.selection\:bg-primary-fixed::-moz-selection{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.selection\:bg-primary-fixed::selection{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.selection\:text-on-primary-fixed::-moz-selection{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.selection\:text-on-primary-fixed::selection{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.file\:mr-4::file-selector-button{margin-right:1rem}.file\:rounded-full::file-selector-button{border-radius:9999px}.file\:border-0::file-selector-button{border-width:0}.file\:bg-primary\/10::file-selector-button{background-color:rgba(0,77,39,.1)}.file\:px-4::file-selector-button{padding-left:1rem;padding-right:1rem}.file\:py-2::file-selector-button{padding-top:.5rem;padding-bottom:.5rem}.file\:text-sm::file-selector-button{font-size:.875rem;line-height:1.25rem}.file\:font-semibold::file-selector-button{font-weight:600}.file\:text-primary::file-selector-button{--tw-text-opacity:1;color:rgb(0 77 39/var(--tw-text-opacity,1))}.placeholder\:text-on-surface-variant\/50::-moz-placeholder{color:rgba(63,73,64,.5)}.placeholder\:text-on-surface-variant\/50::placeholder{color:rgba(63,73,64,.5)}.last\:border-0:last-child{border-width:0}.last\:pb-0:last-child{padding-bottom:0}.focus-within\:border-primary:focus-within{--tw-border-opacity:1;border-color:rgb(0 77 39/var(--tw-border-opacity,1))}.focus-within\:border-primary\/30:focus-within{border-color:rgba(0,77,39,.3)}.hover\:-translate-y-0\.5:hover{--tw-translate-y:-0.125rem}.hover\:-translate-y-0\.5:hover,.hover\:-translate-y-1:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem}.hover\:translate-y-\[-2px\]:hover{--tw-translate-y:-2px}.hover\:scale-105:hover,.hover\:translate-y-\[-2px\]:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(0 77 39/var(--tw-border-opacity,1))}.hover\:border-primary\/10:hover{border-color:rgba(0,77,39,.1)}.hover\:border-primary\/20:hover{border-color:rgba(0,77,39,.2)}.hover\:bg-\[\#0b6d3b\]:hover{--tw-bg-opacity:1;background-color:rgb(11 109 59/var(--tw-bg-opacity,1))}.hover\:bg-\[\#93000a\]:hover{--tw-bg-opacity:1;background-color:rgb(147 0 10/var(--tw-bg-opacity,1))}.hover\:bg-blue-500\/20:hover{background-color:rgba(59,130,246,.2)}.hover\:bg-error:hover{--tw-bg-opacity:1;background-color:rgb(186 26 26/var(--tw-bg-opacity,1))}.hover\:bg-error\/10:hover{background-color:rgba(186,26,26,.1)}.hover\:bg-error\/5:hover{background-color:rgba(186,26,26,.05)}.hover\:bg-on-primary\/5:hover{background-color:hsla(0,0%,100%,.05)}.hover\:bg-on-surface:hover{--tw-bg-opacity:1;background-color:rgb(18 28 42/var(--tw-bg-opacity,1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(0 77 39/var(--tw-bg-opacity,1))}.hover\:bg-primary-container:hover{--tw-bg-opacity:1;background-color:rgb(0 104 55/var(--tw-bg-opacity,1))}.hover\:bg-primary-container\/20:hover{background-color:rgba(0,104,55,.2)}.hover\:bg-primary-fixed:hover{--tw-bg-opacity:1;background-color:rgb(158 246 182/var(--tw-bg-opacity,1))}.hover\:bg-primary\/10:hover{background-color:rgba(0,77,39,.1)}.hover\:bg-primary\/20:hover{background-color:rgba(0,77,39,.2)}.hover\:bg-primary\/5:hover{background-color:rgba(0,77,39,.05)}.hover\:bg-slate-300:hover{--tw-bg-opacity:1;background-color:rgb(203 213 225/var(--tw-bg-opacity,1))}.hover\:bg-surface-container:hover{--tw-bg-opacity:1;background-color:rgb(230 238 255/var(--tw-bg-opacity,1))}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(222 233 253/var(--tw-bg-opacity,1))}.hover\:bg-surface-container-low:hover{--tw-bg-opacity:1;background-color:rgb(239 243 255/var(--tw-bg-opacity,1))}.hover\:bg-surface-dim:hover{--tw-bg-opacity:1;background-color:rgb(208 218 239/var(--tw-bg-opacity,1))}.hover\:bg-surface-dim\/50:hover{background-color:rgba(208,218,239,.5)}.hover\:bg-surface-variant:hover{--tw-bg-opacity:1;background-color:rgb(217 227 247/var(--tw-bg-opacity,1))}.hover\:bg-white\/10:hover{background-color:hsla(0,0%,100%,.1)}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:bg-opacity-90:hover{--tw-bg-opacity:0.9}.hover\:from-orange-600:hover{--tw-gradient-from:#ea580c var(--tw-gradient-from-position);--tw-gradient-to:rgba(234,88,12,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.hover\:to-red-600:hover{--tw-gradient-to:#dc2626 var(--tw-gradient-to-position)}.hover\:text-error:hover{--tw-text-opacity:1;color:rgb(186 26 26/var(--tw-text-opacity,1))}.hover\:text-on-primary:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:text-on-primary-fixed:hover{--tw-text-opacity:1;color:rgb(0 33 14/var(--tw-text-opacity,1))}.hover\:text-on-surface:hover{--tw-text-opacity:1;color:rgb(18 28 42/var(--tw-text-opacity,1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(0 77 39/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-100:hover{opacity:1}.hover\:opacity-90:hover{opacity:.9}.hover\:shadow-\[0_6px_20px_rgba\(0\2c 77\2c 39\2c 0\.23\)\]:hover{--tw-shadow:0 6px 20px rgba(0,77,39,.23);--tw-shadow-colored:0 6px 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-\[0px_8px_24px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]:hover{--tw-shadow:0px 8px 24px rgba(0,0,0,.08);--tw-shadow-colored:0px 8px 24px var(--tw-shadow-color)}.hover\:shadow-\[0px_8px_24px_rgba\(0\2c 0\2c 0\2c 0\.08\)\]:hover,.hover\:shadow-lg:hover{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.hover\:shadow-md:hover,.hover\:shadow-xl:hover{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.hover\:shadow-xl:hover{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.hover\:shadow-primary\/20:hover{--tw-shadow-color:rgba(0,77,39,.2);--tw-shadow:var(--tw-shadow-colored)}.hover\:file\:bg-primary\/20::file-selector-button:hover{background-color:rgba(0,77,39,.2)}.focus\:border-primary:focus{--tw-border-opacity:1;border-color:rgb(0 77 39/var(--tw-border-opacity,1))}.focus\:bg-white:focus{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-0:focus,.focus\:ring-1:focus{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-\[\#004d27\]:focus,.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(0 77 39/var(--tw-ring-opacity,1))}.focus\:ring-primary\/20:focus{--tw-ring-color:rgba(0,77,39,.2)}.active\:translate-x-0:active{--tw-translate-x:0px}.active\:scale-90:active,.active\:translate-x-0:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:opacity-50:disabled{opacity:.5}.group:hover .group-hover\:translate-x-2{--tw-translate-x:0.5rem}.group:hover .group-hover\:translate-x-2,.group\/btn:hover .group-hover\/btn\:scale-110{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group\/btn:hover .group-hover\/btn\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05}.group:hover .group-hover\:scale-105,.group:hover .group-hover\:scale-110{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}@keyframes bounce{0%,to{transform:translateY(-25%);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,.2,1)}}.group:hover .group-hover\:animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.group:hover .group-hover\:animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.group:hover .group-hover\:text-primary{--tw-text-opacity:1;color:rgb(0 77 39/var(--tw-text-opacity,1))}.group:hover .group-hover\:text-primary-container{--tw-text-opacity:1;color:rgb(0 104 55/var(--tw-text-opacity,1))}.group:hover .group-hover\:opacity-100{opacity:1}.dark\:border-white\/10:is(.dark *){border-color:hsla(0,0%,100%,.1)}.dark\:bg-background:is(.dark *){--tw-bg-opacity:1;background-color:rgb(249 249 255/var(--tw-bg-opacity,1))}.dark\:bg-primary-container:is(.dark *){--tw-bg-opacity:1;background-color:rgb(0 104 55/var(--tw-bg-opacity,1))}.dark\:bg-surface-container:is(.dark *){--tw-bg-opacity:1;background-color:rgb(230 238 255/var(--tw-bg-opacity,1))}.dark\:bg-white\/5:is(.dark *){background-color:hsla(0,0%,100%,.05)}.dark\:text-on-primary-container:is(.dark *){--tw-text-opacity:1;color:rgb(142 228 166/var(--tw-text-opacity,1))}.dark\:text-orange-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 146 60/var(--tw-text-opacity,1))}.dark\:text-secondary-fixed:is(.dark *){--tw-text-opacity:1;color:rgb(225 226 228/var(--tw-text-opacity,1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.dark\:text-white:is(.dark *){--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.dark\:hover\:bg-white\/10:hover:is(.dark *){background-color:hsla(0,0%,100%,.1)}@media (min-width:640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:items-center{align-items:center}}@media (min-width:768px){.md\:col-span-1{grid-column:span 1/span 1}.md\:col-span-3{grid-column:span 3/span 3}.md\:mb-0{margin-bottom:0}.md\:mr-4{margin-right:1rem}.md\:block{display:block}.md\:inline{display:inline}.md\:flex{display:flex}.md\:h-auto{height:auto}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:space-x-2>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.5rem*var(--tw-space-x-reverse));margin-left:calc(.5rem*(1 - var(--tw-space-x-reverse)))}.md\:p-20{padding:5rem}.md\:p-4{padding:1rem}.md\:p-6{padding:1.5rem}.md\:p-margin-desktop{padding:32px}.md\:px-margin-desktop{padding-left:32px;padding-right:32px}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-headline-lg{font-size:32px;line-height:40px;font-weight:600}.md\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:1024px){.lg\:col-span-2{grid-column:span 2/span 2}.lg\:col-span-4{grid-column:span 4/span 4}.lg\:col-span-5{grid-column:span 5/span 5}.lg\:col-span-7{grid-column:span 7/span 7}.lg\:col-span-8{grid-column:span 8/span 8}.lg\:ml-64{margin-left:16rem}.lg\:block{display:block}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:h-\[400px\]{height:400px}.lg\:w-80{width:20rem}.lg\:grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:flex-row{flex-direction:row}.lg\:pb-0{padding-bottom:0}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}.lg\:text-display-lg{font-size:48px;line-height:56px;letter-spacing:-.02em;font-weight:700}}
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Component (Minimalist / Glassmorphism) -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-3rem)] w-64 fixed left-6 top-6 glass-sidebar rounded-2xl z-50 p-6">
+<div class="mb-10 px-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<h1 class="font-bold text-lg leading-none text-on-surface">Admin</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60">Econ Medya Control</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<p class="px-3 mb-2 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-40">Main Menu</p>
+<a data-tab="dashboard" onclick="switchTab('dashboard')" class="flex items-center gap-3 nav-item-active rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+<span class="text-body-sm">Dashboard</span>
+</a>
+<a data-tab="icerik" onclick="switchTab('icerik')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-body-sm">İçerik Yönetimi</span>
+</a>
+<a data-tab="haberler" onclick="switchTab('haberler')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="text-body-sm">Ana Sayfa Haberleri</span>
+</a>
+<a data-tab="moderasyon" onclick="switchTab('moderasyon')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-body-sm">Moderasyon</span>
+</a>
+<a data-tab="etkinlik" onclick="switchTab('etkinlik')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="text-body-sm">Etkinlikler</span>
+</a>
+<a data-tab="onaylar" onclick="switchTab('onaylar')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer relative" href="#">
+<span class="material-symbols-outlined text-amber-500">how_to_reg</span>
+<span class="text-body-sm font-semibold">Öğrenci Onayları</span>
+<span id="pending-users-badge" class="hidden ml-auto text-[10px] font-black bg-error text-white px-2 py-0.5 rounded-full">0</span>
+</a>
+<a data-tab="duyuru" onclick="switchTab('duyuru')" class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-body-sm">Duyurular</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-outline-variant/10 pt-6">
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-dim/50 rounded-xl px-4 py-2.5 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-sm">Ayarlar</span>
+</a>
+<a class="flex items-center gap-3 text-error hover:bg-error/5 rounded-xl px-4 py-2.5 transition-all cursor-pointer" onclick="logoutAdmin()" href="javascript:void(0)">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm">Çıkış Yap</span>
+</a>
+</div>
+</aside>
+<!-- Main Floating Canvas -->
+<main class="floating-canvas flex flex-col">
+<!-- TopAppBar (Minimalist) -->
+<header class="admin-top-bar flex justify-between items-center px-8 py-6 w-full border-b border-outline-variant/10">
+<div>
+<h2 id="page-title" class="font-headline-lg text-on-surface">Dashboard</h2>
+<p id="page-subtitle" class="text-body-sm text-on-surface-variant opacity-60">Sistem genel bakışı ve son aktiviteler.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center bg-surface-dim rounded-xl px-4 py-2 w-64 border border-transparent focus-within:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant !text-[18px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full ml-2 placeholder:text-on-surface-variant/50" placeholder="Kayıtlarda ara..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-dim rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-1.5 h-1.5 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p id="top-editor-name" class="text-body-sm font-semibold text-on-surface leading-tight">Ahmet Yılmaz</p>
+<p class="text-[10px] font-bold text-primary uppercase">Baş Editör</p>
+</div>
+<img alt="Admin" class="w-9 h-9 rounded-full object-cover ring-2 ring-surface-dim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBonsryjoTtWzqoo6vT6auQN-N18lb4m7jGmZkU99mZwJ5YOkItL6R7AKhbw8eiN5PrCeI8Zc_hy1cD301F4BuGZaCliSEP706fgHItn45HK-NcEJEZEaXJzEMtt7-FcrqJkc-ySXSqr3-yK3opIePW_XlCciCgzWc7kfZVTZ6kYmSStmBuD7GFzWEYjK554918STDVtYmzxilOwONwwDsCg14FgY4fOYqqplUMsJ2Ik_KwJta5Fe2RFPlQAbqWZ9yFGueU4So5ZDQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- TAB: İçerik Yönetimi -->
+<div id="tab-icerik" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">İçerik Yönetimi</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">'İktisatçının Kaleminden' yazılarını buradan yönetin.</p>
+    </div>
+</div>
+<div class="p-5 bg-surface-dim/30 border border-outline-variant/10 rounded-2xl mb-6 flex flex-col md:flex-row gap-6 items-end">
+    <div class="flex flex-col gap-2">
+        <label class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1">Durum Filtresi</label>
+        <div class="flex bg-white/80 p-1 rounded-xl border border-outline-variant/10 gap-1">
+            <button class="px-5 py-1.5 rounded-lg bg-primary text-white text-xs font-bold">Hepsi</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Yayında</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Bekleyen</button>
+            <button class="px-5 py-1.5 rounded-lg text-on-surface-variant text-xs font-bold hover:text-primary transition-colors">Taslak</button>
+        </div>
+    </div>
+    <div class="flex flex-col gap-2">
+        <label class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest pl-1">Yazar Tipi</label>
+        <select class="bg-white border-outline-variant/10 rounded-xl px-4 py-2 text-xs font-bold text-on-surface focus:ring-primary/20 min-w-[160px]">
+            <option>Tüm Tipler</option><option>Öğrenci</option><option>Akademik Kadro</option>
+        </select>
+    </div>
+    <button onclick="showToast('Gelişmiş filtreleme yükleniyor...', 'info')" class="text-on-surface-variant hover:text-primary flex items-center gap-2 text-xs font-bold px-4 py-2 bg-white hover:bg-primary/5 rounded-xl border border-outline-variant/10 transition-all">
+        <span class="material-symbols-outlined text-lg">tune</span>Gelişmiş Filtreler
+    </button>
+</div>
+<div class="border border-outline-variant/10 rounded-2xl overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="bg-surface-dim/50 border-b border-outline-variant/10">
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Yazı Başlığı</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Yazar</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Kategori</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Tarih</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest">Durum</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-on-surface-variant/40 uppercase tracking-widest text-right">Eylemler</th>
+                </tr>
+            </thead>
+            <tbody id="admin-posts-list" class="divide-y divide-outline-variant/10">
+                <tr id="empty-state-row">
+                    <td colspan="6" class="px-6 py-8 text-center text-on-surface-variant/50 font-bold">
+                        İçerik veritabanından yükleniyor...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="px-6 py-4 bg-surface-container/50 border-t border-outline-variant/10 flex items-center justify-between">
+        <span class="text-[11px] text-on-surface-variant/60">Toplam 12 içerikten 1-2 arası gösteriliyor</span>
+        <div class="flex items-center gap-1">
+            <button class="w-8 h-8 rounded-lg bg-primary text-white text-xs font-bold">1</button>
+            <button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container transition-all">2</button>
+            <button class="w-8 h-8 rounded-lg text-on-surface-variant text-xs font-bold hover:bg-surface-container transition-all">3</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Moderasyon -->
+<div id="tab-moderasyon" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Moderasyon Paneli</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Sosyal Köşe • Bekleyen İşlemler</p>
+    </div>
+    <div class="flex items-center gap-2 bg-surface-dim rounded-xl px-4 py-2 border border-outline-variant/10 w-64">
+        <span class="material-symbols-outlined text-on-surface-variant !text-[18px]">search</span>
+        <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-on-surface-variant/50" placeholder="ID veya içerik ara..." type="text"/>
+    </div>
+</div>
+<!-- Stat Row -->
+<div class="grid grid-cols-3 gap-4 mb-6">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-on-surface-variant">pending</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Bekleyen Onay</p><h3 class="text-3xl font-extrabold text-on-surface">24</h3></div>
+    </div>
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined">send</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Bugün Yayınlanan</p><h3 class="text-3xl font-extrabold text-on-surface">156</h3></div>
+    </div>
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-error/10 flex items-center justify-center text-error"><span class="material-symbols-outlined">warning</span></div>
+        <div><p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-0.5">Şüpheli Raporlar</p><h3 class="text-3xl font-extrabold text-on-surface">8</h3></div>
+    </div>
+</div>
+<!-- Queue -->
+<div class="flex items-center justify-between mb-4 px-1">
+    <h4 class="text-lg font-bold text-on-surface flex items-center gap-2"><span class="w-1 h-5 bg-primary rounded-full inline-block"></span>Aktif Kuyruk</h4>
+    <div class="flex gap-2">
+        <button class="px-4 py-1.5 bg-primary text-white text-xs font-bold rounded-lg">En Yeni</button>
+        <button class="px-4 py-1.5 bg-surface-container text-on-surface-variant text-xs font-bold rounded-lg hover:bg-surface-container-high transition-colors">Popüler</button>
+    </div>
+</div>
+<div id="moderation-feed" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="col-span-full p-8 text-center text-on-surface-variant/50">Bekleyen itiraf yükleniyor...</div>
+</div>
+<footer class="flex justify-between items-center px-2 py-6 border-t border-outline-variant/10 mt-4">
+    <p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest">© 2024 KOÜ Econ Medya • Yönetim Paneli V2.0</p>
+    <div class="flex gap-4"><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Dokümantasyon</a><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Sistem Durumu</a><a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Destek</a></div>
+</footer>
+</div>
+</div>
+
+<!-- TAB: Etkinlikler -->
+<div id="tab-etkinlik" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Etkinlikler</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Fakülte içi ve dışı tüm etkinlik planlaması.</p>
+    </div>
+    <button onclick="openModal('Yeni Etkinlik Oluştur', 'etkinlik')" class="bg-primary text-white px-6 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">
+        <span class="material-symbols-outlined text-lg">add_circle</span>Yeni Etkinlik
+    </button>
+</div>
+<div id="admin-events-list" class="space-y-4">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center">
+        <span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">event_busy</span>
+        <p class="text-on-surface-variant font-bold">Etkinlikler yükleniyor...</p>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Duyurular -->
+<div id="tab-duyuru" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Duyurular</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">Öğrencilere ve akademisyenlere yapılacak duyurular.</p>
+    </div>
+    <button onclick="openModal('Yeni Duyuru Ekle', 'duyuru')" class="bg-primary text-white px-6 py-2.5 rounded-xl flex items-center gap-2 text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all">
+        <span class="material-symbols-outlined text-lg">add_circle</span>Yeni Duyuru
+    </button>
+</div>
+<div id="admin-announcements-list" class="space-y-4">
+    <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center">
+        <span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">campaign</span>
+        <p class="text-on-surface-variant font-bold">Duyurular yükleniyor...</p>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Ana Sayfa Haberleri -->
+<div id="tab-haberler" class="hidden p-8 space-y-8 flex-1">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-2">
+    <div>
+        <h2 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Ana Sayfa Haberleri</h2>
+        <p class="text-sm text-on-surface-variant opacity-60">index.html Gündem sayfasındaki haber hero bölümünü buradan yönetin.</p>
+    </div>
+</div>
+
+<!-- Add News Form -->
+<div class="bg-white border border-outline-variant/10 rounded-2xl p-6 space-y-5">
+    <h3 class="font-bold text-on-surface text-lg flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">add_photo_alternate</span>
+        Yeni Haber / Etkinlik Ekle
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Haber Başlığı *</label>
+            <input id="news-title" type="text" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Örn: Vize Takvimi Açıklandı">
+        </div>
+        <div>
+            <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Kategori Etiketi</label>
+            <input id="news-category" type="text" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Örn: AKADEMİK, ETKİNLİK, DUYURU...">
+        </div>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Açıklama / Özet *</label>
+        <textarea id="news-desc" rows="2" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary resize-none" placeholder="Ana sayfada görünecek kısa özet..."></textarea>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Tam Haber Metni (Opsiyonel)</label>
+        <textarea id="news-content" rows="4" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary resize-y" placeholder="Detayları gör denildiğinde açılacak tam metin..."></textarea>
+    </div>
+    <div>
+        <label class="block text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1.5">Kapak Görseli Yükle (İsteğe Bağlı)</label>
+        <input id="news-image-file" type="file" accept="image/*" class="w-full bg-surface-dim/40 border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer">
+        <p class="text-[10px] text-on-surface-variant/50 mt-1 pl-1">Boş bırakılırsa varsayılan görsel kullanılır.</p>
+    </div>
+    <div class="flex justify-end">
+        <button id="news-save-btn" onclick="saveNews()" class="bg-primary text-white px-8 py-2.5 rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50">
+            <span class="material-symbols-outlined text-lg">publish</span>Ana Sayfada Yayınla
+        </button>
+    </div>
+</div>
+
+<!-- Existing News List -->
+<div>
+    <h3 class="font-bold text-on-surface text-base mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">list_alt</span>
+        Yayındaki Haberler
+    </h3>
+    <div id="news-list" class="space-y-3">
+        <div class="p-6 text-center text-on-surface-variant/50">Haberler yükleniyor...</div>
+    </div>
+</div>
+</div>
+
+<!-- TAB: Dashboard -->
+
+<div id="tab-dashboard" class="hidden p-8 space-y-8 flex-1">
+<!-- Stat Cards (More technical/minimal look) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-orange-500/10 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined">beach_access</span>
+</div>
+<button id="holiday-mode-btn" onclick="toggleHolidayMode()" class="px-4 py-2 bg-surface-dim hover:bg-orange-500 hover:text-white rounded-lg text-sm font-bold transition-colors border border-outline-variant/20">Değiştir</button>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Ders Planı Durumu</p>
+<h3 id="holiday-status-text" class="text-xl font-extrabold text-on-surface">Aktif (Ders Var)</h3>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-error/10 text-error rounded-lg">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="text-[11px] font-bold text-error px-2 py-0.5 bg-error/5 rounded" id="dash-pending-badge">0 Yeni</span>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Bekleyen İtiraflar</p>
+<h3 id="dash-pending-count" class="text-3xl font-extrabold text-on-surface">0</h3>
+</div>
+</div>
+<div class="p-6 bg-white border border-outline-variant/10 rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<div class="p-2.5 bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined">how_to_vote</span>
+</div>
+<button onclick="viewVotes()" class="px-3.5 py-1.5 bg-primary text-white rounded-lg text-xs font-bold hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">visibility</span> İncele</button>
+</div>
+<div>
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest mb-1">Haftanın Hocası</p>
+<h3 id="dash-votes-count" class="text-3xl font-extrabold text-on-surface">0 Oy</h3>
+</div>
+</div>
+</div>
+<!-- Dashboard Grid Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Confessions Moderation -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex justify-between items-center px-2">
+<h4 class="text-lg font-bold text-on-surface">Son İtiraflar <span class="ml-2 text-body-sm font-normal text-on-surface-variant/60">(Moderasyon Bekliyor)</span></h4>
+<button onclick="showToast('Arşiv modülü yükleniyor...', 'info')" class="text-[12px] font-bold text-primary hover:underline">Arşive Git</button>
+</div>
+<div id="dashboard-confessions-list" class="space-y-4">
+<div class="p-6 text-center text-on-surface-variant/50">İtiraflar yükleniyor...</div>
+</div>
+</div>
+<!-- Management Tools Column -->
+<div class="space-y-6">
+<!-- Highlighted Feature -->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End of Dashboard Tab -->
+</div>
+<!-- Footer -->
+<footer class="flex justify-between items-center px-8 py-6 border-t border-outline-variant/10">
+<p class="text-[11px] font-bold text-on-surface-variant/40 uppercase tracking-widest">© 2024 ECON MEDYA ADMIN • V2.1.0</p>
+<div class="flex gap-4">
+<a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Sistem Durumu</a>
+<a class="text-[11px] font-bold text-on-surface-variant/40 hover:text-primary transition-colors" href="#">Yardım</a>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav (Admin Tabs) -->
+<nav class="lg:hidden fixed bottom-3 left-3 right-3 flex justify-around items-center px-2 py-2.5 bg-[#1C2120] border border-[#0BA350]/30 shadow-2xl z-50 rounded-2xl text-white">
+    <button type="button" data-mobile-tab="dashboard" onclick="switchTab('dashboard')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl mobile-admin-nav-active transition-all">
+        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+        <span class="text-[9px] font-bold mt-0.5">Panel</span>
+    </button>
+    <button type="button" data-mobile-tab="haberler" onclick="switchTab('haberler')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-white/70 transition-all">
+        <span class="material-symbols-outlined text-[20px]">newspaper</span>
+        <span class="text-[9px] font-bold mt-0.5">Haber</span>
+    </button>
+    <button type="button" data-mobile-tab="moderasyon" onclick="switchTab('moderasyon')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-white/70 transition-all">
+        <span class="material-symbols-outlined text-[20px]">forum</span>
+        <span class="text-[9px] font-bold mt-0.5">İtiraf</span>
+    </button>
+    <button type="button" data-mobile-tab="duyuru" onclick="switchTab('duyuru')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-white/70 transition-all">
+        <span class="material-symbols-outlined text-[20px]">campaign</span>
+        <span class="text-[9px] font-bold mt-0.5">Duyuru</span>
+    </button>
+    <button type="button" data-mobile-tab="etkinlik" onclick="switchTab('etkinlik')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-white/70 transition-all">
+        <span class="material-symbols-outlined text-[20px]">event</span>
+        <span class="text-[9px] font-bold mt-0.5">Etkinlik</span>
+    </button>
+    <button type="button" data-mobile-tab="icerik" onclick="switchTab('icerik')" class="flex flex-col items-center justify-center py-1.5 px-3 rounded-xl text-white/70 transition-all">
+        <span class="material-symbols-outlined text-[20px]">menu_book</span>
+        <span class="text-[9px] font-bold mt-0.5">Yazılar</span>
+    </button>
+</nav>
+
+<!-- Admin Login Overlay (Identical Mobile Style to Student Login) -->
+<style>
+    @keyframes adminHeroZoom { 0% { opacity: 0; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes adminSheetUp { 0% { opacity: 0; transform: translateY(60px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes adminItemUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .admin-anim-item { opacity: 0; animation: adminItemUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards; animation-delay: var(--d, 0.1s); }
+    .admin-pill-input { width:100%; height:58px; background-color:#96D7B3; border:none; border-radius:20px; padding:0 24px; font-size:16px; color:#1C2120; outline:none; transition: background-color 0.25s, transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s; }
+    .admin-pill-input:focus { background-color:#ace8c7; transform:translateY(-2px) scale(1.015); box-shadow:0 8px 20px rgba(28,33,32,0.14), 0 0 0 2.5px rgba(28,33,32,0.2); }
+</style>
+<div id="admin-login-overlay" class="fixed inset-0 bg-[#1C2120] z-[99999] flex justify-center overflow-y-auto transition-opacity duration-500">
+    <div class="w-full max-w-[480px] min-h-screen flex flex-col bg-[#0BA350] shadow-2xl overflow-hidden">
+        <div style="width:100%; height:38vh; min-height:240px; max-height:350px; overflow:hidden; flex-shrink:0; background-color:#f5f5f5;">
+            <div style="width:100%; height:100%; background-image:url('assets/sbf-top.jpg'); background-size:cover; background-position:center top; animation: adminHeroZoom 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;"></div>
+        </div>
+        <div style="flex:1; background-color:#0BA350; margin-top:-36px; border-top-right-radius:75px; border-top-left-radius:28px; padding:34px 36px 40px 36px; display:flex; flex-direction:column; align-items:center; z-index:2; box-shadow:0 -10px 35px rgba(0,0,0,0.14); animation: adminSheetUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;">
+            <h2 class="admin-anim-item" style="--d:0.10s; font-size:40px; font-weight:800; color:#1C2120; letter-spacing:-0.02em; line-height:1.15; margin-bottom:6px; text-align:center;">Hoşgeldin</h2>
+            <p class="admin-anim-item" style="--d:0.16s; font-size:13.5px; font-weight:500; color:#1C2120; margin-bottom:28px; text-align:center;">Yönetici Paneline Giriş İçin Bilgilerini Gir</p>
+            <div style="width:100%; max-width:340px; display:flex; flex-direction:column; align-items:center;">
+                <div class="admin-anim-item" style="--d:0.22s; width:100%; margin-bottom:18px; display:flex; flex-direction:column; align-items:center;">
+                    <label style="font-size:14px; font-weight:400; color:#1C2120; letter-spacing:0.14em; margin-bottom:8px; text-align:center;">Yönetici Adı Soyadı</label>
+                    <input id="login-name" type="text" class="admin-pill-input" placeholder="Örn: Ahmet Yılmaz" autocomplete="off">
+                </div>
+                <div class="admin-anim-item" style="--d:0.28s; width:100%; margin-bottom:18px; display:flex; flex-direction:column; align-items:center;">
+                    <label style="font-size:14px; font-weight:400; color:#1C2120; letter-spacing:0.14em; margin-bottom:8px; text-align:center;">Şifre</label>
+                    <input id="login-pass" type="password" class="admin-pill-input" placeholder="******" autocomplete="new-password">
+                </div>
+                <button onclick="handleLogin()" class="admin-anim-item" style="--d:0.34s; width:100%; height:54px; background-color:#1C2120; color:#FFFFFF; border:none; border-radius:12px; font-size:15px; font-weight:700; cursor:pointer; margin-top:10px; box-shadow:0 8px 20px rgba(28,33,32,0.25); transition:transform 0.15s;">Giriş Yap</button>
+                <a href="index.html" class="admin-anim-item" style="--d:0.40s; margin-top:24px; font-size:14px; color:#1C2120; text-decoration:none; font-weight:500;">← Ana Sayfaya Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TAB: ONAYLAR (Öğrenci Kayıt Onayları) -->
+<div id="tab-onaylar" class="space-y-8 hidden">
+    <!-- Onay Bekleyenler -->
+    <div class="bg-surface rounded-2xl p-6 border border-amber-500/40 shadow-sm relative overflow-hidden">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-600 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">person_alert</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface">Onay Bekleyen Öğrenciler</h3>
+                    <p class="text-xs text-on-surface-variant/70">Yeni kayıt olan öğrencileri onaylayın veya silin.</p>
+                </div>
+            </div>
+            <span id="pending-count-badge" class="px-3 py-1 bg-amber-500/20 text-amber-700 dark:text-amber-300 rounded-full text-xs font-bold self-start sm:self-auto">0 Bekliyor</span>
+        </div>
+
+        <div class="overflow-x-auto border border-outline-variant/10 rounded-2xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-surface-dim/40 border-b border-outline-variant/10 text-[11px] font-bold text-on-surface-variant/70 uppercase tracking-wider">
+                        <th class="py-3 px-4">Öğrenci Adı</th>
+                        <th class="py-3 px-4">Numara / E-Posta</th>
+                        <th class="py-3 px-4">Sınıf / Öğretim</th>
+                        <th class="py-3 px-4">Kayıt Tarihi</th>
+                        <th class="py-3 px-4 text-right">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="pending-users-table-body" class="text-sm divide-y divide-outline-variant/10">
+                    <tr><td colspan="5" class="text-center py-8 text-on-surface-variant/50 font-bold">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Onaylanmış Öğrenciler -->
+    <div class="bg-surface rounded-2xl p-6 border border-outline-variant/10 shadow-sm">
+        <div class="flex items-center justify-between gap-4 mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">verified_user</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface">Onaylanmış Öğrenciler</h3>
+                    <p class="text-xs text-on-surface-variant/70">Sisteme giriş izni verilmiş aktif öğrenciler.</p>
+                </div>
+            </div>
+            <span id="approved-count-badge" class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">0 Onaylı</span>
+        </div>
+
+        <div class="overflow-x-auto border border-outline-variant/10 rounded-2xl max-h-96 overflow-y-auto custom-scrollbar">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-surface-dim/40 border-b border-outline-variant/10 text-[11px] font-bold text-on-surface-variant/70 uppercase tracking-wider">
+                        <th class="py-3 px-4">Öğrenci Adı</th>
+                        <th class="py-3 px-4">Numara / E-Posta</th>
+                        <th class="py-3 px-4">Sınıf</th>
+                        <th class="py-3 px-4">Durum</th>
+                        <th class="py-3 px-4 text-right">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="approved-users-table-body" class="text-sm divide-y divide-outline-variant/10">
+                    <tr><td colspan="5" class="text-center py-8 text-on-surface-variant/50 font-bold">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Modal Overlay -->
+<div id="action-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 transform scale-95 transition-transform duration-300 mx-4" id="action-modal-content">
+        <div class="flex justify-between items-center mb-6">
+            <h3 id="modal-title" class="text-xl font-bold text-on-surface">Yeni Ekle</h3>
+            <button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div id="modal-body" class="space-y-4">
+            <!-- Dynamic form content will go here -->
+        </div>
+        <div class="flex justify-end gap-3 mt-8 pt-4 border-t border-outline-variant/10">
+            <button onclick="closeModal()" class="px-5 py-2 text-sm font-bold text-on-surface-variant hover:bg-surface-dim rounded-xl transition-colors">İptal</button>
+            <button onclick="saveModalData()" class="px-5 py-2 text-sm font-bold bg-primary text-white hover:shadow-lg hover:shadow-primary/20 rounded-xl transition-all">Kaydet / Gönder</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification Container -->
+<div id="toast-container" class="fixed bottom-4 right-4 z-[9999] flex flex-col gap-2"></div>
+
+<script type="module">
+    import { db, collection, addDoc, getDocs, serverTimestamp, onSnapshot, query, where, orderBy, doc, updateDoc, deleteDoc, setDoc, storage, ref, uploadBytes, getDownloadURL } from './firebase-config.js';
+    
+    // Set max upload retry time to 5 seconds to prevent indefinite hangs when CORS or rules fail
+    storage.maxUploadRetryTime = 5000;
+
+    // Tab system
+    window.switchTab = function(tab) {
+        const tabs = ['dashboard', 'icerik', 'moderasyon', 'etkinlik', 'duyuru', 'haberler', 'onaylar'];
+        tabs.forEach(t => {
+            const el = document.getElementById('tab-' + t);
+            if (el) el.classList.toggle('hidden', t !== tab);
+        });
+        // Update active nav item
+        document.querySelectorAll('[data-mobile-tab]').forEach(b => { const act = b.dataset.mobileTab === tab; b.classList.toggle('mobile-admin-nav-active', act); b.classList.toggle('text-white/70', !act); });
+        document.querySelectorAll('[data-tab]').forEach(a => {
+            const isActive = a.dataset.tab === tab;
+            a.classList.toggle('nav-item-active', isActive);
+            a.classList.toggle('text-on-surface-variant', !isActive);
+            a.classList.toggle('hover:bg-surface-dim/50', !isActive);
+        });
+        // Update header title
+        const titles = { dashboard: 'Dashboard', icerik: 'İçerik Yönetimi', moderasyon: 'Moderasyon Paneli', etkinlik: 'Etkinlikler', duyuru: 'Duyurular', haberler: 'Ana Sayfa Haberleri', onaylar: 'Öğrenci Kayıt Onayları' };
+        const subs = { dashboard: 'Sistem genel bakışı ve son aktiviteler.', icerik: "'İktisatçının Kaleminden' içerik yönetimi.", moderasyon: 'Sosyal Köşe • Bekleyen onay işlemleri.', etkinlik: 'Yaklaşan organizasyonlar ve etkinlik takvimi.', duyuru: 'Acil ve önemli bilgilendirmeler.', haberler: 'index.html Gündem sayfasındaki haber hero bölümünü yönetin.', onaylar: 'Yeni kayıt olan öğrencileri inceleyin, onaylayın veya silin.' };
+        document.getElementById('page-title').textContent = titles[tab] || 'Dashboard';
+        document.getElementById('page-subtitle').textContent = subs[tab] || '';
+    };
+
+    // Login System
+    
+    // Check initial login state
+    const savedAdmin = localStorage.getItem('sbf_admin_name');
+    if (savedAdmin) {
+        document.getElementById('login-name').value = savedAdmin;
+        // Giriş bilgileri sıfırlandı - şifre otomatik doldurulmaz
+        // Otomatik giriş iptal edildi - kullanıcı kendisi giriş yapar
+    }
+
+    window.handleLogin = function() {
+        const name = document.getElementById('login-name').value.trim();
+        const pass = document.getElementById('login-pass').value;
+        if (!name) {
+            window.showToast('Lütfen adınızı soyadınızı girin.', 'warning');
+            return;
+        }
+        if (pass === 'admin2026') {
+            localStorage.setItem('sbf_admin_name', name); // Hardcoded password as requested by "admin panel giriş şifresi olacak"
+            const overlay = document.getElementById('admin-login-overlay');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.remove(), 500);
+            
+            const topEditorName = document.getElementById('top-editor-name');
+            if (topEditorName) topEditorName.innerText = name;
+            
+            // Auto-fill author name in content modal if it exists
+            const modalAuthorInput = document.getElementById('modal-input-4');
+            if (modalAuthorInput) modalAuthorInput.value = name;
+            
+            window.showToast('Giriş başarılı! Hoş geldiniz, ' + name, 'success');
+        } else {
+            window.showToast('Hatalı şifre!', 'error');
+        }
+    };
+
+    window.logoutAdmin = function() {
+        localStorage.removeItem('sbf_admin_name');
+        window.location.href = 'index.html';
+    };
+
+    // Tatil Modu Logic
+    let currentHolidayMode = false;
+    const holidayDocRef = doc(db, 'system_settings', 'schedule');
+    onSnapshot(holidayDocRef, (docSnap) => {
+        currentHolidayMode = docSnap.exists() && docSnap.data().holidayMode === true;
+        const btn = document.getElementById('holiday-mode-btn');
+        const text = document.getElementById('holiday-status-text');
+        if(btn) btn.innerText = currentHolidayMode ? 'Kapat' : 'Tatil Yap';
+        if(btn) btn.className = currentHolidayMode ? 'px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-bold transition-colors' : 'px-4 py-2 bg-surface-dim text-on-surface rounded-lg text-sm font-bold transition-colors border border-outline-variant/20';
+        if(text) text.innerText = currentHolidayMode ? 'Tatil Modu Açık' : 'Aktif (Ders Var)';
+    });
+
+    window.toggleHolidayMode = async function() {
+        try {
+            await setDoc(holidayDocRef, { holidayMode: !currentHolidayMode }, { merge: true });
+            window.showToast(!currentHolidayMode ? 'Tatil Modu Açıldı' : 'Tatil Modu Kapatıldı', 'success');
+        } catch(err) {
+            console.error(err);
+            window.showToast('Hata: ' + err.message, 'error');
+        }
+    };
+
+    // Toast Notification System
+    window.showToast = function(message, type = 'success') {
+        const toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) return;
+        
+        const toast = document.createElement('div');
+        const bgColor = type === 'success' ? 'bg-primary' : (type === 'error' ? 'bg-error' : 'bg-surface-dim');
+        const textColor = type === 'success' ? 'text-white' : (type === 'error' ? 'text-white' : 'text-on-surface');
+        const icon = type === 'success' ? 'check_circle' : (type === 'error' ? 'error' : 'info');
+        
+        toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg transition-all duration-300 transform translate-y-full opacity-0 ${bgColor} ${textColor} border border-black/5`;
+        toast.innerHTML = `
+            <span class="material-symbols-outlined">${icon}</span>
+            <span class="text-sm font-bold">${message}</span>
+        `;
+        
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => toast.classList.remove('translate-y-full', 'opacity-0'), 10);
+        
+        setTimeout(() => {
+            toast.classList.add('opacity-0', 'translate-y-2');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    };
+
+    // Load Posts for Content Management
+    const qPosts = query(collection(db, 'posts'), orderBy('createdAt', 'desc'));
+    onSnapshot(qPosts, (snapshot) => {
+        const container = document.getElementById('admin-posts-list');
+        if(!container) return;
+        
+        container.innerHTML = '';
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<tr><td colspan="6" class="px-6 py-8 text-center text-on-surface-variant/50 font-bold">Henüz hiç içerik eklenmemiş.</td></tr>';
+            return;
+        }
+
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            const id = docSnap.id;
+            
+            let timeStr = 'Bilinmiyor';
+            if(data.createdAt) {
+                timeStr = new Date(data.createdAt.toMillis()).toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' });
+            }
+
+            let statusHtml = '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-700 rounded-lg text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>YAYINDA</span>';
+            if(data.status === 'Bekleyen' || data.status === 'BEKLEYEN' || data.status === 'pending') {
+                statusHtml = '<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 rounded-lg text-[10px] font-bold"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>BEKLEYEN</span>';
+            }
+
+            let actionButtons = '';
+            if(data.status === 'pending') {
+                actionButtons += `<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Yayına Al" onclick="approveArticle('${id}')"><span class="material-symbols-outlined text-lg">check_circle</span></button>`;
+            }
+            actionButtons += `<button class="p-2 text-on-surface-variant hover:text-error hover:bg-error/10 rounded-lg transition-all" onclick="deletePost('${id}')"><span class="material-symbols-outlined text-lg">delete_sweep</span></button>`;
+
+            container.innerHTML += `
+                <tr class="hover:bg-surface-container transition-colors group">
+                    <td class="px-6 py-5"><div class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors">${data.title}</div><div class="text-[11px] text-on-surface-variant/60 mt-0.5 max-w-xs truncate">${data.content}</div></td>
+                    <td class="px-6 py-5"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant font-bold text-[10px]">${(data.authorName || 'AD').substring(0,2).toUpperCase()}</div><div><div class="text-xs font-bold">${data.authorName || 'Admin'}</div><div class="text-[9px] font-bold text-on-surface-variant/60 uppercase">Yazar</div></div></div></td>
+                    <td class="px-6 py-5"><span class="px-2.5 py-1 bg-surface-container rounded-lg text-[10px] font-bold text-on-surface-variant">${data.category || 'İÇERİK'}</span></td>
+                    <td class="px-6 py-5 text-[11px] text-on-surface-variant">${timeStr}</td>
+                    <td class="px-6 py-5">${statusHtml}</td>
+                    <td class="px-6 py-5 text-right"><div class="flex justify-end gap-1">${actionButtons}</div></td>
+                </tr>
+            `;
+        });
+    });
+
+    window.approveArticle = async function(id) {
+        try {
+            await updateDoc(doc(db, 'posts', id), {
+                status: 'approved'
+            });
+            window.showToast('Yazı onaylandı ve yayına alındı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        }
+    };
+
+    window.deletePost = async function(id) {
+        if(confirm('Bu yazıyı silmek istediğinize emin misiniz?')) {
+            try {
+                await deleteDoc(doc(db, 'posts', id));
+                window.showToast('Yazı silindi.', 'success');
+            } catch (e) {
+                window.showToast('Hata: ' + e.message, 'error');
+            }
+        }
+    };
+
+    // Load Pending Confessions
+    const q = query(collection(db, 'confessions'), where('status', '==', 'pending'));
+    onSnapshot(q, (snapshot) => {
+        const container = document.getElementById('moderation-feed');
+        if(!container) return;
+        container.innerHTML = '';
+        
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="col-span-full p-8 text-center text-on-surface-variant/50 font-bold">Harika! Bekleyen hiçbir onay işlemi yok.</div>';
+            return;
+        }
+
+        // Sort in memory to avoid missing index error
+        const docs = [];
+        snapshot.forEach(docSnap => {
+            docs.push({ id: docSnap.id, data: docSnap.data() });
+        });
+        docs.sort((a, b) => {
+            const timeA = a.data.createdAt ? a.data.createdAt.toMillis() : 0;
+            const timeB = b.data.createdAt ? b.data.createdAt.toMillis() : 0;
+            return timeB - timeA;
+        });
+
+        docs.forEach((item) => {
+            const data = item.data;
+            const id = item.id;
+            
+            // Handle missing timestamps gracefully
+            let timeStr = 'Yeni';
+            if(data.createdAt) {
+                const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else timeStr = Math.floor(diff/60) + ' saat önce';
+            }
+
+            container.innerHTML += `
+            <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl hover:shadow-md transition-all">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/40"><span class="material-symbols-outlined !text-[16px]">visibility_off</span></div>
+                        <div><span class="text-sm font-bold text-on-surface">${data.author || 'Anonim'}</span><span class="ml-2 px-2 py-0.5 bg-primary/10 text-primary text-[9px] font-bold rounded-full">${data.category}</span></div>
+                    </div>
+                    <span class="text-[11px] text-on-surface-variant/40">${timeStr}</span>
+                </div>
+                <p class="text-sm text-on-surface-variant mb-4 leading-relaxed italic">"${data.text}"</p>
+                <div class="flex gap-2">
+                    <button onclick="approvePost(this, '${id}')" class="flex-1 px-4 py-2 bg-primary text-white text-xs font-bold rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">check</span>Onayla</button>
+                    <button onclick="rejectPost(this, '${id}')" class="flex-1 px-4 py-2 bg-white text-error border border-error/20 text-xs font-bold rounded-xl hover:bg-error/5 transition-all flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">close</span>Reddet</button>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // ========================
+    // Ana Sayfa Haberleri (news collection)
+    // ========================
+    window.saveNews = async function() {
+        const btn = document.getElementById('news-save-btn');
+        const title = document.getElementById('news-title').value.trim();
+        const desc = document.getElementById('news-desc').value.trim();
+        const content = document.getElementById('news-content').value.trim();
+        const category = document.getElementById('news-category').value.trim() || 'HABER';
+        const fileInput = document.getElementById('news-image-file');
+
+        if (!title || !desc) {
+            window.showToast('Başlık ve Özet alanları zorunludur!', 'error');
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Yayınlanıyor...';
+
+        try {
+            let finalImageUrl = '';
+
+            if (fileInput.files.length > 0) {
+                try {
+                    btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Görsel İşleniyor...';
+                    const file = fileInput.files[0];
+                    finalImageUrl = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                const MAX_WIDTH = 800;
+                                const MAX_HEIGHT = 800;
+                                let width = img.width;
+                                let height = img.height;
+
+                                if (width > height) {
+                                    if (width > MAX_WIDTH) {
+                                        height *= MAX_WIDTH / width;
+                                        width = MAX_WIDTH;
+                                    }
+                                } else {
+                                    if (height > MAX_HEIGHT) {
+                                        width *= MAX_HEIGHT / height;
+                                        height = MAX_HEIGHT;
+                                    }
+                                }
+                                canvas.width = width;
+                                canvas.height = height;
+                                const ctx = canvas.getContext('2d');
+                                ctx.drawImage(img, 0, 0, width, height);
+                                resolve(canvas.toDataURL('image/jpeg', 0.7));
+                            };
+                            img.src = e.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    });
+                } catch (uploadErr) {
+                    window.showToast('Görsel dönüştürülemedi, ancak haber metni yayınlanıyor...', 'warning');
+                    console.error("Upload error:", uploadErr);
+                }
+            }
+
+            btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>Kaydediliyor...';
+            await addDoc(collection(db, 'news'), {
+                title,
+                desc,
+                content,
+                category: category.toUpperCase(),
+                imageUrl: finalImageUrl,
+                createdAt: serverTimestamp(),
+                active: true
+            });
+            // Clear form
+            document.getElementById('news-title').value = '';
+            document.getElementById('news-desc').value = '';
+            document.getElementById('news-content').value = '';
+            document.getElementById('news-category').value = '';
+            document.getElementById('news-image-file').value = '';
+            window.showToast('Haber ana sayfada yayınlandı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<span class="material-symbols-outlined text-lg">publish</span>Ana Sayfada Yayınla';
+        }
+    };
+
+    window.deleteNews = async function(docId) {
+        if (!confirm('Bu haberi kaldırmak istediğinizden emin misiniz?')) return;
+        try {
+            await deleteDoc(doc(db, 'news', docId));
+            window.showToast('Haber kaldırıldı.', 'error');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        }
+    };
+
+    // Real-time news list
+    const qNews = query(collection(db, 'news'), orderBy('createdAt', 'desc'));
+    onSnapshot(qNews, (snapshot) => {
+        const list = document.getElementById('news-list');
+        if (!list) return;
+        list.innerHTML = '';
+
+        if (snapshot.empty) {
+            list.innerHTML = '<div class="p-6 text-center text-on-surface-variant/50">Henüz haber eklenmedi. Yukardaki formu kullanarak ekleyin.</div>';
+            return;
+        }
+
+        snapshot.forEach((docSnap) => {
+            const d = docSnap.data();
+            const id = docSnap.id;
+            let timeStr = 'Yeni';
+            if(d.createdAt) {
+                const diff = Math.floor((new Date() - d.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else if(diff < 1440) timeStr = Math.floor(diff/60) + ' saat önce';
+                else timeStr = Math.floor(diff/1440) + ' gün önce';
+            }
+
+            const imgStyle = d.imageUrl ? `background-image:url('${d.imageUrl}'); background-size:cover; background-position:center;` : 'background:linear-gradient(135deg,#004d27,#006837)';
+
+            list.innerHTML += `
+            <div class="flex items-center gap-4 p-4 bg-white border border-outline-variant/10 rounded-2xl hover:shadow-md transition-all">
+                <div class="w-20 h-14 rounded-xl flex-shrink-0 flex items-center justify-center" style="${imgStyle}">
+                    ${!d.imageUrl ? '<span class="material-symbols-outlined text-white">newspaper</span>' : ''}
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-[9px] font-bold tracking-widest bg-primary/10 text-primary px-2 py-0.5 rounded">${d.category}</span>
+                        <span class="text-[10px] text-on-surface-variant/40">${timeStr}</span>
+                    </div>
+                    <h4 class="text-sm font-bold text-on-surface truncate">${d.title}</h4>
+                    <p class="text-xs text-on-surface-variant/60 line-clamp-1">${d.desc}</p>
+                </div>
+                <div class="flex gap-2 flex-shrink-0">
+                    <button onclick="deleteNews('${id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all" title="Kaldır">
+                        <span class="material-symbols-outlined text-lg">delete</span>
+                    </button>
+                </div>
+            </div>
+            `;
+        });
+    });
+
+    // Action functions
+    window.approvePost = async function(btn, docId) {
+        btn.disabled = true;
+        btn.innerText = '...';
+        try {
+            await updateDoc(doc(db, 'confessions', docId), {
+                status: 'approved'
+            });
+            window.showToast('İçerik başarıyla onaylandı ve yayına alındı!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+            btn.disabled = false;
+        }
+    };
+
+    window.rejectPost = async function(btn, docId) {
+        btn.disabled = true;
+        btn.innerText = '...';
+        try {
+            await deleteDoc(doc(db, 'confessions', docId));
+            window.showToast('İçerik reddedildi ve kalıcı olarak silindi.', 'error');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+            btn.disabled = false;
+        }
+    };
+
+    let currentModalType = '';
+
+    // Modal Functions
+    window.openModal = function(title, type) {
+        currentModalType = type;
+        document.getElementById('modal-title').textContent = title;
+        const body = document.getElementById('modal-body');
+        
+        if (type === 'duyuru') {
+            body.innerHTML = `
+                                  <div>
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Duyuru Başlığı</label>
+                      <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Duyuru başlığını girin...">
+                  </div>
+                  <div>
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Duyuru İçeriği</label>
+                      <textarea id="modal-input-2" rows="4" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Duyuru metnini girin..."></textarea>
+                  </div>
+                  <div class="mt-2">
+                      <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Dosya Linki (Google Drive vb. - İsteğe Bağlı)</label>
+                      <input id="modal-input-file" type="url" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Google Drive / Dosya Linkini yapıştırın...">
+                  </div>
+            `;
+        } else if (type === 'etkinlik') {
+            body.innerHTML = `
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Etkinlik Adı</label>
+                    <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Etkinlik adını girin...">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Tarih</label>
+                        <input id="modal-input-2" type="date" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Saat</label>
+                        <input id="modal-input-3" type="time" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Mekan</label>
+                    <input id="modal-input-4" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Örn: 201 Nolu Amfi">
+                </div>
+            `;
+        } else if (type === 'icerik') {
+            body.innerHTML = `
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Yazar (İsim Soyisim)</label>
+                    <input id="modal-input-4" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary mb-3" placeholder="Ad Soyad girin...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Yazı Başlığı</label>
+                    <input id="modal-input-1" type="text" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary" placeholder="Başlık girin...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Kategori</label>
+                    <select id="modal-input-2" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl px-4 py-2.5 text-sm focus:ring-primary focus:border-primary">
+                        <option>Makro Ekonomi</option><option>Mikro Ekonomi</option><option>Gündem</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">İçerik</label>
+                    <textarea id="modal-input-3" rows="6" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-xl p-4 text-sm focus:ring-primary focus:border-primary" placeholder="Yazınızı buraya yazın..."></textarea>
+                </div>
+            `;
+        }
+    
+        const modal = document.getElementById('action-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            document.getElementById('action-modal-content').classList.remove('scale-95');
+        }, 10);
+    };
+    
+    window.closeModal = function() {
+        const modal = document.getElementById('action-modal');
+        modal.classList.add('opacity-0');
+        document.getElementById('action-modal-content').classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    };
+    
+    window.saveModalData = async function() {
+        const btn = document.querySelector('#action-modal-content button:last-child');
+        const oldText = btn.innerText;
+        btn.innerText = 'Kaydediliyor...';
+        btn.disabled = true;
+
+        let data = { createdAt: serverTimestamp() };
+        
+        try {
+            if (currentModalType === 'duyuru') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.content = document.getElementById('modal-input-2').value;
+                if(!data.title) throw new Error("Başlık boş olamaz");
+                  const fileInput = document.getElementById('modal-input-file');
+                  if (fileInput && fileInput.value.trim() !== '') {
+                      data.attachmentUrl = fileInput.value.trim();
+                      data.attachmentName = 'Ek Dosyayı Aç';
+                  }
+                await addDoc(collection(db, 'announcements'), data);
+            } else if (currentModalType === 'etkinlik') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.date = document.getElementById('modal-input-2').value;
+                data.time = document.getElementById('modal-input-3').value;
+                data.location = document.getElementById('modal-input-4').value;
+                if(!data.title) throw new Error("Etkinlik adı boş olamaz");
+                await addDoc(collection(db, 'events'), data);
+            } else if (currentModalType === 'icerik') {
+                data.title = document.getElementById('modal-input-1').value;
+                data.category = document.getElementById('modal-input-2').value;
+                data.content = document.getElementById('modal-input-3').value; 
+                data.authorName = document.getElementById('modal-input-4').value || "Admin";
+                data.status = "Yayında";
+                if(!data.title || !data.content) throw new Error("Yazı başlığı ve içeriği boş olamaz");
+                await addDoc(collection(db, 'posts'), data);
+            }
+            
+            window.closeModal();
+            window.showToast('Kayıt başarıyla oluşturuldu ve veritabanına eklendi!', 'success');
+        } catch (e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        } finally {
+            btn.innerText = oldText;
+            btn.disabled = false;
+        }
+    };
+
+    
+
+    // Dash Date setup
+    const today = new Date();
+    const dashDateEl = document.getElementById('dash-date');
+    if (dashDateEl) {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        dashDateEl.innerText = today.toLocaleDateString('tr-TR', options);
+    }
+
+    // Listen to Settings
+    
+
+    // Listen to Confessions (Pending)
+    onSnapshot(query(collection(db, 'confessions'), where('status', '==', 'pending')), (snapshot) => {
+        const container = document.getElementById('dashboard-confessions-list');
+        const countEl = document.getElementById('dash-pending-count');
+        const badgeEl = document.getElementById('dash-pending-badge');
+        
+        if(countEl) countEl.innerText = snapshot.size;
+        if(badgeEl) badgeEl.innerText = snapshot.size + ' Yeni';
+
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-6 text-center text-on-surface-variant/50">Bekleyen yeni itiraf yok. Harika!</div>';
+            return;
+        }
+
+        const docs = [];
+        snapshot.forEach(docSnap => docs.push({ id: docSnap.id, data: docSnap.data() }));
+        docs.sort((a,b) => (b.data.createdAt?.toMillis() || 0) - (a.data.createdAt?.toMillis() || 0));
+
+        docs.slice(0, 5).forEach((docItem) => {
+            const data = docItem.data;
+            let timeStr = 'Yeni';
+            if(data.createdAt) {
+                const diff = Math.floor((new Date() - data.createdAt.toDate()) / 60000);
+                if(diff < 60) timeStr = diff + ' dk önce';
+                else timeStr = Math.floor(diff/60) + ' saat önce';
+            }
+            container.innerHTML += `
+                <div class="p-5 bg-surface-dim/30 border border-outline-variant/10 rounded-2xl hover:bg-surface-dim/50 transition-all">
+                <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-on-surface-variant/40">
+                <span class="material-symbols-outlined !text-[16px]">visibility_off</span>
+                </div>
+                <span class="text-body-sm font-bold text-on-surface">${data.author || '#Anonim'}</span>
+                </div>
+                <span class="text-[11px] text-on-surface-variant/60">${timeStr}</span>
+                </div>
+                <p class="text-body-sm text-on-surface-variant mb-4 leading-relaxed">${data.text || ''}</p>
+                <div class="flex gap-2">
+                <button onclick="approvePost(this, '${docItem.id}')" class="px-4 py-2 bg-primary text-white text-[12px] font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all">Yayına Al</button>
+                <button onclick="rejectPost(this, '${docItem.id}')" class="px-4 py-2 bg-white text-error border border-error/20 text-[12px] font-bold rounded-lg hover:bg-error/5 transition-all">Reddet</button>
+                </div>
+                </div>
+            `;
+        });
+    });
+
+    // Listen to Events
+    onSnapshot(query(collection(db, 'events'), orderBy('createdAt', 'desc')), (snapshot) => {
+        const container = document.getElementById('admin-events-list');
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center"><span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">event_busy</span><p class="text-on-surface-variant font-bold">Henüz planlanmış bir etkinlik yok.</p></div>';
+            return;
+        }
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            container.innerHTML += `
+                <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-on-surface">${data.title}</h4>
+                        <p class="text-xs text-on-surface-variant/60 mt-1">${data.date || ''} ${data.time || ''} • ${data.location || ''}</p>
+                    </div>
+                    <button onclick="deleteDocItem('events', '${docSnap.id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            `;
+        });
+    });
+
+    // Listen to Announcements
+    onSnapshot(query(collection(db, 'announcements'), orderBy('createdAt', 'desc')), (snapshot) => {
+        const container = document.getElementById('admin-announcements-list');
+        if(!container) return;
+        container.innerHTML = '';
+        if (snapshot.empty) {
+            container.innerHTML = '<div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex flex-col items-center justify-center py-12 text-center"><span class="material-symbols-outlined text-5xl text-on-surface-variant/20 mb-4">campaign</span><p class="text-on-surface-variant font-bold">Aktif bir duyuru bulunmuyor.</p></div>';
+            return;
+        }
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            container.innerHTML += `
+                <div class="p-5 bg-white border border-outline-variant/10 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold text-on-surface">${data.title}</h4>
+                        <p class="text-xs text-on-surface-variant/60 mt-1 truncate max-w-sm">${data.content || ''}</p>
+                          ${data.attachmentUrl ? `<a href="${data.attachmentUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] bg-primary/10 text-primary px-2 py-1 rounded-md mt-2 font-bold hover:bg-primary/20 transition-colors"><span class="material-symbols-outlined text-[12px]">attachment</span> ${data.attachmentName || 'Ek Dosya'}</a>` : ''}
+                    </div>
+                    <button onclick="deleteDocItem('announcements', '${docSnap.id}')" class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+                        <span class="material-symbols-outlined">delete</span>
+                    </button>
+                </div>
+            `;
+        });
+    });
+
+    // Generic Delete Function
+    window.deleteDocItem = async function(collectionName, id) {
+        if(confirm('Kalıcı olarak silmek istediğinize emin misiniz?')) {
+            try {
+                await deleteDoc(doc(db, collectionName, id));
+                window.showToast('Kayıt başarıyla silindi.', 'success');
+            } catch (e) {
+                window.showToast('Hata: ' + e.message, 'error');
+            }
+        }
+    };
+
+        // Haftanın Hocası Oyları Listener & Stats (Otomatik Haftalık Sistem)
+    function getAcademicWeekInfo(d = new Date()) {
+        const target = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        const dayNr = (target.getUTCDay() + 6) % 7;
+        target.setUTCDate(target.getUTCDate() - dayNr + 3);
+        const firstThursday = target.valueOf();
+        target.setUTCMonth(0, 1);
+        if (target.getUTCDay() !== 4) {
+            target.setUTCMonth(0, 1 + ((4 - target.getUTCDay()) + 7) % 7);
+        }
+        const weekNumber = 1 + Math.ceil((firstThursday - target) / 604800000);
+        const year = new Date(firstThursday).getUTCFullYear();
+        return {
+            weekKey: year + '-W' + String(weekNumber).padStart(2, '0'),
+            weekNumber: weekNumber,
+            year: year
+        };
+    }
+
+    const currentWeekInfo = getAcademicWeekInfo();
+
+    onSnapshot(collection(db, 'haftanin_hocasi_oylari'), (snapshot) => {
+        const countEl = document.getElementById('dash-votes-count');
+        let weekVotes = 0;
+        snapshot.forEach(docSnap => {
+            const data = docSnap.data();
+            if (data.weekKey === currentWeekInfo.weekKey) {
+                weekVotes++;
+            }
+        });
+        if (countEl) {
+            countEl.innerHTML = `${weekVotes} <span class="text-sm font-semibold text-orange-500">Oy (${currentWeekInfo.weekNumber}. Hafta)</span>`;
+        }
+    });
+
+    // View Votes Modal Logic
+    window.viewVotes = async function() {
+        const modal = document.getElementById('admin-votes-modal');
+        const tbody = document.getElementById('admin-votes-table-body');
+        if (!modal || !tbody) return;
+
+        modal.classList.remove('hidden');
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-6 text-on-surface-variant/60 font-semibold">Oylar yükleniyor...</td></tr>';
+
+        try {
+            const qVotes = query(collection(db, 'haftanin_hocasi_oylari'), orderBy('timestamp', 'desc'));
+            const snap = await getDocs(qVotes);
+
+            if (snap.empty) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-on-surface-variant/50 font-bold">Henüz oy kullanılmamış.</td></tr>';
+                return;
+            }
+
+            let html = '';
+            snap.forEach((docSnap) => {
+                const data = docSnap.data();
+                const id = docSnap.id;
+                let dateStr = 'Az Önce';
+                if (data.timestamp && data.timestamp.toDate) {
+                    dateStr = data.timestamp.toDate().toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+                }
+                const stId = data.studentId || (data.voterEmail ? data.voterEmail.split('@')[0] : 'Bilinmiyor');
+                const vName = data.voterName || 'İsimsiz';
+                const isCurrentWeek = data.weekKey === currentWeekInfo.weekKey;
+                const weekBadge = isCurrentWeek 
+                    ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-orange-500/20 text-orange-600 border border-orange-500/30">Bu Hafta (' + currentWeekInfo.weekNumber + ')</span>'
+                    : '<span class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-surface-container text-on-surface-variant/70">' + (data.weekKey || 'Eski Arşiv') + '</span>';
+
+                html += `
+                    <tr class="border-b border-outline-variant/10 hover:bg-surface-container/40 transition-colors">
+                        <td class="py-3 px-4">
+                            <div class="font-bold text-on-surface text-sm">${vName}</div>
+                            <div class="text-[11px] text-on-surface-variant/60 font-mono">${stId}</div>
+                        </td>
+                        <td class="py-3 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary/10 text-primary font-bold text-xs">
+                                <span class="material-symbols-outlined text-[14px]">school</span>
+                                ${data.professorName || 'Belirtilmemiş'}
+                            </span>
+                        </td>
+                        <td class="py-3 px-4">
+                            ${weekBadge}
+                        </td>
+                        <td class="py-3 px-4 text-xs text-on-surface-variant/70 font-medium">
+                            ${dateStr}
+                        </td>
+                        <td class="py-3 px-4 text-right">
+                            <button onclick="deleteSingleVote('${id}')" class="p-1.5 text-error hover:bg-error/10 rounded-lg transition-colors" title="Bu oyu sil">
+                                <span class="material-symbols-outlined text-[16px]">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+        } catch (err) {
+            console.error('Oylar alınırken hata:', err);
+            tbody.innerHTML = `<tr><td colspan="5" class="text-center py-6 text-error font-bold">Hata: ${err.message}</td></tr>`;
+        }
+    };
+
+    window.closeVotesModal = function() {
+        const modal = document.getElementById('admin-votes-modal');
+        if (modal) modal.classList.add('hidden');
+    };
+
+    window.deleteSingleVote = async function(id) {
+        if (!confirm('Bu oyu silmek istediğinize emin misiniz?')) return;
+        try {
+            await deleteDoc(doc(db, 'haftanin_hocasi_oylari', id));
+            window.showToast('Oy silindi.', 'success');
+            window.viewVotes();
+        } catch (e) {
+            window.showToast('Silme hatası: ' + e.message, 'error');
+        }
+    };
+
+    window.resetWeeklyVotes = async function() {
+        if (!confirm('Bu haftanın oylarını veya eski test oylarını temizlemek istiyor musunuz?\n(Not: Sistem her Pazartesi 00:00\'da haftayı otomatik sıfırlayarak yeni haftaya geçer.)')) return;
+        try {
+            const snap = await getDocs(collection(db, 'haftanin_hocasi_oylari'));
+            const deletePromises = [];
+            snap.forEach(d => deletePromises.push(deleteDoc(doc(db, 'haftanin_hocasi_oylari', d.id))));
+            await Promise.all(deletePromises);
+            window.showToast('Tüm oylar başarıyla sıfırlandı.', 'success');
+            window.closeVotesModal();
+        } catch (e) {
+            window.showToast('Sıfırlama hatası: ' + e.message, 'error');
+        }
+    };
+
+    // --- ÖĞRENCİ ONAYLARI YÖNETİM SİSTEMİ ---
+    onSnapshot(collection(db, 'users'), (snapshot) => {
+        let pendingCount = 0;
+        let approvedCount = 0;
+        const pendingList = [];
+        const approvedList = [];
+
+        snapshot.forEach(docSnap => {
+            const u = { id: docSnap.id, ...docSnap.data() };
+            if (u.role !== 'admin') {
+                if (u.approved === false || u.status === 'pending') {
+                    pendingCount++;
+                    pendingList.push(u);
+                } else {
+                    approvedCount++;
+                    approvedList.push(u);
+                }
+            }
+        });
+
+        // Badges
+        const badge = document.getElementById('pending-users-badge');
+        if (badge) {
+            badge.textContent = pendingCount;
+            badge.classList.toggle('hidden', pendingCount === 0);
+        }
+        const dashCount = document.getElementById('dash-pending-users-count');
+        if (dashCount) dashCount.textContent = pendingCount;
+
+        const pCountBadge = document.getElementById('pending-count-badge');
+        if (pCountBadge) pCountBadge.textContent = pendingCount + ' Bekliyor';
+
+        const aCountBadge = document.getElementById('approved-count-badge');
+        if (aCountBadge) aCountBadge.textContent = approvedCount + ' Onaylı';
+
+        renderPendingTable(pendingList);
+        renderApprovedTable(approvedList);
+    });
+
+    function renderPendingTable(list) {
+        const tbody = document.getElementById('pending-users-table-body');
+        if (!tbody) return;
+
+        if (list.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-on-surface-variant/50 font-medium">Şu anda onay bekleyen kullanıcı kaydı bulunmuyor. ✅</td></tr>';
+            return;
+        }
+
+        let html = '';
+        list.forEach(u => {
+            let dateStr = 'Az Önce';
+            if (u.createdAt && u.createdAt.toDate) {
+                dateStr = u.createdAt.toDate().toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+            }
+            const stId = u.studentId || (u.email ? u.email.split('@')[0] : 'Bilinmiyor');
+            const safeName = (u.name || 'İsimsiz').replace(/'/g, "\\'");
+            const isAcademic = u.role === 'academic';
+            const roleBadge = isAcademic 
+                ? '<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-500/15 text-blue-700 dark:text-blue-300 border border-blue-500/30">🎓 Akademik (' + (u.title || 'Hoca') + ')</span>'
+                : '<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-700 border border-emerald-500/30">🎒 Öğrenci</span>';
+            const detailText = isAcademic 
+                ? (u.dept || 'SBF') 
+                : (u.classFull || (u.classLevel ? u.classLevel + '. Sınıf' : '-'));
+
+            html += `
+                <tr class="border-b border-outline-variant/10 hover:bg-surface-container/40 transition-colors">
+                    <td class="py-3 px-4">
+                        <div class="font-bold text-on-surface text-sm">${u.name || 'İsimsiz'}</div>
+                        <div class="mt-0.5">${roleBadge}</div>
+                    </td>
+                    <td class="py-3 px-4 font-mono text-xs text-primary font-bold">${u.email || stId}</td>
+                    <td class="py-3 px-4 text-xs text-on-surface-variant/80 font-medium">${detailText}</td>
+                    <td class="py-3 px-4 text-xs text-on-surface-variant/60">${dateStr}</td>
+                    <td class="py-3 px-4 text-right space-x-2">
+                        <button onclick="approveStudent('${u.id}', '${safeName}')" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm">
+                            Onayla ✅
+                        </button>
+                        <button onclick="rejectStudent('${u.id}', '${safeName}')" class="px-3 py-1.5 bg-error/10 hover:bg-error hover:text-white text-error rounded-xl text-xs font-bold transition-all border border-error/20">
+                            Sil ❌
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+        tbody.innerHTML = html;
+    }
+
+    function renderApprovedTable(list) {
+        const tbody = document.getElementById('approved-users-table-body');
+        if (!tbody) return;
+
+        if (list.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" class="text-center py-6 text-on-surface-variant/50 font-medium">Kayıtlı onaylı kullanıcı bulunmuyor.</td></tr>';
+            return;
+        }
+
+        let html = '';
+        list.forEach(u => {
+            const stId = u.studentId || (u.email ? u.email.split('@')[0] : 'Bilinmiyor');
+            const safeName = (u.name || 'İsimsiz').replace(/'/g, "\\'");
+            const isAcademic = u.role === 'academic';
+            const roleBadge = isAcademic 
+                ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/10 text-blue-600">🎓 Akademik</span>'
+                : '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-600">🎒 Öğrenci</span>';
+            const detailText = isAcademic ? (u.dept || 'SBF') : (u.classFull || '-');
+
+            html += `
+                <tr class="border-b border-outline-variant/10 hover:bg-surface-container/40 transition-colors">
+                    <td class="py-2.5 px-4 font-bold text-xs text-on-surface">
+                        ${u.name || 'İsimsiz'}
+                        <div class="mt-0.5">${roleBadge}</div>
+                    </td>
+                    <td class="py-2.5 px-4 font-mono text-xs text-on-surface-variant/70">${u.email || stId}</td>
+                    <td class="py-2.5 px-4 text-xs text-on-surface-variant/70">${detailText}</td>
+                    <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary/10 text-primary">Onaylı</span></td>
+                    <td class="py-2.5 px-4 text-right space-x-2">
+                        <button onclick="revokeStudent('${u.id}', '${safeName}')" class="px-2.5 py-1 bg-amber-500/10 hover:bg-amber-500 hover:text-white text-amber-700 dark:text-amber-300 rounded-lg text-[11px] font-bold transition-all">
+                            Onayı Kaldır
+                        </button>
+                        <button onclick="rejectStudent('${u.id}', '${safeName}')" class="p-1 text-error hover:bg-error/10 rounded-lg transition-all" title="Sil">
+                            <span class="material-symbols-outlined text-[16px]">delete</span>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+        tbody.innerHTML = html;
+    }
+
+    window.approveStudent = async function(uid, name) {
+        try {
+            await updateDoc(doc(db, 'users', uid), {
+                approved: true,
+                status: 'approved',
+                approvedAt: serverTimestamp()
+            });
+            window.showToast(name + ' başarıyla onaylandı! Artık giriş yapabilir.', 'success');
+        } catch(e) {
+            window.showToast('Onaylama hatası: ' + e.message, 'error');
+        }
+    };
+
+    window.rejectStudent = async function(uid, name) {
+        if (!confirm(name + ' isimli öğrencinin kaydını silmek istediğinize emin misiniz?')) return;
+        try {
+            await deleteDoc(doc(db, 'users', uid));
+            window.showToast('Öğrenci kaydı silindi.', 'success');
+        } catch(e) {
+            window.showToast('Silme hatası: ' + e.message, 'error');
+        }
+    };
+
+    window.revokeStudent = async function(uid, name) {
+        if (!confirm(name + ' isimli öğrencinin onayını kaldırmak istiyor musunuz?\n(Giriş yapması engellenecektir)')) return;
+        try {
+            await updateDoc(doc(db, 'users', uid), {
+                approved: false,
+                status: 'pending'
+            });
+            window.showToast('Öğrencinin onayı kaldırıldı.', 'success');
+        } catch(e) {
+            window.showToast('Hata: ' + e.message, 'error');
+        }
+    };
+
+    // Init dashboard tab
+    window.switchTab('dashboard');
+</script>
+
+
+
+
+
+
+
+<!-- Admin Applications Modal -->
+<div id="admin-apps-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300">
+        <div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant/10">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-500/10 text-blue-600 flex items-center justify-center rounded-xl">
+                    <span class="material-symbols-outlined">group_add</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-on-surface">Bize Katıl Başvuruları</h3>
+                    <p class="text-xs text-secondary">Econ Medya Ekibi Adayları</p>
+                </div>
+            </div>
+            <button onclick="closeAppsModal()" class="p-2 bg-surface-container rounded-lg hover:bg-surface-variant transition-colors text-on-surface-variant">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 custom-scrollbar" id="admin-apps-list">
+            <div class="text-center py-8">
+                <span class="material-symbols-outlined animate-spin text-primary text-3xl">refresh</span>
+                <p class="mt-2 text-sm text-secondary font-bold">Veriler çekiliyor...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+window.viewApplications = async function() {
+    const modal = document.getElementById('admin-apps-modal');
+    const list = document.getElementById('admin-apps-list');
+    
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modal.querySelector('.bg-white').classList.remove('scale-95');
+    }, 10);
+
+    list.innerHTML = `
+        <div class="text-center py-8">
+            <span class="material-symbols-outlined animate-spin text-blue-500 text-3xl">refresh</span>
+            <p class="mt-2 text-sm text-secondary font-bold">Veriler çekiliyor...</p>
+        </div>
+    `;
+
+    try {
+        const { db, collection, getDocs, query, orderBy } = await import('./firebase-config.js');
+        const q = query(collection(db, 'applications'), orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        
+        if(snapshot.empty) {
+            list.innerHTML = '<div class="text-center py-8 text-secondary font-bold">Henüz başvuru yok.</div>';
+            return;
+        }
+
+        let html = '<div class="space-y-4">';
+
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const dateStr = data.createdAt ? data.createdAt.toDate().toLocaleString('tr-TR', {day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit'}) : 'Az Önce';
+            
+            html += `
+                <div class="bg-surface-container-low border border-outline-variant/20 p-4 rounded-2xl">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="font-bold text-on-surface text-base">${data.name}</h4>
+                        <span class="text-[10px] text-secondary font-bold">${dateStr}</span>
+                    </div>
+                    <p class="text-sm text-secondary mb-3">${data.about}</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded-md uppercase tracking-wider">Tasarım Bilgisi: ${data.designSkillLevel}/10</span>
+                        ${data.status === 'pending' ? '<span class="text-[10px] font-bold text-orange-600 bg-orange-500/10 px-2 py-1 rounded-md uppercase tracking-wider">Beklemede</span>' : ''}
+                    </div>
+                </div>
+            `;
+        });
+
+        html += '</div>';
+        list.innerHTML = html;
+
+    } catch(err) {
+        console.error(err);
+        list.innerHTML = '<div class="text-center py-8 text-error font-bold">Veriler çekilirken bir hata oluştu: ' + err.message + '</div>';
+    }
+};
+
+window.closeAppsModal = function() {
+    const modal = document.getElementById('admin-apps-modal');
+    modal.classList.add('opacity-0');
+    modal.querySelector('.bg-white').classList.add('scale-95');
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+};
+</script>
+
+
+<!-- Admin Votes Modal -->
+<div id="admin-votes-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+    <div class="bg-surface rounded-3xl p-8 w-full max-w-2xl shadow-2xl relative max-h-[90vh] flex flex-col">
+        <button onclick="closeVotesModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-error transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pr-10">
+            <div>
+                <h2 class="text-2xl font-bold text-on-surface flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">how_to_vote</span>
+                    Haftanın Hocası Oyları
+                </h2>
+                <p class="text-xs text-on-surface-variant/70 mt-1">Bu hafta oy kullanan öğrencilerin listesi ve seçilen hocalar.</p>
+            </div>
+            <button onclick="resetWeeklyVotes()" class="px-4 py-2 bg-error/10 hover:bg-error hover:text-white text-error rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 self-start sm:self-auto border border-error/20">
+                <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+                Haftayı Sıfırla
+            </button>
+        </div>
+        
+        <div class="overflow-y-auto custom-scrollbar flex-1 pr-2 border border-outline-variant/10 rounded-2xl">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-surface-dim/40 border-b border-outline-variant/10 text-[11px] font-bold text-on-surface-variant/70 uppercase tracking-wider">
+                        <th class="py-3 px-4">Öğrenci / Numara</th>
+                        <th class="py-3 px-4">Seçilen Hoca</th>
+                        <th class="py-3 px-4">Dönem / Hafta</th>
+                        <th class="py-3 px-4">Tarih</th>
+                        <th class="py-3 px-4 text-right">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-votes-table-body" class="text-sm divide-y divide-outline-variant/10">
+                    <tr><td colspan="4" class="text-center py-6 text-on-surface-variant/60 font-semibold">Yükleniyor...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Yemekhane Logic -->
+<script type="module">
+    import { db, doc, onSnapshot, setDoc, serverTimestamp } from './firebase-config.js';
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const storage = getStorage();
+        const currentYemekImg = document.getElementById('current-yemekhane-img');
+        
+        if (currentYemekImg) {
+            try {
+                const docRef = doc(db, 'system_settings', 'yemekhane');
+                onSnapshot(docRef, (docSnap) => {
+                    if (docSnap.exists() && docSnap.data().menuUrl) {
+                        currentYemekImg.src = docSnap.data().menuUrl;
+                        currentYemekImg.classList.remove('hidden');
+                    }
+                });
+            } catch(e) {
+                console.error("Yemekhane yüklenemedi", e);
+            }
+        }
+
+        const yemekForm = document.getElementById('yemekhane-form');
+        if (yemekForm) {
+            yemekForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fileInput = document.getElementById('yemekhane-file');
+                const file = fileInput.files[0];
+                if (!file) {
+                    alert('Lütfen bir görsel seçin.');
+                    return;
+                }
+
+                const btn = document.getElementById('yemekhane-submit-btn');
+                btn.disabled = true;
+                btn.innerText = 'Yükleniyor...';
+
+                try {
+                    const ext = file.name.split('.').pop();
+                    const storageRef = ref(storage, 'yemekhane/menu_' + Date.now() + '.' + ext);
+                    await uploadBytes(storageRef, file);
+                    const downloadUrl = await getDownloadURL(storageRef);
+
+                    // Save to Firestore
+                    await setDoc(doc(db, 'system_settings', 'yemekhane'), {
+                        menuUrl: downloadUrl,
+                        updatedAt: serverTimestamp()
+                    }, { merge: true });
+
+                    alert('Yemekhane menüsü başarıyla güncellendi!');
+                    currentYemekImg.src = downloadUrl;
+                    currentYemekImg.classList.remove('hidden');
+                    fileInput.value = "";
+                } catch (error) {
+                    console.error(error);
+                    alert('Hata oluştu: ' + error.message);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = '<span class="material-symbols-outlined">upload</span> Menüyü Güncelle';
+                }
+            });
+        }
+    });
+</script>
+
+</body></html>

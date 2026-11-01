@@ -1,0 +1,47 @@
+{
+  "hosting": {
+    "site": "kousbf-tv",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/*.apk",
+      "**/*.bat",
+      "scratch/**",
+      "scratch_*",
+      "*.txt",
+      "screen.png",
+      "parse_schedule.js",
+      "imdb_posters.js",
+      "download_movies*.js",
+      "replace_profile_btn.js",
+      "check_imports.js",
+      "inject_auth.js",
+      "inline.js",
+      "test.js"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(svg|png|jpg|jpeg|webp)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": "service-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}

@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Tüm koleksiyonlara açık okuma/yazma izni (Geçici veya Test için)
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
