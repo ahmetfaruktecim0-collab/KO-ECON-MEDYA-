@@ -835,14 +835,6 @@
             const modal = document.getElementById('approval-notice-modal');
             if (modal) modal.classList.add('show');
         };
-// old: window.openApprovalModal_replaced
-            const textEl = document.getElementById('approval-notice-text');
-            if (textEl) {
-                textEl.innerHTML = 'Sayın <b>' + name + '</b> (' + studentId + '),<br><br>Hesabınız başarıyla oluşturuldu. <b>KOÜ Econ Medya</b> güvenlik kuralları gereği hesabınız <b>yönetici onayına sunulmuştur</b>.<br><br>Yönetici onayladıktan sonra öğrenci numaranız ve şifrenizle sisteme giriş yapabilirsiniz.';
-            }
-            const modal = document.getElementById('approval-notice-modal');
-            if (modal) modal.classList.add('show');
-        };
 
         window.closeApprovalModal = function() {
             const modal = document.getElementById('approval-notice-modal');
